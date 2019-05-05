@@ -3,9 +3,9 @@ const app = express();
 const path = require("path");
 const session = require("express-session");
 const passport = require("passport");
-require("./passport.js")(passport);
+require("./passport/passport.js")(passport);
 const flash = require("connect-flash");
-const { ensureAuthenticated } = require("./auth.js");
+const { ensureAuthenticated } = require("./passport/auth.js");
 const bodyParser = require("body-parser");
 app.use(
   bodyParser.urlencoded({
@@ -36,7 +36,7 @@ app.use("/dashboard", express.static(path.join(__dirname, "dashboard")));
 
 app.post("/login", (req, res, next) => {
   passport.authenticate("local", {
-    successRedirect: "/dashboard",
+    successRedirect: "/dashboard/index.html",
     failureRedirect: "/",
     failureFlash: false
   })(req, res, next);
