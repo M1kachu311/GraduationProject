@@ -1,20 +1,19 @@
 let apiURL = "http://127.0.0.1:3000";
-let path = "/jobs";
+let path = "/joboffers";
 const key = `zCtvYaTNPP;p9b_.Uw''wmS,kkED(_zyvpZq@M3?yo58X>%ICJxLju=RYj{"2M`;
 
 fetch(`${apiURL}${path}`)
   .then(data => data.json())
-  .then(jobs => {
+  .then(joboffers => {
     $("#jsGrid").jsGrid({
       width: "98%",
       height: "85vh",
       align: "right",
-      inserting: true,
       editing: true,
       sorting: true,
       paging: true,
       pageSize: 10,
-      data: jobs,
+      data: joboffers,
       fields: [
         { name: "Name", type: "text", width: 50, validate: "required" },
         {
@@ -26,6 +25,8 @@ fetch(`${apiURL}${path}`)
         },
         { name: "Type", type: "text", width: 30, validate: "required" },
         { name: "Location", type: "text", width: 30, validate: "required" },
+        { name: "Location", type: "text", width: 30, validate: "required" },
+        { name: "Approved", type: "checkbox", width: 10 },
         { type: "control" }
       ],
       onItemUpdated: function(args) {
@@ -35,6 +36,7 @@ fetch(`${apiURL}${path}`)
           description: args.item.Description,
           location: args.item.Location,
           type: args.item.Type,
+          approved: args.item.Approved,
           id: args.item.ID
         };
         console.log(newItem);
@@ -53,6 +55,12 @@ fetch(`${apiURL}${path}`)
       onItemDeleted: function(args) {
         let data = {
           key: key,
+          name: args.item.Name,
+          description: args.item.Description,
+          location: args.item.Location,
+          type: args.item.Type,
+          approved: args.item.Approved,
+          date: new Date(),
           id: args.item.ID
         };
         console.log(args.item);
@@ -67,29 +75,6 @@ fetch(`${apiURL}${path}`)
           .then(res => res.json())
           .then(response => console.log(JSON.stringify(response)))
           .catch(error => console.error(error));
-      },
-      onItemInserted: function(args) {
-        let newItem = {
-          key: key,
-          name: args.item.Name,
-          description: args.item.Description,
-          location: args.item.Location,
-          type: args.item.Type,
-          date: new Date()
-        };
-        console.log(newItem);
-        let url = `${apiURL}${path}`;
-        fetch(url, {
-          method: "POST", // or 'PUT'
-          body: JSON.stringify(newItem), // data can be `string` or {object}!
-          headers: {
-            "Content-Type": "application/json"
-          }
-        })
-          .then(res => res.json())
-          .then(response => console.log(JSON.stringify(response)))
-          .catch(error => console.error(error));
-        location.reload();
       }
     });
   })

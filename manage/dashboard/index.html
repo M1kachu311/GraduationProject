@@ -12,23 +12,33 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-                <li class="nav-item active">
-                    <a class="nav-link" href="#">בית <span class="sr-only"></span></a>
-                </li>
-                <li class="nav-item active">
-                    <a class="nav-link" href="./jobs/index.html">משרות <span class="sr-only"></span></a>
-                </li>
-                </li>
-            </ul>
+    <div style="display:flex; flex-direction: column;justify-content: space-between; height: 100vh;">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">בית <span class="sr-only"></span></a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="./jobs/index.html">משרות <span class="sr-only"></span></a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="./joboffers/index.html">הצעת משרות <span class="sr-only"></span></a>
+                    </li>
+                </ul>
+            </div>
+            <img style="width: 150px;
+            height: 85px;" src='logomin.png'>
+        </nav>
+        <h2 class="display-4 text-center p-5">ברוכ/ה הבא/ה, לחצ/י על הקישורים למעלה כדי לנווט :)</h2>
+        <div id="showData"></div>
+        <div class="footer-copyright text-center py-3 bg-dark">
+            <p class="text-center text-light">© כל הזמויות שמורות עמותת צעירים בירוחם</p>
         </div>
-    </nav>
-    <h1 class="display-4 text-center p-5">ברוך הבא, לחץ על הקישורים למעלה כדי לנווט :)</h1>
-
+    </div>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"
         integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="getNums.js"></script>
 </body>
 
 </html>

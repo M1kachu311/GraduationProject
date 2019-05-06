@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const jobsFunction = require("../modules/jobs.js");
+const key = `zCtvYaTNPP;p9b_.Uw''wmS,kkED(_zyvpZq@M3?yo58X>%ICJxLju=RYj{"2M`;
 
 router.get("/", (req, res) => {
   jobsFunction.getjobs(function(err, books) {
@@ -23,7 +24,8 @@ router.post("/", (req, res) => {
     typeof req.body.type == "undefined" ||
     req.body.type == "" ||
     typeof req.body.location == "undefined" ||
-    req.body.location == ""
+    req.body.location == "" ||
+    req.body.key !== key
   ) {
     res.status(404).send({ message: "bad request" });
   } else {
@@ -47,7 +49,11 @@ router.post("/", (req, res) => {
 });
 
 router.delete("/", (req, res) => {
-  if (typeof req.body.id == "undefined" || req.body.id == "") {
+  if (
+    typeof req.body.id == "undefined" ||
+    req.body.id == "" ||
+    req.body.key !== key
+  ) {
     res.status(404).send({ message: "bad request" });
   } else {
     jobsFunction.deletejob(req.body.id, (err, data) => {
@@ -77,7 +83,8 @@ router.put("/", (req, res) => {
     typeof req.body.type == "undefined" ||
     req.body.type == "" ||
     typeof req.body.location == "undefined" ||
-    req.body.location == ""
+    req.body.location == "" ||
+    req.body.key !== key
   ) {
     res.status(404).send({ message: "bad request" });
   } else {

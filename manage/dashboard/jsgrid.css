@@ -4,10 +4,38 @@
  * Licensed under MIT (https://github.com/tabalinas/jsgrid/blob/master/LICENSE)
  */
 
-
 /* custom start */
+
+.logo {
+    width: 150px;
+    height: 85px;
+}
+
+.mainDiv {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100vh;
+}
+
+#jsGrid {
+    margin: 0 auto;
+}
+
 textarea {
     height: 250px;
+
+}
+
+input,
+textarea,
+.jsgrid-header-cell,
+.jsgrid-cell {
+    text-align: right;
+}
+
+.jsgrid-button {
+    padding: 10px !important;
 }
 
 .jsgrid-header-cell {
@@ -15,6 +43,7 @@ textarea {
 }
 
 /* custom ends */
+
 .jsgrid {
     position: relative;
     overflow: hidden;
@@ -107,7 +136,6 @@ textarea {
 .jsgrid-insert-row input[type='checkbox'] {
     width: auto;
 }
-
 
 .jsgrid-selected-row .jsgrid-cell {
     cursor: pointer;
