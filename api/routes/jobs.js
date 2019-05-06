@@ -4,11 +4,11 @@ const jobsFunction = require("../modules/jobs.js");
 const key = `zCtvYaTNPP;p9b_.Uw''wmS,kkED(_zyvpZq@M3?yo58X>%ICJxLju=RYj{"2M`;
 
 router.get("/", (req, res) => {
-  jobsFunction.getjobs(function(err, books) {
+  jobsFunction.getjobs(function(err, data) {
     if (err) {
       res.status(500).send(err);
     } else {
-      res.send(books);
+      res.send(data);
     }
   });
 });

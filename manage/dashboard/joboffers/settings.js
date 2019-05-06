@@ -15,7 +15,7 @@ fetch(`${apiURL}${path}`)
       pageSize: 10,
       data: joboffers,
       fields: [
-        { name: "Name", type: "text", width: 50, validate: "required" },
+        { name: "Name", type: "text", width: 30, validate: "required" },
         {
           name: "Description",
           type: "textarea",
@@ -25,9 +25,11 @@ fetch(`${apiURL}${path}`)
         },
         { name: "Type", type: "text", width: 30, validate: "required" },
         { name: "Location", type: "text", width: 30, validate: "required" },
-        { name: "Location", type: "text", width: 30, validate: "required" },
-        { name: "Approved", type: "checkbox", width: 10 },
-        { type: "control" }
+        { name: "SenderName", width: 30 },
+        { name: "SenderPhone", width: 30 },
+        { name: "SenderMail", width: 65 },
+        { name: "Approved", type: "checkbox", width: 5 },
+        { type: "control", width: 10 }
       ],
       onItemUpdated: function(args) {
         let newItem = {

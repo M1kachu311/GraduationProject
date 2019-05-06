@@ -4,10 +4,23 @@ function getjoboffers(callback) {
   let query = "SELECT * FROM `joboffers`;";
   db.runQuery(query, [], callback);
 }
-function uploadjoboffer(name, description, type, location, callback) {
+function uploadjoboffer(
+  name,
+  description,
+  type,
+  location,
+  sname,
+  smail,
+  sphone,
+  callback
+) {
   let query =
-    "INSERT INTO `joboffers`(`Name`,`Description`,`Type`,`Location`,`Approved`)VALUES(?,?,?,?,0);";
-  db.runQuery(query, [name, description, type, location], callback);
+    "INSERT INTO `joboffers`(`Name`,`Description`,`Type`,`Location`,`Approved`,`SenderName`,`SenderMail`,`SenderPhone`)VALUES(?,?,?,?,0,?,?,?);";
+  db.runQuery(
+    query,
+    [name, description, type, location, sname, smail, sphone],
+    callback
+  );
 }
 
 function updatejoboffer(

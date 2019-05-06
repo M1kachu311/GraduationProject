@@ -33,7 +33,14 @@ router.post("/", (req, res) => {
     req.body.description == "" ||
     typeof req.body.type == "undefined" ||
     req.body.type == "" ||
-    typeof req.body.location == "undefined"
+    typeof req.body.location == "undefined" ||
+    req.body.location == "" ||
+    typeof req.body.sname == "undefined" ||
+    req.body.sname == "" ||
+    typeof req.body.smail == "undefined" ||
+    req.body.smail == "" ||
+    typeof req.body.sphone == "undefined" ||
+    req.body.sphone == ""
   ) {
     res.status(404).send({ message: "bad request" });
   } else {
@@ -42,6 +49,9 @@ router.post("/", (req, res) => {
       req.body.description,
       req.body.type,
       req.body.location,
+      req.body.sname,
+      req.body.smail,
+      req.body.sphone,
       (err, data) => {
         if (err) {
           res.status(500).send({ error: err.code });
