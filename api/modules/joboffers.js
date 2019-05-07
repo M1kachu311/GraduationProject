@@ -29,14 +29,17 @@ function updatejoboffer(
   description,
   type,
   location,
+  sname,
+  smail,
+  sphone,
   approved,
   callback
 ) {
   let query =
-    "UPDATE `joboffers` SET `Name`=?,`Description`=?,`Type`=?,`Location`=?,`Approved`=? WHERE ID=?";
+    "UPDATE `joboffers` SET `Name`=?,`Description`=?,`Type`=?,`Location`=?, `SenderName`=?, `SenderMail`=?, `SenderPhone`=?, `Approved`=? WHERE ID=?";
   db.runQuery(
     query,
-    [name, description, type, location, approved, id],
+    [name, description, type, location, sname, smail, sphone, approved, id],
     callback
   );
 }

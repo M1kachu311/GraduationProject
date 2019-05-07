@@ -27,7 +27,7 @@ router.post("/", (req, res) => {
     req.body.location == "" ||
     req.body.key !== key
   ) {
-    res.status(404).send({ message: "bad request" });
+    res.status(400).send({ message: "bad request" });
   } else {
     jobsFunction.uploadjob(
       req.body.name,
@@ -54,7 +54,7 @@ router.delete("/", (req, res) => {
     req.body.id == "" ||
     req.body.key !== key
   ) {
-    res.status(404).send({ message: "bad request" });
+    res.status(400).send({ message: "bad request" });
   } else {
     jobsFunction.deletejob(req.body.id, (err, data) => {
       if (err) {
@@ -86,7 +86,7 @@ router.put("/", (req, res) => {
     req.body.location == "" ||
     req.body.key !== key
   ) {
-    res.status(404).send({ message: "bad request" });
+    res.status(400).send({ message: "bad request" });
   } else {
     jobsFunction.updatejob(
       req.body.id,

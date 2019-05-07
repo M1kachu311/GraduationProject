@@ -1,10 +1,10 @@
-let path = "/jobs";
-let pageTitle = "jobs";
+let path = "/apartments";
+let pageTitle = "apartments";
 const key = `zCtvYaTNPP;p9b_.Uw''wmS,kkED(_zyvpZq@M3?yo58X>%ICJxLju=RYj{"2M`;
 
 fetch(`${apiURL}${path}`)
   .then(data => data.json())
-  .then(jobs => {
+  .then(apartments => {
     $("#jsGrid").jsGrid({
       width: "98%",
       height: "85vh",
@@ -15,14 +15,63 @@ fetch(`${apiURL}${path}`)
       selecting: false,
       paging: true,
       pageSize: 10,
-      data: jobs,
+      data: apartments,
       fields: [
         {
           name: "Name",
+          width: 35,
           type: "text",
-          width: 50,
           validate: "required",
-          title: "שם משרה"
+          title: "שם"
+        },
+        {
+          name: "Phone",
+          width: 40,
+          type: "text",
+          validate: "required",
+          title: "טלפון "
+        },
+        {
+          name: "Offer",
+          type: "text",
+          width: 25,
+          validate: "required",
+          title: "מכירה/ השכרה"
+        },
+        {
+          name: "Type",
+          type: "text",
+          width: 30,
+          validate: "required",
+          title: "סוג הנכס"
+        },
+        {
+          name: "Rooms",
+          type: "text",
+          width: 5,
+          validate: "required",
+          title: "מס` חדרים"
+        },
+        {
+          name: "Floor",
+          type: "text",
+          width: 15,
+          validate: "required",
+          title: "קומה"
+        },
+        {
+          name: "Dir",
+          type: "text",
+          width: 70,
+          validate: "required",
+          title: "כתובת"
+        },
+        {
+          name: "Price",
+          type: "text",
+          width: 25,
+          validate: "required",
+          title: "מחיר"
         },
         {
           name: "Description",
@@ -32,30 +81,22 @@ fetch(`${apiURL}${path}`)
           validate: "required",
           title: "תיאור"
         },
-        {
-          name: "Type",
-          type: "text",
-          width: 30,
-          validate: "required",
-          title: "סוג משרה"
-        },
-        {
-          name: "Location",
-          type: "text",
-          width: 30,
-          validate: "required",
-          title: "מיקום"
-        },
+
         { type: "control", width: 20 }
       ],
       onItemUpdated: function(args) {
         let newItem = {
           key: key,
+          id: args.item.ID,
           name: args.item.Name,
-          description: args.item.Description,
-          location: args.item.Location,
+          phone: args.item.Phone,
+          offer: args.item.Offer,
           type: args.item.Type,
-          id: args.item.ID
+          rooms: args.item.Rooms,
+          floor: args.item.Floor,
+          dir: args.item.Dir,
+          price: args.item.Price,
+          description: args.item.Description
         };
         console.log(newItem);
         let url = `${apiURL}${path}`;
@@ -92,9 +133,14 @@ fetch(`${apiURL}${path}`)
         let newItem = {
           key: key,
           name: args.item.Name,
-          description: args.item.Description,
-          location: args.item.Location,
+          phone: args.item.Phone,
+          offer: args.item.Offer,
           type: args.item.Type,
+          rooms: args.item.Rooms,
+          floor: args.item.Floor,
+          dir: args.item.Dir,
+          price: args.item.Price,
+          description: args.item.Description,
           date: new Date()
         };
         console.log(newItem);

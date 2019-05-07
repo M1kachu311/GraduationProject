@@ -42,7 +42,7 @@ router.post("/", (req, res) => {
     typeof req.body.sphone == "undefined" ||
     req.body.sphone == ""
   ) {
-    res.status(404).send({ message: "bad request" });
+    res.status(400).send({ message: "bad request" });
   } else {
     jobOffersFunction.uploadjoboffer(
       req.body.name,
@@ -79,9 +79,16 @@ router.put("/", (req, res) => {
     req.body.type == "" ||
     typeof req.body.location == "undefined" ||
     req.body.location == "" ||
+    typeof req.body.sname == "undefined" ||
+    req.body.sname == "" ||
+    typeof req.body.smail == "undefined" ||
+    req.body.smail == "" ||
+    typeof req.body.sphone == "undefined" ||
+    req.body.sphone == "" ||
+    typeof req.body.approved == "undefined" ||
     req.body.key !== key
   ) {
-    res.status(404).send({ message: "bad request" });
+    res.status(400).send({ message: "bad request" });
   } else {
     jobOffersFunction.updatejoboffer(
       req.body.id,
@@ -89,6 +96,9 @@ router.put("/", (req, res) => {
       req.body.description,
       req.body.type,
       req.body.location,
+      req.body.sname,
+      req.body.smail,
+      req.body.sphone,
       req.body.approved,
       (err, data) => {
         if (err) {
@@ -117,7 +127,7 @@ router.delete("/", (req, res) => {
     typeof req.body.approved == "undefined" ||
     req.body.key !== key
   ) {
-    res.status(404).send({ message: "bad request" });
+    res.status(400).send({ message: "bad request" });
   } else {
     if (req.body.approved == 0) {
       jobOffersFunction.deletejoboffer(req.body.id, (err, data) => {
@@ -138,10 +148,9 @@ router.delete("/", (req, res) => {
         typeof req.body.type == "undefined" ||
         req.body.type == "" ||
         typeof req.body.location == "undefined" ||
-        req.body.location == "" ||
-        req.body.key !== key
+        req.body.location == ""
       ) {
-        res.status(404).send({ message: "bad request" });
+        res.status(400).send({ message: "bad request" });
       } else {
         jobFunctions.uploadjob(
           req.body.name,

@@ -1,10 +1,10 @@
-let path = "/joboffers";
-let pageTitle = "joboffers";
+let path = "/apartmentoffers";
+let pageTitle = "apartmentoffers";
 const key = `zCtvYaTNPP;p9b_.Uw''wmS,kkED(_zyvpZq@M3?yo58X>%ICJxLju=RYj{"2M`;
 
 fetch(`${apiURL}${path}`)
   .then(data => data.json())
-  .then(joboffers => {
+  .then(apartmentoffers => {
     $("#jsGrid").jsGrid({
       width: "98%",
       height: "85vh",
@@ -14,35 +14,63 @@ fetch(`${apiURL}${path}`)
       selecting: false,
       paging: true,
       pageSize: 10,
-      data: joboffers,
+      data: apartmentoffers,
       fields: [
         {
-          name: "SenderName",
-          width: 30,
-          title: "שם מעסיק",
-          type: "text",
-          validate: "required"
-        },
-        {
-          name: "SenderPhone",
-          width: 30,
-          title: "טלפון מעסיק",
-          type: "text",
-          validate: "required"
-        },
-        {
-          name: "SenderMail",
-          width: 65,
-          title: "מייל מעסיק",
-          type: "text",
-          validate: "required"
-        },
-        {
           name: "Name",
+          width: 35,
+          type: "text",
+          validate: "required",
+          title: "שם"
+        },
+        {
+          name: "Phone",
+          width: 40,
+          type: "text",
+          validate: "required",
+          title: "טלפון "
+        },
+        {
+          name: "Offer",
+          type: "text",
+          width: 25,
+          validate: "required",
+          title: "מכירה/ השכרה"
+        },
+        {
+          name: "Type",
           type: "text",
           width: 30,
           validate: "required",
-          title: "שם משרה"
+          title: "סוג הנכס"
+        },
+        {
+          name: "Rooms",
+          type: "text",
+          width: 5,
+          validate: "required",
+          title: "מס` חדרים"
+        },
+        {
+          name: "Floor",
+          type: "text",
+          width: 15,
+          validate: "required",
+          title: "קומה"
+        },
+        {
+          name: "Dir",
+          type: "text",
+          width: 70,
+          validate: "required",
+          title: "כתובת"
+        },
+        {
+          name: "Price",
+          type: "text",
+          width: 25,
+          validate: "required",
+          title: "מחיר"
         },
         {
           name: "Description",
@@ -52,21 +80,6 @@ fetch(`${apiURL}${path}`)
           validate: "required",
           title: "תיאור"
         },
-        {
-          name: "Type",
-          type: "text",
-          width: 30,
-          validate: "required",
-          title: "סוג משרה"
-        },
-        {
-          name: "Location",
-          type: "text",
-          width: 30,
-          validate: "required",
-          title: "מיקום"
-        },
-
         { name: "Approved", type: "checkbox", width: 5, title: "מאושר" },
         { type: "control", width: 20 }
       ],
@@ -74,12 +87,14 @@ fetch(`${apiURL}${path}`)
         let newItem = {
           key: key,
           name: args.item.Name,
-          description: args.item.Description,
-          location: args.item.Location,
+          phone: args.item.Phone,
+          offer: args.item.Offer,
           type: args.item.Type,
-          sname: args.item.SenderName,
-          sphone: args.item.SenderPhone,
-          smail: args.item.SenderMail,
+          rooms: args.item.Rooms,
+          floor: args.item.Floor,
+          dir: args.item.Dir,
+          price: args.item.Price,
+          description: args.item.Description,
           approved: args.item.Approved,
           id: args.item.ID
         };
@@ -100,9 +115,14 @@ fetch(`${apiURL}${path}`)
         let data = {
           key: key,
           name: args.item.Name,
-          description: args.item.Description,
-          location: args.item.Location,
+          phone: args.item.Phone,
+          offer: args.item.Offer,
           type: args.item.Type,
+          rooms: args.item.Rooms,
+          floor: args.item.Floor,
+          dir: args.item.Dir,
+          price: args.item.Price,
+          description: args.item.Description,
           approved: args.item.Approved,
           date: new Date(),
           id: args.item.ID

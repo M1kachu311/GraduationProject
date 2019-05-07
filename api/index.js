@@ -16,5 +16,7 @@ app.use(bodyParser.json());
 
 app.use("/jobs", require("./routes/jobs"));
 app.use("/joboffers", require("./routes/joboffers"));
+app.use("/apartments", require("./routes/apartments"));
+app.use("/apartmentoffers", require("./routes/apartmentoffers"));
 app.use("/nav", require("./routes/nav"));
 app.listen(port, () => console.log(`API listening on port ${port}!`));

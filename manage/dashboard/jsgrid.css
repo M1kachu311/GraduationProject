@@ -6,6 +6,10 @@
 
 /* custom start */
 
+body {
+    font-size: 14px !important;
+}
+
 .logo {
     width: 150px;
     height: 85px;
@@ -24,7 +28,6 @@
 
 textarea {
     height: 250px;
-
 }
 
 input,
