@@ -1,6 +1,5 @@
 let path = "/apartmentoffers";
 let pageTitle = "apartmentoffers";
-const key = `zCtvYaTNPP;p9b_.Uw''wmS,kkED(_zyvpZq@M3?yo58X>%ICJxLju=RYj{"2M`;
 
 fetch(`${apiURL}${path}`)
   .then(data => data.json())

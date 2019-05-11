@@ -5,35 +5,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>מערכת ניהול/הצעות משרות</title>
-    <link type="text/css" rel="stylesheet" href="../jsgrid.css" />
-    <link type="text/css" rel="stylesheet" href="../jsgrid-theme.min.css" />
+    <title>מערכת ניהול</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="icon" href="../favicon.ico" type="image/x-icon" />
-    <script src="../url.js"></script>
+
 </head>
 
-<body>
-    <div class="mainDiv">
+<body style="font-size: 14px !important;">
+    <div style="display:flex; flex-direction: column;justify-content: space-between; height: 100vh;">
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-            <div class="collapse navbar-collapse" id="navbarNav">
+            <div class="collapse navbar-collapse" id="navbarNav" style="height:101px;">
                 <ul class="navbar-nav">
+                    <li class="nav-item active">
+                        <a class="nav-link " href="/dashboard">בחזרה לעמוד הבית<span class="sr-only"></span></a>
+                    </li>
                 </ul>
             </div>
-            <img class="logo" src='../logo.png'>
+
         </nav>
-        <div id="jsGrid"></div>
+        <div style="background-color: #fcfcfc; padding-bottom:200px; height: 100%;">
+            <h2 class="text-center p-5">מצטערים אין לך גישה לצפות בתוכן הנ"ל</h2>
+            <div id="showData"></div>
+        </div>
         <div class="footer-copyright text-center py-3 bg-dark">
             <p class="text-center text-light">© כל הזכויות שמורות עמותת צעירים בירוחם</p>
         </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"
         integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-    <script type="text/javascript" src="../jsgrid.min.js"></script>
-    <script type="text/javascript" src="../conf.js"></script>
-    <script type="text/javascript" src="settings.js"></script>
-    <script type="text/javascript" src="../nav.js"></script>
 </body>
 
 </html>

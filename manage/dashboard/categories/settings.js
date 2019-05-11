@@ -1,47 +1,27 @@
-let path = "/joboffers";
-let pageTitle = "joboffers";
+let path = "/categories";
+let pageTitle = "categories";
 
 fetch(`${apiURL}${path}`)
   .then(data => data.json())
-  .then(joboffers => {
+  .then(categories => {
     $("#jsGrid").jsGrid({
       width: "98%",
       height: "85vh",
       align: "right",
+      inserting: true,
       editing: true,
       sorting: true,
       selecting: false,
       paging: true,
       pageSize: 10,
-      data: joboffers,
+      data: categories,
       fields: [
-        {
-          name: "SenderName",
-          width: 30,
-          title: "שם מעסיק",
-          type: "text",
-          validate: "required"
-        },
-        {
-          name: "SenderPhone",
-          width: 30,
-          title: "טלפון מעסיק",
-          type: "text",
-          validate: "required"
-        },
-        {
-          name: "SenderMail",
-          width: 65,
-          title: "מייל מעסיק",
-          type: "text",
-          validate: "required"
-        },
         {
           name: "Name",
           type: "text",
-          width: 30,
+          width: 50,
           validate: "required",
-          title: "שם משרה"
+          title: "שם קטגוריה"
         },
         {
           name: "Description",
@@ -52,21 +32,12 @@ fetch(`${apiURL}${path}`)
           title: "תיאור"
         },
         {
-          name: "Type",
-          type: "text",
+          name: "isLive",
+          type: "checkbox",
           width: 30,
           validate: "required",
-          title: "סוג משרה"
+          title: "להציג באתר?"
         },
-        {
-          name: "Location",
-          type: "text",
-          width: 30,
-          validate: "required",
-          title: "מיקום"
-        },
-
-        { name: "Approved", type: "checkbox", width: 5, title: "מאושר" },
         { type: "control", width: 20 }
       ],
       onItemUpdated: function(args) {
@@ -74,12 +45,7 @@ fetch(`${apiURL}${path}`)
           key: key,
           name: args.item.Name,
           description: args.item.Description,
-          location: args.item.Location,
-          type: args.item.Type,
-          sname: args.item.SenderName,
-          sphone: args.item.SenderPhone,
-          smail: args.item.SenderMail,
-          approved: args.item.Approved,
+          isLive: args.item.isLive,
           id: args.item.ID
         };
         console.log(newItem);
@@ -98,12 +64,6 @@ fetch(`${apiURL}${path}`)
       onItemDeleted: function(args) {
         let data = {
           key: key,
-          name: args.item.Name,
-          description: args.item.Description,
-          location: args.item.Location,
-          type: args.item.Type,
-          approved: args.item.Approved,
-          date: new Date(),
           id: args.item.ID
         };
         console.log(args.item);
@@ -118,6 +78,27 @@ fetch(`${apiURL}${path}`)
           .then(res => res.json())
           .then(response => console.log(JSON.stringify(response)))
           .catch(error => console.error(error));
+      },
+      onItemInserted: function(args) {
+        let newItem = {
+          key: key,
+          name: args.item.Name,
+          isLive: args.item.isLive,
+          description: args.item.Description
+        };
+        console.log(newItem);
+        let url = `${apiURL}${path}`;
+        fetch(url, {
+          method: "POST", // or 'PUT'
+          body: JSON.stringify(newItem), // data can be `string` or {object}!
+          headers: {
+            "Content-Type": "application/json"
+          }
+        })
+          .then(res => res.json())
+          .then(response => console.log(JSON.stringify(response)))
+          .catch(error => console.error(error));
+        location.reload();
       }
     });
   })

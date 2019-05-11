@@ -18,5 +18,8 @@ app.use("/jobs", require("./routes/jobs"));
 app.use("/joboffers", require("./routes/joboffers"));
 app.use("/apartments", require("./routes/apartments"));
 app.use("/apartmentoffers", require("./routes/apartmentoffers"));
+app.use("/categories", require("./routes/categories"));
+app.use("/posts", require("./routes/posts"));
+app.use("/personnel", require("./routes/personnel"));
 app.use("/nav", require("./routes/nav"));
 app.listen(port, () => console.log(`API listening on port ${port}!`));
