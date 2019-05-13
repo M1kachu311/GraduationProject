@@ -1,7 +1,6 @@
 const express = require("express");
 const router = express.Router();
 const categoriesFunction = require("../modules/categories.js");
-const postFunction = require("../modules/posts.js");
 const key = `zCtvYaTNPP;p9b_.Uw''wmS,kkED(_zyvpZq@M3?yo58X>%ICJxLju=RYj{"2M`;
 
 router.get("/", (req, res) => {
@@ -12,6 +11,23 @@ router.get("/", (req, res) => {
       res.send(data);
     }
   });
+});
+
+router.get("/category/:id", (req, res) => {
+  if (typeof req.params.id == "undefined" || typeof req.params.id == "") {
+    res.status(400).send({ msg: "bad request" });
+  } else {
+    categoriesFunction.getcategoriesbycategory(req.params.id, function(
+      err,
+      data
+    ) {
+      if (err) {
+        res.status(500).send(err);
+      } else {
+        res.send(data);
+      }
+    });
+  }
 });
 
 router.get("/live", (req, res) => {
@@ -40,6 +56,8 @@ router.post("/", (req, res) => {
     req.body.name == "" ||
     typeof req.body.description == "undefined" ||
     req.body.description == "" ||
+    typeof req.body.bigCategory == "undefined" ||
+    req.body.bigCategory == "" ||
     typeof req.body.isLive == "undefined" ||
     req.body.key !== key
   ) {
@@ -49,6 +67,7 @@ router.post("/", (req, res) => {
       req.body.name,
       req.body.isLive,
       req.body.description,
+      req.body.bigCategory,
       (err, data) => {
         if (err) {
           res.status(500).send({ error: err.code });
@@ -105,6 +124,8 @@ router.put("/", (req, res) => {
     req.body.description == "" ||
     typeof req.body.id == "undefined" ||
     req.body.id == "" ||
+    typeof req.body.bigCategory == "undefined" ||
+    req.body.bigCategory == "" ||
     typeof req.body.isLive == "undefined" ||
     req.body.key !== key
   ) {
@@ -115,6 +136,7 @@ router.put("/", (req, res) => {
       req.body.name,
       req.body.isLive,
       req.body.description,
+      req.body.bigCategory,
       (err, data) => {
         if (err) {
           res.status(500).send({ error: err.code });

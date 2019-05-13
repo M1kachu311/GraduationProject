@@ -1,7 +1,7 @@
 fetch(`${apiURL}/joboffers/count`)
   .then(data => data.json())
   .then(data => {
-    $("#showData").append(
+    $(".item1").append(
       `
           <h3 class="text-center">הצעות משרות לטיפול: ${
             data[0]["COUNT (*)"]
@@ -14,7 +14,7 @@ fetch(`${apiURL}/joboffers/count`)
 fetch(`${apiURL}/apartmentoffers/count`)
   .then(data => data.json())
   .then(data => {
-    $("#showData").append(
+    $(".item2").append(
       `
           <h3 class="text-center">הצעות דיור לטיפול: ${
             data[0]["COUNT (*)"]
@@ -27,9 +27,24 @@ fetch(`${apiURL}/apartmentoffers/count`)
 fetch(`${apiURL}/categories/live/count`)
   .then(data => data.json())
   .then(data => {
-    $("#showData").append(
+    $(".item4").append(
       `
-          <h3 class="text-center">קטגוריות בלייב: ${data[0]["COUNT (*)"]}</h3>
+          <h3 class="text-center">קטגוריות משנה בלייב: ${
+            data[0]["COUNT (*)"]
+          }</h3>
+          `
+    );
+  })
+  .catch(err => console.log(err));
+
+fetch(`${apiURL}/bigcategories/live/count`)
+  .then(data => data.json())
+  .then(data => {
+    $(".item3").append(
+      `
+          <h3 class="text-center">מספר קטגוריות ראשיות: ${
+            data[0]["COUNT (*)"]
+          }</h3>
           `
     );
   })
@@ -38,7 +53,7 @@ fetch(`${apiURL}/categories/live/count`)
 fetch(`${apiURL}/posts/live/count`)
   .then(data => data.json())
   .then(data => {
-    $("#showData").append(
+    $(".item5").append(
       `
           <h3 class="text-center">פוסטים בלייב: ${data[0]["COUNT (*)"]}</h3>
           `
