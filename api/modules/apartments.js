@@ -1,7 +1,7 @@
 const db = require("../db");
 
 function getapartments(callback) {
-  let query = "SELECT * FROM `apartments ORDER BY ID DESC`;";
+  let query = "SELECT * FROM `apartments` ORDER BY ID DESC;";
   db.runQuery(query, [], callback);
 }
 function uploadapartment(
