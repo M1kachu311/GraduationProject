@@ -7,7 +7,6 @@ import Footer from './components/Footer'
 import Home from './components/pages/Home'
 import About from './components/pages/About'
 import Contact from './components/pages/Contact'
-import Jobs from './components/pages/Jobs'
 
 export class App extends Component {
 	render() {
@@ -18,7 +17,6 @@ export class App extends Component {
 					<Route exact path='/' component={Home}/>
 					<Route path='/contact' component={Contact}/>
 					<Route path='/about' component={About}/>
-					<Route path='/jobs' component={Jobs}/>
 					<Footer />
 				</div>
 			</Router>
