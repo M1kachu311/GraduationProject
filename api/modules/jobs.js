@@ -1,7 +1,7 @@
 const db = require("../db");
 
 function getjobs(callback) {
-  let query = "SELECT * FROM `jobs`;";
+  let query = "SELECT * FROM `jobs` ORDER BY ID DESC;";
   db.runQuery(query, [], callback);
 }
 function uploadjob(name, description, date, type, location, callback) {

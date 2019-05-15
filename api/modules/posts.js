@@ -1,15 +1,15 @@
 const db = require("../db");
 
 function getCount(callback) {
-  let query = "SELECT COUNT (*) FROM posts WHERE isLive=1;";
+  let query = "SELECT COUNT (*) FROM posts WHERE isLive=1 ;";
   db.runQuery(query, [], callback);
 }
 function getposts(callback) {
-  let query = "SELECT * FROM `posts`;";
+  let query = "SELECT * FROM `posts` ORDER BY ID DESC;";
   db.runQuery(query, [], callback);
 }
 function getliveposts(callback) {
-  let query = "SELECT * FROM `posts` WHERE isLive=1;";
+  let query = "SELECT * FROM `posts` WHERE isLive=1 ORDER BY ID DESC;";
   db.runQuery(query, [], callback);
 }
 function getpostbycategory(categoryId, callback) {
