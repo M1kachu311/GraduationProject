@@ -1,10 +1,8 @@
 const express = require("express");
 const app = express();
 const port = process.env.PORT || 3002;
-
 const cors = require("cors"); //cross origin for api;
 app.use(cors());
-
 const bodyParser = require("body-parser");
 
 app.use(
@@ -24,4 +22,5 @@ app.use("/posts", require("./routes/posts"));
 app.use("/personnel", require("./routes/personnel"));
 app.use("/mainpersonnel", require("./routes/mainpersonnel"));
 app.use("/nav", require("./routes/nav"));
+app.use("/mail", require("./routes/mail"));
 app.listen(port, () => console.log(`API listening on port ${port}!`));

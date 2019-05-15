@@ -4,6 +4,10 @@ function getjobs(callback) {
   let query = "SELECT * FROM `jobs` ORDER BY ID DESC;";
   db.runQuery(query, [], callback);
 }
+function getjobbyid(id, callback) {
+  let query = "SELECT * FROM `jobs` WHERE ID=?;";
+  db.runQuery(query, [id], callback);
+}
 function uploadjob(name, description, date, type, location, callback) {
   let query =
     "INSERT INTO `jobs`(`Name`,`Description`,`Date`,`Type`,`Location`)VALUES(?,?,?,?,?);";
@@ -21,6 +25,7 @@ function updatejob(id, name, description, type, location, callback) {
 
 module.exports = {
   getjobs: getjobs,
+  getjobbyid: getjobbyid,
   uploadjob: uploadjob,
   deletejob: deletejob,
   updatejob: updatejob
