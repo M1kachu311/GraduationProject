@@ -5,9 +5,9 @@ import IconButton from "@material-ui/core/IconButton";
 import CloseIcon from "@material-ui/icons/Close";
 
 const footerStyle = {
-  width: "100vw",
+  width: "100%",
   height: "300px",
-  padding: "0 50px 50px 50px",
+  padding: "0 0 50px 0",
   display: "flex",
   flexDirection: "row",
   flexWrap: "wrap",
@@ -42,7 +42,9 @@ const whiteColor = {
 const turquoiseColor = {
   color: "#C7D72B"
 };
-
+const blueColor = {
+  color: "rgb(13, 132, 163)"
+};
 const textPadding = {
   padding: "10px"
 };
@@ -71,6 +73,9 @@ const center = {
 const centerBtn = {
   margin: "0 auto",
   width: "98%"
+};
+const big = {
+  fontSize: "50px"
 };
 
 export class HomePageForm extends Component {
@@ -117,6 +122,9 @@ export class HomePageForm extends Component {
     })
       .then(res => res.json())
       .then(response => {
+        if (response.status) {
+          this.handleClick();
+        }
         this.setState({
           name: "",
           phone: "",
@@ -124,9 +132,6 @@ export class HomePageForm extends Component {
           description: "",
           open: false
         });
-        if (response.status) {
-          this.handleClick();
-        }
       })
       .catch(error => console.error("Error:", error));
 
@@ -148,14 +153,6 @@ export class HomePageForm extends Component {
           }}
           message={<span id="message-id">המייל נשלח בהצלחה</span>}
           action={[
-            <Button
-              key="undo"
-              color="secondary"
-              size="small"
-              onClick={this.handleClose}
-            >
-              UNDO
-            </Button>,
             <IconButton
               key="close"
               aria-label="Close"
@@ -182,6 +179,17 @@ export class HomePageForm extends Component {
             <p style={textPadding}>
               <span style={turquoiseColor}>דוא"ל:</span>{" "}
               <span style={whiteColor}>bohanal@gmail.com</span>{" "}
+            </p>
+            <p style={textPadding}>
+              <span style={turquoiseColor}>
+                <a
+                  href="https://www.facebook.com/zvi.yeruham/"
+                  target="_blank"
+                  style={whiteColor}
+                >
+                  <i className="fab fa-facebook" style={big} />
+                </a>
+              </span>{" "}
             </p>
           </div>
 

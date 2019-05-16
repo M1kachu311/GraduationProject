@@ -1,26 +1,20 @@
 import React, { Component } from "react";
 import ExtensionPanelForApartment from "./ExtensionPanelForApartment";
 
-const city = 'ירוחם'
+const city = "ירוחם";
 
 export class ExtensionPanelListForRealEstate extends Component {
-  
+  componentDidMount() {
+    fetch("http://127.0.0.1:3002/apartments")
+      .then(function(response) {
+        return response.json();
+      })
+      .then(myJson => {
+        this.setState({ data: myJson });
+      });
+  }
   state = {
-    data: [
-      {
-        ID: 1,
-        Offer: 'השכרה',
-        Type: 'דירת גן',
-        Rooms: 3,
-        Floor: 4,
-        Address: 'ha shaked 15, yeruham 23423 Israel',
-        Price: 23423,
-        Date: '01/03/2019',
-        Description: 'lorem ipsum lorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsum',
-        Name: 'Nathan Goel',
-        Phone: '0505132678'
-      }
-    ]
+    data: []
   };
 
   render() {

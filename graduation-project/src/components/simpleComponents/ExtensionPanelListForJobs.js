@@ -2,26 +2,17 @@ import React, { Component } from "react";
 import ExtensionPanelForJobs from "./ExtensionPanelForJobs";
 
 export class ExtensionPanelListForJobs extends Component {
-  // componentDidMount() {
-  //   fetch("http://127.0.0.1:3002/jobs")
-  //     .then(function(response) {
-  //       return response.json();
-  //     })
-  //     .then(myJson => {
-  //       this.setState({ data: myJson });
-  //     });
-  // }
+  componentDidMount() {
+    fetch("http://127.0.0.1:3002/jobs")
+      .then(function(response) {
+        return response.json();
+      })
+      .then(myJson => {
+        this.setState({ data: myJson });
+      });
+  }
   state = {
-    data: [
-      {
-        Name: 'Nathan',
-        ID: 1,
-        Description: 'asfdsgafg',
-        Type: 'gggghf',
-        Location: 'Paris',
-        Date: '01/03/2019'
-      }
-    ]
+    data: []
   };
 
   render() {
