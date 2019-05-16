@@ -115,7 +115,7 @@ router.post("/contact", (req, res) => {
       });
       let info = await transporter.sendMail({
         from: `<${req.body.email}> ${req.body.name}`,
-        to: "bohanal@gmail.com",
+        to: "micaeljorg3@gmail.com",
         subject: `${req.body.name}  מעוניין ליצור איתך קשר מאתר עמותת צעירים  `,
         html: `
         <p>${req.body.name}</p>
