@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 
 import ExtensionPanelList from '../simpleComponents/ExtensionPanelList'
-import PopUpComponent from '../simpleComponents/PopUpComponent'
+import IhaveAJobPopUp from '../simpleComponents/IhaveAJobPopUp'
 
 
 const optionsStyle = {
@@ -28,7 +28,7 @@ export class JobsOffer extends Component {
                 <p style={optionsTitleStyle}>משרה</p>
                 <p style={optionsTitleStyle}>סוג המשרה</p>
                 <p style={optionsTitleStyle}>מיקום</p>
-                <PopUpComponent />
+                <IhaveAJobPopUp />
             </div>
             <ExtensionPanelList />
         </div>
