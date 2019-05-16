@@ -16,8 +16,7 @@ const detailsStyle = {
   fontSize: "20px",
   display: "flex",
   flexDirection: "column",
-  justifyContent: "center",
-  alignItems: "center"
+  justifyContent: "center"
 };
 
 const formDivDisplay = {
@@ -71,6 +70,47 @@ const centerBtn = {
 };
 
 export class HomePageForm extends Component {
+  state = { name: "", phone: "", email: "", description: "" };
+  handleChangeName = event => {
+    this.setState({ name: event.target.value });
+  };
+  handleChangePhone = event => {
+    this.setState({ phone: event.target.value });
+  };
+  handleChangeEmail = event => {
+    this.setState({ email: event.target.value });
+  };
+  handleChangeDescription = event => {
+    this.setState({ description: event.target.value });
+  };
+
+  handleSubmit = event => {
+    var url = "http://127.0.0.1:3002/mail/contact";
+    var data = {
+      name: this.state.name,
+      email: this.state.email,
+      phone: this.state.phone,
+      description: this.state.description
+    };
+
+    fetch(url, {
+      method: "POST", // or 'PUT'
+      body: JSON.stringify(data), // data can be `string` or {object}!
+      headers: {
+        "Content-Type": "application/json"
+      }
+    })
+      .then(res => res.json())
+      .then(response => {
+        this.setState({ name: "", phone: "", email: "", description: "" });
+        if (response.status) {
+          alert("מייל נשלח בהצלחה ");
+        }
+      })
+      .catch(error => console.error("Error:", error));
+
+    event.preventDefault();
+  };
   render() {
     return (
       <div style={footerStyle}>
@@ -96,38 +136,39 @@ export class HomePageForm extends Component {
           <h4 style={{ ...turquoiseColor, ...textPadding, ...center }}>
             שמרו על קשר
           </h4>
-          <form
-            style={formStyle}
-            method="POST"
-            action="http://127.0.0.1:3002/mail/contact"
-          >
+          <form onSubmit={this.handleSubmit} style={formStyle}>
             <input
+              onChange={this.handleChangeName}
               name="name"
               style={inputStyle}
               type="text"
-              value=""
               placeholder="שם מלא"
+              value={this.state.name}
             />
             <input
+              onChange={this.handleChangePhone}
               name="phone"
               style={inputStyle}
               type="text"
-              value=""
               placeholder="מספר טלפון"
+              value={this.state.phone}
             />
             <input
+              onChange={this.handleChangeEmail}
               name="email"
               style={inputStyle}
               type="email"
-              value=""
               placeholder="כתובת דואר אלקטרוני"
+              value={this.state.email}
             />
             <textarea
+              onChange={this.handleChangeDescription}
               name="description"
               style={inputStyle}
               rows="4"
               cols="50"
               placeholder="כתוב הודעה..."
+              value={this.state.description}
             />
             <input
               style={{ ...buttonStyle, ...centerBtn }}

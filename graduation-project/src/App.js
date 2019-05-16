@@ -6,7 +6,6 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Home from "./components/pages/Home";
 import About from "./components/pages/About";
-import Contact from "./components/pages/Contact";
 import JobsOffer from "./components/pages/JobsOffer";
 import Page1 from "./components/pages/Page1";
 import Page2 from "./components/pages/Page2";
@@ -21,7 +20,6 @@ export class App extends Component {
         <div>
           <Header />
           <Route exact path="/" component={Home} />
-          <Route path="/contact" component={Contact} />
           <Route path="/about" component={About} />
           <Route path="/jobs" component={JobsOffer} />
           <Route path="/page1" component={Page1} />

@@ -14,8 +14,8 @@ const titleStyle = {
 };
 
 const logoStyle = {
-  width: 180,
-  height: 100
+  width: 135,
+  height: 75
 };
 
 const logoDisplay = {
@@ -25,7 +25,7 @@ const logoDisplay = {
 const headerDisplay = {
   display: "flex",
   backgroundColor: "#343A40",
-  padding: "20px"
+  padding: "10px"
 };
 const navContainer = {
   display: "flex",
