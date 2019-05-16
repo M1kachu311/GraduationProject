@@ -1,46 +1,41 @@
 import React, { Component } from "react";
+import Slider from "react-slick";
+import image1 from "../../images/001.jpg";
+import image2 from "../../images/002.jpg";
+import image3 from "../../images/003.jpg";
 
+const ImgStyle = {
+  width: "100%",
+  height: "500px",
+  objectFit: "cover"
+};
+const divStyle = {
+  position: "static"
+};
 export class ImagesCarousel extends Component {
-  componentDidMount() {
-    (function() {
-      var bgImageArrayHome = [
-          "about_bkg_pic1.jpg",
-          "about_bkg_pic1-1.jpg",
-          "about_bkg_pic2.jpg"
-        ],
-        base = "../images/",
-        secs = 5;
-
-      bgImageArrayHome.forEach(function(img) {
-        new Image().src = base + img;
-      });
-
-      function backgroundSequenceD() {
-        window.clearTimeout();
-        var k = 0;
-        for (let i = 0; i < bgImageArrayHome.length; i++) {
-          setTimeout(function() {
-            document.getElementsByClassName(".main-bg").style.s({
-              "background-image": "url(" + base + bgImageArrayHome[k] + ")"
-            });
-            if (k + 1 === bgImageArrayHome.length) {
-              setTimeout(function() {
-                backgroundSequenceD();
-              }, secs * 1000);
-            } else {
-              k++;
-            }
-          }, secs * 1000 * i);
-        }
-      }
-
-      backgroundSequenceD();
-    })();
-  }
-
   render() {
-    return <div className="main-bg"> </div>;
+    var settings = {
+      dots: false,
+      infinite: true,
+      speed: 1000,
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      autoplay: true,
+      autoplaySpeed: 3000
+    };
+    return (
+      <Slider {...settings}>
+        <div style={divStyle}>
+          <img src={image1} style={ImgStyle} />
+        </div>
+        <div>
+          <img src={image2} style={ImgStyle} />
+        </div>
+        <div>
+          <img src={image3} style={ImgStyle} />
+        </div>
+      </Slider>
+    );
   }
 }
-
 export default ImagesCarousel;
