@@ -1,13 +1,14 @@
-import React, { Component } from 'react'
+import React, { Component } from "react";
+import HomePageForm from "./simpleComponents/HomePageForm";
 
 export class Footer extends Component {
-	render() {
-		return (
-			<div>
-				Footer
-			</div>
-		)
-	}
+  render() {
+    return (
+      <div>
+        <HomePageForm />
+      </div>
+    );
+  }
 }
 
-export default Footer
+export default Footer;

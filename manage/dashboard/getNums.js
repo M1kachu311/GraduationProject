@@ -37,19 +37,6 @@ fetch(`${apiURL}/categories/live/count`)
   })
   .catch(err => console.log(err));
 
-fetch(`${apiURL}/bigcategories/live/count`)
-  .then(data => data.json())
-  .then(data => {
-    $(".item3").append(
-      `
-          <h3 class="text-center">מספר קטגוריות ראשיות: ${
-            data[0]["COUNT (*)"]
-          }</h3>
-          `
-    );
-  })
-  .catch(err => console.log(err));
-
 fetch(`${apiURL}/posts/live/count`)
   .then(data => data.json())
   .then(data => {

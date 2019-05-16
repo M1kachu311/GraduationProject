@@ -92,4 +92,63 @@ router.post("/", upload.single("file"), (req, res) => {
   }
 });
 
+router.post("/", upload.single("file"), (req, res) => {
+  const file = req.file;
+  if (
+    !file ||
+    req.body.id == "" ||
+    typeof req.body.id == "undefined" ||
+    req.body.name == "" ||
+    typeof req.body.name == "undefined" ||
+    req.body.email == "" ||
+    typeof req.body.email == "undefined" ||
+    req.body.phone == "" ||
+    typeof req.body.phone == "undefined"
+  ) {
+    res.status(400).send({ message: "bad request" });
+  } else {
+    jobsFunction.getjobbyid(req.body.id, function(err, data) {
+      if (err || data.length != 1) {
+        res.status(500).send(err);
+      } else {
+        async function main() {
+          let transporter = nodemailer.createTransport({
+            service: "gmail",
+            auth: {
+              user: "tby.tech@gmail.com",
+              pass: "Z`&9Lnx'3<&-BZj4"
+            }
+          });
+          let info = await transporter.sendMail({
+            from: `<${req.body.email}> ${req.body.name}`,
+            to: "yeruham@jobnegev.co.il",
+            subject: `${req.body.name} שלח מייל בהקשר למשרת ${data[0].Name} `,
+            html: `
+            <p>${req.body.name}</p>
+        <p>${req.body.email}</p>
+        <p>${req.body.phone}</p>
+        <p>מעוניין במשרת:</p>
+        <p>${data[0].Name}</p>
+        <p>${data[0].Type}</p>
+        <p>${data[0].Location}</p>
+  
+        `,
+            attachments: [
+              { filename: req.file.originalname, path: req.file.path }
+            ]
+          });
+          fs.unlink(req.file.path, err => {
+            if (err) throw err;
+            console.log("file uploaded and deleted successfuly");
+          });
+          res.send({ msg: info.messageId, status: true });
+        }
+        main().catch(err => {
+          res.status(500).send({ msg: err, status: false });
+        });
+      }
+    });
+  }
+});
+
 module.exports = router;

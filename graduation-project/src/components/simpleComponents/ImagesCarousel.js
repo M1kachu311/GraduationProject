@@ -27,13 +27,13 @@ export class ImagesCarousel extends Component {
     return (
       <Slider {...settings}>
         <div style={divStyle}>
-          <img src={image1} style={ImgStyle} />
+          <img src={image1} style={ImgStyle} alt="bg-img" />
         </div>
         <div>
-          <img src={image2} style={ImgStyle} />
+          <img src={image2} style={ImgStyle} alt="bg-img" />
         </div>
         <div>
-          <img src={image3} style={ImgStyle} />
+          <img src={image3} style={ImgStyle} alt="bg-img" />
         </div>
       </Slider>
     );

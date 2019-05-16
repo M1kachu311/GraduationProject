@@ -27,9 +27,6 @@ fetch(`${apiURL}/nav`)
       if (pageTitle == "apartmentoffers") {
         $(".navitem5").css("border-bottom", "1px solid white");
       }
-      if (pageTitle == "bigcategories") {
-        $(".navitem6").css("border-bottom", "1px solid white");
-      }
       if (pageTitle == "categories") {
         $(".navitem7").css("border-bottom", "1px solid white");
       }
