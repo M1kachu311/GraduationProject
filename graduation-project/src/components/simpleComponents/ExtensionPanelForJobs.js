@@ -39,12 +39,12 @@ const expandedPanelDisplay = {
 };
 
 const pStyle = {
-  color: "#C7D72B",
+  color: "rgb(52, 58, 64)",
   width: "150px"
 };
 
 const expansionHeaderStyle = {
-  background: "#343A40"
+  background: "#43A4BB"
 };
 
 const expansionPanelStyle = {
@@ -89,7 +89,7 @@ class ExpansionPanelForJobs extends React.Component {
             <Typography>
               <p>{this.props.description}</p>
             </Typography>
-            <SendCVPopUp />
+            <SendCVPopUp id={this.props.key} />
           </ExpansionPanelDetails>
         </ExpansionPanel>
       </div>

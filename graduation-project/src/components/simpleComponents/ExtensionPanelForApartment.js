@@ -29,7 +29,7 @@ const jobDetailsStyle = {
 
 const expandedPanelDisplay = {
   display: "flex",
-  justifyContent: "space-evenly",
+  justifyContent: "space-beetween",
   border: "1px solid #C7D72B"
 };
 
@@ -38,11 +38,11 @@ const bold = {
 };
 
 const expansionHeaderStyle = {
-  background: "#343A40"
+  background: "#43A4BB"
 };
 
 const pStyle = {
-  color: "#C7D72B",
+  color: "#rgb(52, 58, 64)",
   width: "100px"
 };
 
