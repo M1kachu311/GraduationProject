@@ -6,8 +6,9 @@ import image3 from "../../images/003.jpg";
 
 const ImgStyle = {
   width: "100%",
-  height: "500px",
-  objectFit: "cover"
+  height: "600px",
+  objectFit: "cover",
+  objectPosition: "top"
 };
 const divStyle = {
   position: "static"

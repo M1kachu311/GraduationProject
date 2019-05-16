@@ -24,7 +24,13 @@ const logoDisplay = {
 
 const headerDisplay = {
   display: "flex",
-  backgroundColor: "#343A40"
+  backgroundColor: "#343A40",
+  padding: "20px"
+};
+const navContainer = {
+  display: "flex",
+  justifyContent: "center",
+  alignItems: "center"
 };
 
 const logoAltText = "לוגו מרכז צעירים ירוחם";
@@ -38,10 +44,12 @@ export class Header extends Component {
             <img src={logo} alt={logoAltText} style={logoStyle} />
           </div>
           <div>
-            <h2 style={titleStyle}>מרגישים שמאשהו קורה כאן</h2>
+            <h2 style={titleStyle}>...מרגישים שמשהו קורה פה</h2>
           </div>
         </div>
-        <Navigation />
+        <div style={navContainer}>
+          <Navigation />
+        </div>
       </div>
     );
   }
