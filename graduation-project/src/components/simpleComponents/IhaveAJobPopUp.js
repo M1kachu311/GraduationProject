@@ -19,7 +19,7 @@ const suggestAJobStyle = {
     marginLeft: '20px'
 }
 
-export default class PopUpFormComponent extends React.Component {
+export default class IhaveAJobPopUp extends React.Component {
   state = {
     open: false,
   };
