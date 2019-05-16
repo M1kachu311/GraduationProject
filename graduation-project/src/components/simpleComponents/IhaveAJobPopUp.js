@@ -7,8 +7,20 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 
+import Input from './Input'
 
 const suggestAJob = 'יש לי משרה!'
+const sendJobText = 'אנא מלאו את השדות ולחצו על שלח'
+const jobName = 'שם המשרה'
+const description = 'תיאור המשרה'
+const type = 'משרה מלאה / חלקית'
+const location = 'מיקום המשרה'
+const senderName = 'שם המעסיק'
+const senderPhone = 'מס׳ טלפון המעסיק'
+const mail = 'כתובת מייל המעסיק'
+const cancel = 'בטל'
+const send = 'שלח'
+const Subscribe = 'יש לי משרה'
 
 const suggestAJobStyle = {
     background: '#0D84A3',
@@ -17,6 +29,29 @@ const suggestAJobStyle = {
     width: '120px',
     marginTop: '10px',
     marginLeft: '20px'
+}
+
+const inputListStyle = { 
+  display: 'flex'
+}
+
+const textFielDescriptionStyle = {
+  width: '85%',
+  right: '8px'
+}
+
+const sendButtonStyle = {
+    background: '#0D84A3',
+    color: '#fff',
+    border: 'none',
+    cursor: 'pointer'
+}
+
+const cancelButtonStyle = {
+    background: 'red',
+    color: '#fff',
+    border: 'none',
+    cursor: 'pointer'
 }
 
 export default class IhaveAJobPopUp extends React.Component {
@@ -33,6 +68,7 @@ export default class IhaveAJobPopUp extends React.Component {
   };
 
   render() {
+
     return (
       <div>
         <Button style={suggestAJobStyle} variant="outlined" color="primary" onClick={this.handleClickOpen}>
@@ -43,29 +79,59 @@ export default class IhaveAJobPopUp extends React.Component {
           onClose={this.handleClose}
           aria-labelledby="form-dialog-title"
         >
-          <DialogTitle id="form-dialog-title">Subscribe</DialogTitle>
-          <DialogContent>
-            <DialogContentText>
-              To subscribe to this website, please enter your email address here. We will send
-              updates occasionally.
-            </DialogContentText>
-            <TextField
-              autoFocus
-              margin="dense"
-              id="name"
-              label="Email Address"
-              type="email"
-              fullWidth
-            />
-          </DialogContent>
-          <DialogActions>
-            <Button onClick={this.handleClose} color="primary">
-              Cancel
-            </Button>
-            <Button onClick={this.handleClose} color="primary">
-              Subscribe
-            </Button>
-          </DialogActions>
+          <DialogTitle id="form-dialog-title">{Subscribe}</DialogTitle>
+          <form>
+            <DialogContent>
+              <DialogContentText>
+                {sendJobText}
+              </DialogContentText>
+                <div style={inputListStyle}>
+                  <div>
+                    <Input 
+                      placeholder={location}
+                    />
+                    <Input 
+                      placeholder={senderName}
+                    />
+                    <Input 
+                      placeholder={senderPhone}
+                    />
+                    <Input 
+                      placeholder={mail}
+                    />
+                  </div>
+                  <div>
+                    <Input 
+                      placeholder={jobName}
+                    />
+                    <TextField
+                      style={textFielDescriptionStyle}
+                      id="standard-textarea"
+                      placeholder={description}
+                      multiline
+                      margin="normal"
+                    />
+                    <Input 
+                      placeholder={type}
+                    />
+                  </div>
+                </div>
+            </DialogContent>
+            <DialogActions>
+              <Button 
+                onClick={this.handleClose} 
+                style={cancelButtonStyle}
+              >
+                {cancel}
+              </Button>
+              <Button 
+                onClick={this.handleClose} 
+                style={sendButtonStyle}
+              >
+                {send}
+              </Button>
+            </DialogActions>
+          </form>
         </Dialog>
       </div>
     );
