@@ -2,6 +2,7 @@ import React, { Component } from "react";
 
 import HomeCards from "../simpleComponents/HomeCards";
 import ImagesCarousel from "../simpleComponents/ImagesCarousel";
+import HomePageForm from "../simpleComponents/HomePageForm";
 
 const mainStyle = {
   display: "flex",
