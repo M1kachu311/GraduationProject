@@ -45,6 +45,9 @@ const turquoiseColor = {
 const blueColor = {
   color: "rgb(13, 132, 163)"
 };
+const facebookColor = {
+  color: "#3C5A99"
+};
 const textPadding = {
   padding: "10px"
 };
@@ -185,7 +188,7 @@ export class HomePageForm extends Component {
                 <a
                   href="https://www.facebook.com/zvi.yeruham/"
                   target="_blank"
-                  style={whiteColor}
+                  style={turquoiseColor}
                 >
                   <i className="fab fa-facebook" style={big} />
                 </a>
