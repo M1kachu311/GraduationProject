@@ -9,11 +9,6 @@ const headerStyle = {
   alignItems: "rigth"
 };
 
-const titleStyle = {
-  fontSize: "15px",
-  color: "#fff"
-};
-
 const logoStyle = {
   width: 135,
   height: 75

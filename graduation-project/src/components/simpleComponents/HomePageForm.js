@@ -151,20 +151,7 @@ export class HomePageForm extends Component {
           open={this.state.open}
           autoHideDuration={6000}
           onClose={this.handleClose}
-          ContentProps={{
-            "aria-describedby": "message-id"
-          }}
           message={<span id="message-id">המייל נשלח בהצלחה</span>}
-          action={[
-            <IconButton
-              key="close"
-              aria-label="Close"
-              color="inherit"
-              onClick={this.handleClose}
-            >
-              <CloseIcon />
-            </IconButton>
-          ]}
         />
         <div style={footerStyle}>
           <div style={detailsStyle}>
