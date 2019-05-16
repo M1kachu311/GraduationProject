@@ -120,7 +120,6 @@ export default class SendCVPopUp extends React.Component {
             </label>
             <input
                 style={uploadStyle}
-                accept="image/*"
                 id="contained-button-file"
                 multiple
                 type="file"
