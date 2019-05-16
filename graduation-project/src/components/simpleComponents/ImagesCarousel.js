@@ -2,16 +2,28 @@ import React, { Component } from "react";
 import Slider from "react-slick";
 import image1 from "../../images/001.jpg";
 import image2 from "../../images/002.jpg";
-import image3 from "../../images/003.jpg";
+import image4 from "../../images/004.jpg";
 
-const ImgStyle = {
+const ImgStyle1 = {
   width: "100%",
   height: "500px",
   objectFit: "cover",
-  objectPosition: "top"
+  objectPosition: "center",
+  opacity: "0.8"
 };
-const divStyle = {
-  position: "static"
+const ImgStyle2 = {
+  width: "100%",
+  height: "500px",
+  objectFit: "cover",
+  objectPosition: "top",
+  opacity: "0.8"
+};
+const ImgStyle3 = {
+  width: "100%",
+  height: "500px",
+  objectFit: "cover",
+  objectPosition: "bottom",
+  opacity: "0.8"
 };
 export class ImagesCarousel extends Component {
   render() {
@@ -26,14 +38,14 @@ export class ImagesCarousel extends Component {
     };
     return (
       <Slider {...settings}>
-        <div style={divStyle}>
-          <img src={image1} style={ImgStyle} alt="bg-img" />
+        <div>
+          <img src={image1} style={ImgStyle2} alt="bg-img" />
         </div>
         <div>
-          <img src={image2} style={ImgStyle} alt="bg-img" />
+          <img src={image2} style={ImgStyle2} alt="bg-img" />
         </div>
         <div>
-          <img src={image3} style={ImgStyle} alt="bg-img" />
+          <img src={image4} style={ImgStyle1} alt="bg-img" />
         </div>
       </Slider>
     );

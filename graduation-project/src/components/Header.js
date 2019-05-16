@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Navigation from "./Navigation";
 import logo from "../images/logo.png";
+import { Link } from "react-router-dom";
 
 const headerStyle = {
   display: "flex",
@@ -40,12 +41,11 @@ export class Header extends Component {
     return (
       <div style={headerDisplay}>
         <div style={headerStyle}>
-          <div style={logoDisplay}>
-            <img src={logo} alt={logoAltText} style={logoStyle} />
-          </div>
-          <div>
-            <h2 style={titleStyle}>מרגישים שמשהו קורה פה...</h2>
-          </div>
+          <Link to="/">
+            <div style={logoDisplay}>
+              <img src={logo} alt={logoAltText} style={logoStyle} />
+            </div>
+          </Link>
         </div>
         <div style={navContainer}>
           <Navigation />
