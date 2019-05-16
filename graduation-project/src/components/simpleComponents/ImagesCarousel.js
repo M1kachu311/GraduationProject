@@ -18,9 +18,9 @@ export class ImagesCarousel extends Component {
       function backgroundSequenceD() {
         window.clearTimeout();
         var k = 0;
-        for (i = 0; i < bgImageArrayHome.length; i++) {
+        for (let i = 0; i < bgImageArrayHome.length; i++) {
           setTimeout(function() {
-            $(".main-bg").css({
+            document.getElementsByClassName(".main-bg").style.s({
               "background-image": "url(" + base + bgImageArrayHome[k] + ")"
             });
             if (k + 1 === bgImageArrayHome.length) {
@@ -39,7 +39,7 @@ export class ImagesCarousel extends Component {
   }
 
   render() {
-    return <div />;
+    return <div className="main-bg"> </div>;
   }
 }
 
