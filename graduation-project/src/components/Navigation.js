@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 
 const navStyle = {
 	display: 'flex',
@@ -20,9 +21,9 @@ export class Navigation extends Component {
 		return (
 			<div>
 				<ul style={navStyle}>
-					<li style={navElementStyle}><a style={linkStyle} href="/">בית</a></li>
-					<li style={navElementStyle}><a style={linkStyle} href="/about">אודות</a></li>
-					<li style={navElementStyle}><a style={linkStyle} href="/contact">צור קשר</a></li>
+					<li style={navElementStyle}><Link style={linkStyle} to="/">בית</Link></li>
+					<li style={navElementStyle}><Link style={linkStyle} to="/about">אודות</Link></li>
+					<li style={navElementStyle}><Link style={linkStyle} to="/contact">צור קשר</Link></li>
 				</ul>
 			</div>
 		)

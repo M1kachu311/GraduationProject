@@ -23,19 +23,24 @@ const jobCardTitle = 'תעסוקה'
 const realEstateCardTitle = 'דיור'
 const jobCardSubtitle = 'לוח משרות'
 const realEstateCardSubtitle = 'לוח דירות'
+const jobCardLink = '/jobs'
+const realEstateLink = '/realEstate'
 
 export class Home extends Component {
   render() {
     return (
 		<div>
 			<div style={mainStyle}>
-				<HomeCards 
+				<HomeCards
 					title={jobCardTitle}
 					subtitle={jobCardSubtitle}
-				/>
+					link={jobCardLink}
+				>
+				</HomeCards>
 				<HomeCards 
 					title={realEstateCardTitle}
 					subtitle={realEstateCardSubtitle}
+					link={realEstateLink}
 				/>
 				<iframe scrolling="yes" title="facebookLastPosts" src="http://www.facebook.com/plugins/likebox.php?href=http%3A%2F%2Fwww.facebook.com%2Fzvi.yeruham&width=250&height=600&stream=true&header=true" style={facebookIframStyle}></iframe>
 			</div>

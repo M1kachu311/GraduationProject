@@ -5,6 +5,7 @@ import Card from '@material-ui/core/Card';
 import CardHeader from '@material-ui/core/CardHeader';
 import CardMedia from '@material-ui/core/CardMedia';
 import CardContent from '@material-ui/core/CardContent';
+import { Link } from 'react-router-dom'
 
 const styles = theme => ({
     card: {
@@ -27,20 +28,21 @@ class RecipeReviewCard extends React.Component {
 
         return (
             <Card className={classes.card}>
-                <CardHeader
-                    title={this.props.title}
-                    subheader={this.props.subtitle}
-                />
-                <CardMedia
-                    //   className={classes.media} need our own css here
-                    image={this.props.picture}
-                    title={this.props.picTitle}
-                />
-                <CardContent
-                // here will sit the component for the jobs
-                >
-                    
-                </CardContent>
+            <CardHeader
+            title={this.props.title}
+            subheader={this.props.subtitle}
+            />
+            <CardMedia
+            //   className={classes.media} need our own css here
+            image={this.props.picture}
+            title={this.props.picTitle}
+            />
+            <CardContent
+            // here will sit the component for the jobs
+            >
+            
+            </CardContent>
+            <div><Link to={this.props.link}>לוח משרות</Link></div>
             </Card>
         );
     }
