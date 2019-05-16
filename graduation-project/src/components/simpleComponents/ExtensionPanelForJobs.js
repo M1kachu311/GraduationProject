@@ -80,7 +80,6 @@ class ExpansionPanelForJobs extends React.Component {
               <p style={pStyle}>{this.props.type}</p>
               <p style={pStyle}>{this.props.location}</p>
               <i
-                style={pStyle}
                 style={arrowStyle}
                 className="fas fa-chevron-down"
               />
