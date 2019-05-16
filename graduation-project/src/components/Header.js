@@ -3,23 +3,29 @@ import Navigation from './Navigation'
 import logo from '../images/logo.png'
 
 const headerStyle = {
-	display: 'flex'
-}
-
-const titlesStyle = {
 	display: 'flex',
 	flexDirection: 'column',
-	margin: '0 auto'
+	alignItems: 'rigth'
 }
 
 const titleStyle = {
-	color: 'grey'
+	fontSize: '15px',
+	color: '#fff'
+
 }
 
 const logoStyle = {
 	width: 180,
 	height: 100,
-	padding: 40
+}
+
+const logoDisplay = {
+	margin: 'auto 0'
+}
+
+const headerDisplay = {
+	display: 'flex',
+	backgroundColor: '#343A40',
 }
 
 const logoAltText = 'לוגו מרכז צעירים ירוחם'
@@ -28,11 +34,12 @@ const logoAltText = 'לוגו מרכז צעירים ירוחם'
 export class Header extends Component {
 	render() {
 		return (
-			<div>
+			<div style={headerDisplay}>
 				<div style={headerStyle}>
-					<img src={logo} alt={logoAltText} style={logoStyle}/>
-					<div style={titlesStyle}>
-						<h1 style={titleStyle}>צעירים בירוחם</h1>
+					<div style={logoDisplay}>
+						<img src={logo} alt={logoAltText} style={logoStyle}/>
+					</div>
+					<div>
 						<h2 style={titleStyle}>מרגישים שמאשהו קורה כאן</h2>
 					</div>
 				</div>
