@@ -1,23 +1,24 @@
-import React, { Component } from 'react'
+import React, { Component } from "react";
 
-import HomePageForm from '../simpleComponents/HomePageForm'
-import HomeCards from '../simpleComponents/HomeCards'
-// import ImagesCarousel from '../simpleComponents/ImagesCarousel'
+import HomeCards from "../simpleComponents/HomeCards";
+import ImagesCarousel from "../simpleComponents/ImagesCarousel";
+import HomePageForm from "../simpleComponents/HomePageForm";
 
 const mainStyle = {
-	display: 'flex',
-	flexDirection: 'row',
-	width: '85%',
-	margin: '0 auto'
-}
+  display: "flex",
+  flexDirection: "row",
+  width: "85%",
+  margin: "0 auto"
+};
 
 const facebookIframStyle = {
-	border:'none', 
-	overflow:'hidden', 
-	width:'250px',
-	height:'600px', 
-	float:'left'
-}
+  border: "none",
+  overflow: "hidden",
+  width: "250px",
+  height: "600px",
+  float: "left"
+};
+
 
 const jobCardTitle = 'תעסוקה'
 const realEstateCardTitle = 'דיור'
@@ -29,7 +30,8 @@ const realEstateLink = '/realEstate'
 export class Home extends Component {
   render() {
     return (
-		<div>
+    <div>
+      <ImagesCarousel />
 			<div style={mainStyle}>
 				<HomeCards
 					title={jobCardTitle}
@@ -50,4 +52,4 @@ export class Home extends Component {
   }
 }
 
-export default Home
+export default Home;
