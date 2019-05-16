@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 
+import HomePageForm from '../simpleComponents/HomePageForm'
 import HomeCards from '../simpleComponents/HomeCards'
-import ImagesCarousel from '../simpleComponents/ImagesCarousel'
+// import ImagesCarousel from '../simpleComponents/ImagesCarousel'
 
 const mainStyle = {
 	display: 'flex',
@@ -26,18 +27,20 @@ const realEstateCardSubtitle = 'לוח דירות'
 export class Home extends Component {
   render() {
     return (
-		<div style={mainStyle}>
-			<ImagesCarousel/>
-			<HomeCards 
-				title={jobCardTitle}
-				subtitle={jobCardSubtitle}
-			/>
-			<HomeCards 
-				title={realEstateCardTitle}
-				subtitle={realEstateCardSubtitle}
-			/>
-			<iframe scrolling="yes" title="facebookLastPosts" src="http://www.facebook.com/plugins/likebox.php?href=http%3A%2F%2Fwww.facebook.com%2Fzvi.yeruham&width=250&height=600&stream=true&header=true" style={facebookIframStyle}></iframe>
-    </div>
+		<div>
+			<div style={mainStyle}>
+				<HomeCards 
+					title={jobCardTitle}
+					subtitle={jobCardSubtitle}
+				/>
+				<HomeCards 
+					title={realEstateCardTitle}
+					subtitle={realEstateCardSubtitle}
+				/>
+				<iframe scrolling="yes" title="facebookLastPosts" src="http://www.facebook.com/plugins/likebox.php?href=http%3A%2F%2Fwww.facebook.com%2Fzvi.yeruham&width=250&height=600&stream=true&header=true" style={facebookIframStyle}></iframe>
+			</div>
+			<HomePageForm />
+		</div>
     )
   }
 }
