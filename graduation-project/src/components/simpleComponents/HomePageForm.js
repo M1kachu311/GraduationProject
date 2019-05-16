@@ -1,8 +1,5 @@
 import React, { Component } from "react";
-import Button from "@material-ui/core/Button";
 import Snackbar from "@material-ui/core/Snackbar";
-import IconButton from "@material-ui/core/IconButton";
-import CloseIcon from "@material-ui/icons/Close";
 
 const footerStyle = {
   width: "100%",
@@ -42,12 +39,12 @@ const whiteColor = {
 const turquoiseColor = {
   color: "#C7D72B"
 };
-const blueColor = {
-  color: "rgb(13, 132, 163)"
-};
-const facebookColor = {
-  color: "#3C5A99"
-};
+// const blueColor = {
+//   color: "rgb(13, 132, 163)"
+// };
+// const facebookColor = {
+//   color: "#3C5A99"
+// };
 const textPadding = {
   padding: "10px"
 };
@@ -175,6 +172,7 @@ export class HomePageForm extends Component {
                 <a
                   href="https://www.facebook.com/zvi.yeruham/"
                   target="_blank"
+                  rel="noopener noreferrer"
                   style={turquoiseColor}
                 >
                   <i className="fab fa-facebook" style={big} />

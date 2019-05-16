@@ -18,13 +18,13 @@ const ImgStyle2 = {
   objectPosition: "top",
   opacity: "0.6"
 };
-const ImgStyle3 = {
-  width: "100%",
-  height: "500px",
-  objectFit: "cover",
-  objectPosition: "bottom",
-  opacity: "0.6"
-};
+// const ImgStyle3 = {
+//   width: "100%",
+//   height: "500px",
+//   objectFit: "cover",
+//   objectPosition: "bottom",
+//   opacity: "0.6"
+// };
 export class ImagesCarousel extends Component {
   render() {
     var settings = {

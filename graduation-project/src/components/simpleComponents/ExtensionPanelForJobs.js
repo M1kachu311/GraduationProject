@@ -53,7 +53,8 @@ const expansionPanelStyle = {
 
 class ExpansionPanelForJobs extends React.Component {
   state = {
-    expanded: null
+    expanded: null,
+    id: ""
   };
 
   handleChange = panel => (event, expanded) => {
@@ -79,17 +80,12 @@ class ExpansionPanelForJobs extends React.Component {
               <p style={pStyle}>{this.props.name}</p>
               <p style={pStyle}>{this.props.type}</p>
               <p style={pStyle}>{this.props.location}</p>
-              <i
-                style={arrowStyle}
-                className="fas fa-chevron-down"
-              />
+              <i style={arrowStyle} className="fas fa-chevron-down" />
             </div>
           </ExpansionPanelSummary>
           <ExpansionPanelDetails style={expandedPanelDisplay}>
-            <Typography>
-              <p>{this.props.description}</p>
-            </Typography>
-            <SendCVPopUp id={this.props.key} />
+            <Typography>{this.props.description}</Typography>
+            <SendCVPopUp id={this.props.id} />
           </ExpansionPanelDetails>
         </ExpansionPanel>
       </div>
