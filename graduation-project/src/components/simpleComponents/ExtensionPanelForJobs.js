@@ -34,10 +34,23 @@ const arrowStyle = {
 
 const expandedPanelDisplay = {
     display: 'flex',
-    justifyContent: 'space-between'
+    justifyContent: 'space-between',
+    border: '1px solid #C7D72B'
 }
 
-class ControlledExpansionPanels extends React.Component {
+const pStyle = {
+  color: '#C7D72B'
+}
+
+const expansionHeaderStyle = {
+  background: '#343A40'
+}
+
+const expansionPanelStyle = {
+  margin: '10px'
+}
+
+class ExpansionPanelForJobs extends React.Component {
   state = {
     expanded: null,
   };
@@ -54,19 +67,19 @@ class ControlledExpansionPanels extends React.Component {
 
     return (
       <div className={classes.root}>
-        <ExpansionPanel expanded={expanded === 'panel1'} onChange={this.handleChange('panel1')}>
-            <ExpansionPanelSummary>
+        <ExpansionPanel style={expansionPanelStyle} expanded={expanded === 'panel1'} onChange={this.handleChange('panel1')}>
+            <ExpansionPanelSummary style={expansionHeaderStyle}>
                 <div style={jobDetailsStyle}>
-                    <p>{this.props.date}</p>
-                    <p>{this.props.name}</p>
-                    <p>{this.props.type}</p>
-                    <p>{this.props.location}</p>
-                    <i style={arrowStyle} className="fas fa-chevron-down"></i>                
+                    <p style={pStyle}>{this.props.date}</p>
+                    <p style={pStyle}>{this.props.name}</p>
+                    <p style={pStyle}>{this.props.type}</p>
+                    <p style={pStyle}>{this.props.location}</p>
+                    <i style={pStyle} style={arrowStyle} className="fas fa-chevron-down"></i>                
                 </div>
             </ExpansionPanelSummary>
           <ExpansionPanelDetails style={expandedPanelDisplay}>
             <Typography>
-              {this.props.description}
+              <p>{this.props.description}</p>
             </Typography>
             <SendCVPopUp />
         </ExpansionPanelDetails>
@@ -76,8 +89,8 @@ class ControlledExpansionPanels extends React.Component {
   }
 }
 
-ControlledExpansionPanels.propTypes = {
+ExpansionPanelForJobs.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(ControlledExpansionPanels);
+export default withStyles(styles)(ExpansionPanelForJobs);

@@ -8,11 +8,12 @@ import Home from "./components/pages/Home";
 import About from "./components/pages/About";
 import Contact from "./components/pages/Contact";
 import JobsOffer from "./components/pages/JobsOffer";
-import Page1 from "./components/pages/YouthCenter";
-import Page2 from "./components/pages/Settlement";
-import Page3 from "./components/pages/ReducingGaps";
-import Page4 from "./components/pages/kolna";
-import Page5 from "./components/pages/ForTheCommunity";
+import RealEstate from './components/pages/RealEstate';
+import YouthCenter from "./components/pages/YouthCenter";
+import Settlement from "./components/pages/Settlement";
+import ReducingGaps from "./components/pages/ReducingGaps";
+import kolna from "./components/pages/kolna";
+import ForTheCommunity from "./components/pages/ForTheCommunity";
 
 export class App extends Component {
   render() {
@@ -24,11 +25,12 @@ export class App extends Component {
           <Route path="/contact" component={Contact} />
           <Route path="/about" component={About} />
           <Route path="/jobs" component={JobsOffer} />
-          <Route path="/page1" component={Page1} />
-          <Route path="/page2" component={Page2} />
-          <Route path="/page3" component={Page3} />
-          <Route path="/page4" component={Page4} />
-          <Route path="/page5" component={Page5} />
+          <Route path="/realEstate" component={RealEstate} />
+          <Route path="/youthCenter" component={YouthCenter} />
+          <Route path="/settlement" component={Settlement} />
+          <Route path="/reducingGaps" component={ReducingGaps} />
+          <Route path="/kolna" component={kolna} />
+          <Route path="/forTheCommunity" component={ForTheCommunity} />
           <Footer />
         </div>
       </Router>

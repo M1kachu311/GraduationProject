@@ -1,8 +1,15 @@
 import React, { Component } from 'react'
 
-import ExtensionPanelList from '../simpleComponents/ExtensionPanelList'
+import ExtensionPanelListForRealEstate from '../simpleComponents/ExtensionPanelListForRealEstate'
 import IhaveAJobPopUp from '../simpleComponents/IhaveAJobPopUp'
 
+const salleOrRent = 'מכירה/השכרה'
+const type = 'סוג הנכס'
+const rooms = 'מס׳ חדרים'
+const floor = 'קומה'
+const adrdess = 'כתובת'
+const price = 'מחיר'
+const date = 'תאריך'
 
 const optionsStyle = {
     display: 'flex',
@@ -24,13 +31,16 @@ export class RealEstate extends Component {
     return (
         <div style={mainStyle}>
             <div style={optionsStyle}>
-                <p style={optionsTitleStyle}>תאריך</p>
-                <p style={optionsTitleStyle}>משרה</p>
-                <p style={optionsTitleStyle}>סוג המשרה</p>
-                <p style={optionsTitleStyle}>מיקום</p>
+                <p style={optionsTitleStyle}>{salleOrRent}</p>
+                <p style={optionsTitleStyle}>{type}</p>
+                <p style={optionsTitleStyle}>{rooms}</p>
+                <p style={optionsTitleStyle}>{floor}</p>
+                <p style={optionsTitleStyle}>{adrdess}</p>
+                <p style={optionsTitleStyle}>{price}</p>
+                <p style={optionsTitleStyle}>{date}</p>
                 <IhaveAJobPopUp />
             </div>
-            <ExtensionPanelList />
+            <ExtensionPanelListForRealEstate />
         </div>
         
     )

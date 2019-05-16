@@ -1,8 +1,12 @@
 import React, { Component } from 'react'
 
-import ExtensionPanelList from '../simpleComponents/ExtensionPanelList'
+import ExtensionPanelListForJobs from '../simpleComponents/ExtensionPanelListForJobs'
 import IhaveAJobPopUp from '../simpleComponents/IhaveAJobPopUp'
 
+const date ='תאריך'
+const office = 'משרה'
+const officeKind = 'סוג המשרה'
+const location = 'מיקום'
 
 const optionsStyle = {
     display: 'flex',
@@ -24,13 +28,13 @@ export class JobsOffer extends Component {
     return (
         <div style={mainStyle}>
             <div style={optionsStyle}>
-                <p style={optionsTitleStyle}>תאריך</p>
-                <p style={optionsTitleStyle}>משרה</p>
-                <p style={optionsTitleStyle}>סוג המשרה</p>
-                <p style={optionsTitleStyle}>מיקום</p>
+                <p style={optionsTitleStyle}>{date}</p>
+                <p style={optionsTitleStyle}>{office}</p>
+                <p style={optionsTitleStyle}>{officeKind}</p>
+                <p style={optionsTitleStyle}>{location}</p>
                 <IhaveAJobPopUp />
             </div>
-            <ExtensionPanelList />
+            <ExtensionPanelListForJobs />
         </div>
         
     )
