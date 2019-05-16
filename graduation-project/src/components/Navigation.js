@@ -32,11 +32,6 @@ export class Navigation extends Component {
             </Link>
           </li>
           <li style={navElementStyle}>
-            <Link style={linkStyle} to="/contact">
-              צור קשר
-            </Link>
-          </li>
-          <li style={navElementStyle}>
             <Link style={linkStyle} to="/page1">
               מרכז צעירים
             </Link>
