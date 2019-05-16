@@ -49,7 +49,7 @@ router.post("/", upload.single("file"), (req, res) => {
     res.status(400).send({ message: "bad request" });
   } else {
     jobsFunction.getjobbyid(req.body.id, function(err, data) {
-      if (err) {
+      if (err || data.length != 1) {
         res.status(500).send(err);
       } else {
         async function main() {
@@ -62,7 +62,7 @@ router.post("/", upload.single("file"), (req, res) => {
           });
           let info = await transporter.sendMail({
             from: `<${req.body.email}> ${req.body.name}`,
-            to: "micaeljorg3@gmail.com",
+            to: "yeruham@jobnegev.co.il",
             subject: `${req.body.name} שלח מייל בהקשר למשרת ${data[0].Name} `,
             html: `
             <p>${req.body.name}</p>
