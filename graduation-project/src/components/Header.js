@@ -44,7 +44,7 @@ export class Header extends Component {
             <img src={logo} alt={logoAltText} style={logoStyle} />
           </div>
           <div>
-            <h2 style={titleStyle}>...מרגישים שמשהו קורה פה</h2>
+            <h2 style={titleStyle}>מרגישים שמשהו קורה פה...</h2>
           </div>
         </div>
         <div style={navContainer}>
