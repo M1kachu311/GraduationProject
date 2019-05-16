@@ -5,6 +5,7 @@ import ExpansionPanel from '@material-ui/core/ExpansionPanel';
 import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
 import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
 import Typography from '@material-ui/core/Typography';
+import SendCVPopUp from './SendCVPopUp';
 
 const styles = theme => ({
   root: {
@@ -29,6 +30,11 @@ const jobDetailsStyle = {
 
 const arrowStyle = {
     margin: '0 80px'
+}
+
+const expandedPanelDisplay = {
+    display: 'flex',
+    justifyContent: 'space-between'
 }
 
 class ControlledExpansionPanels extends React.Component {
@@ -58,11 +64,12 @@ class ControlledExpansionPanels extends React.Component {
                     <i style={arrowStyle} className="fas fa-chevron-down"></i>                
                 </div>
             </ExpansionPanelSummary>
-          <ExpansionPanelDetails>
+          <ExpansionPanelDetails style={expandedPanelDisplay}>
             <Typography>
               {this.props.description}
             </Typography>
-          </ExpansionPanelDetails>
+            <SendCVPopUp />
+        </ExpansionPanelDetails>
         </ExpansionPanel>
       </div>
     );
