@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 
 import HomeCards from '../simpleComponents/HomeCards'
+import ImagesCarousel from '../simpleComponents/ImagesCarousel'
 
 const mainStyle = {
 	display: 'flex',
@@ -26,6 +27,7 @@ export class Home extends Component {
   render() {
     return (
 		<div style={mainStyle}>
+			<ImagesCarousel/>
 			<HomeCards 
 				title={jobCardTitle}
 				subtitle={jobCardSubtitle}
@@ -35,7 +37,7 @@ export class Home extends Component {
 				subtitle={realEstateCardSubtitle}
 			/>
 			<iframe scrolling="yes" title="facebookLastPosts" src="http://www.facebook.com/plugins/likebox.php?href=http%3A%2F%2Fwww.facebook.com%2Fzvi.yeruham&width=250&height=600&stream=true&header=true" style={facebookIframStyle}></iframe>
-    	</div>
+    </div>
     )
   }
 }
