@@ -24,7 +24,7 @@ const styles = theme => ({
 
 const jobDetailsStyle = {
   display: "flex",
-  justifyContent: "space-around",
+  justifyContent: "space-evenly",
   width: "100%"
 };
 
@@ -39,7 +39,8 @@ const expandedPanelDisplay = {
 };
 
 const pStyle = {
-  color: "#C7D72B"
+  color: "#C7D72B",
+  width: "150px"
 };
 
 const expansionHeaderStyle = {
