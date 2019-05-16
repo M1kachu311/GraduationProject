@@ -3,15 +3,29 @@ import ExtensionPanel from '../simpleComponents/ExtensionPanel'
 
 export class ExtensionPanelList extends Component {
 
-    state = { data: [{name:'One', id:'one'}, {name:'Two', id:'rwo'}, {name:'Three', id:'three'}] };  
+    state = { 
+        data: [
+            {
+                Date:'01/02/1994', 
+                ID:1, Name:'Developper', 
+                Description:'Lorem ipsum', 
+                Type:'full time job', 
+                Location:'Yeruham'
+            }
+        ] 
+    };  
 
     render() {
-    return this.state.data.map(extensionPanel => {
+    return this.state.data.map(job => {
         return (
-            <div key={extensionPanel.id}>
-                <ExtensionPanel />
-                <p>{extensionPanel.name}</p>
-            </div>
+                <ExtensionPanel 
+                    key={job.ID} 
+                    date={job.Date} 
+                    name={job.Name} 
+                    description={job.Description}
+                    type={job.Type}
+                    location={job.Location}
+                />
         )
     })
     }

@@ -6,7 +6,7 @@ import PopUpComponent from '../simpleComponents/PopUpComponent'
 
 const optionsStyle = {
     display: 'flex',
-    justifyContent: 'center'
+    justifyContent: 'space-around'
 }
 
 const mainStyle = {
@@ -15,7 +15,7 @@ const mainStyle = {
 }
 
 const optionsTitleStyle = {
-    margin: '10px 100px'
+    // margin: '10px 70px',
 }
 
 export class JobsOffer extends Component {
@@ -26,8 +26,8 @@ export class JobsOffer extends Component {
             <div style={optionsStyle}>
                 <p style={optionsTitleStyle}>תאריך</p>
                 <p style={optionsTitleStyle}>משרה</p>
-                <p style={optionsTitleStyle}>מיקום</p>
                 <p style={optionsTitleStyle}>סוג המשרה</p>
+                <p style={optionsTitleStyle}>מיקום</p>
                 <PopUpComponent />
             </div>
             <ExtensionPanelList />

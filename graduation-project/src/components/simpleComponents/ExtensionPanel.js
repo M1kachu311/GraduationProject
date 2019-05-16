@@ -5,7 +5,6 @@ import ExpansionPanel from '@material-ui/core/ExpansionPanel';
 import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
 import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
 import Typography from '@material-ui/core/Typography';
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
 const styles = theme => ({
   root: {
@@ -21,6 +20,16 @@ const styles = theme => ({
     color: theme.palette.text.secondary,
   },
 });
+
+const jobDetailsStyle = {
+    display: 'flex',
+    justifyContent: 'space-around',
+    width: '100%'
+}
+
+const arrowStyle = {
+    margin: '0 80px'
+}
 
 class ControlledExpansionPanels extends React.Component {
   state = {
@@ -40,11 +49,18 @@ class ControlledExpansionPanels extends React.Component {
     return (
       <div className={classes.root}>
         <ExpansionPanel expanded={expanded === 'panel1'} onChange={this.handleChange('panel1')}>
-          <ExpansionPanelSummary expandIcon={<ExpandMoreIcon/>} />
+            <ExpansionPanelSummary>
+                <div style={jobDetailsStyle}>
+                    <p>{this.props.date}</p>
+                    <p>{this.props.name}</p>
+                    <p>{this.props.type}</p>
+                    <p>{this.props.location}</p>
+                    <i style={arrowStyle} className="fas fa-chevron-down"></i>                
+                </div>
+            </ExpansionPanelSummary>
           <ExpansionPanelDetails>
             <Typography>
-              Nulla facilisi. Phasellus sollicitudin nulla et quam mattis feugiat. Aliquam eget
-              maximus est, id dignissim quam.
+              {this.props.description}
             </Typography>
           </ExpansionPanelDetails>
         </ExpansionPanel>
