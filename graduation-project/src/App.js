@@ -8,11 +8,11 @@ import Home from "./components/pages/Home";
 import About from "./components/pages/About";
 import Contact from "./components/pages/Contact";
 import JobsOffer from "./components/pages/JobsOffer";
-import Page1 from "./components/pages/Page1";
-import Page2 from "./components/pages/Page2";
-import Page3 from "./components/pages/Page3";
-import Page4 from "./components/pages/Page4";
-import Page5 from "./components/pages/Page5";
+import Page1 from "./components/pages/YouthCenter";
+import Page2 from "./components/pages/Settlement";
+import Page3 from "./components/pages/ReducingGaps";
+import Page4 from "./components/pages/kolna";
+import Page5 from "./components/pages/ForTheCommunity";
 
 export class App extends Component {
   render() {

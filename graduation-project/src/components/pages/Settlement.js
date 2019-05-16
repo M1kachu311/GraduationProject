@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 
-export class Page5 extends Component {
+export class Settlement extends Component {
   render() {
     return <div />;
   }
 }
 
-export default Page5;
+export default Settlement;

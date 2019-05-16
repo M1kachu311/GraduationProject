@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 
-export class Page4 extends Component {
+export class YouthCenter extends Component {
   render() {
     return <div />;
   }
 }
 
-export default Page4;
+export default YouthCenter;
