@@ -22,6 +22,16 @@ export class Navigation extends Component {
       <div>
         <ul style={navStyle}>
           <li style={navElementStyle}>
+            <Link style={linkStyle} to="/jobs">
+              לוח משרות
+            </Link>
+          </li>
+          <li style={navElementStyle}>
+            <Link style={linkStyle} to="/realEstate">
+              לוח דיור
+            </Link>
+          </li>
+          <li style={navElementStyle}>
             <Link style={linkStyle} to="/about">
               אודות
             </Link>

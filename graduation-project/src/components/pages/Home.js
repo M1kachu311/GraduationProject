@@ -1,55 +1,58 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import ImagesCarousel from "../simpleComponents/ImagesCarousel";
+import { withStyles } from "@material-ui/core/styles";
+import Button from "@material-ui/core/Button";
+import Fab from "@material-ui/core/Fab";
+import IconButton from "@material-ui/core/IconButton";
+import AddIcon from "@material-ui/icons/Add";
+import DeleteIcon from "@material-ui/icons/Delete";
+import NavigationIcon from "@material-ui/icons/Navigation";
 
 const mainStyle = {
   display: "flex",
   flexDirection: "column",
   justifyContent: "space-evenly",
+  alignItems: "space-around",
   width: "100%",
-  color: "#FFF",
-  padding: "0vw 1vw"
+  height: "420px",
+  color: "#FFF"
 };
 
 const jobSectionStyle = {
-  width: "100vw",
+  width: "100%",
   height: "200px",
   display: "flex",
   flexDirection: "row",
-  padding: "0.5vw",
-  justifyContent: "space-between"
+  justifyContent: "space-around"
 };
 
 const jobTitleStyle = {
-  width: "59.25vw",
-  backgroundColor: "#343A40",
-  color: "#C7D72B",
-  padding: "0.5vw"
+  width: "59.5%",
+  backgroundColor: "#FFF",
+  color: "rgb(52, 58, 64)",
+  fontSize: "20px",
+  border: "2px solid #C7D72B",
+  borderRadius: "5px",
+  padding: "40px",
+  boxSizing: "border-box"
 };
 
 const jobTableStyle = {
-  width: "39.25vw",
-  backgroundColor: "#C7D72B"
-};
-
-const housingSectionStyle = {
-  width: "100vw",
-  height: "200px",
+  width: "39%",
+  backgroundColor: "#63AEA4",
   display: "flex",
-  flexDirection: "row",
-  padding: "0.5vw",
-  justifyContent: "space-between"
+  justifyContent: "center",
+  borderRadius: "5px",
+  alignItems: "center"
 };
-
-const housingTitleStyle = {
-  width: "56.75vw",
-  padding: "40px",
-  backgroundColor: "#343A40",
-  color: "#C7D72B"
-};
-const housingTableStyle = {
-  width: "36.75vw",
-  backgroundColor: "#C7D72B"
+const aptTableStyle = {
+  width: "39%",
+  backgroundColor: "#CADB30",
+  display: "flex",
+  justifyContent: "center",
+  borderRadius: "5px",
+  alignItems: "center"
 };
 
 export class Home extends Component {
@@ -71,16 +74,27 @@ export class Home extends Component {
                 את סיכויי ההשמה{" "}
               </p>
             </div>
-            <div style={jobTableStyle} />
-            <Link to="/jobs">בשביל הקהילה</Link>
+            <div style={jobTableStyle}>
+              <Link to="/jobs">
+                <Fab variant="extended" color="primary" aria-label="Add">
+                  <NavigationIcon />
+                  ללוח משרות
+                </Fab>
+              </Link>
+            </div>
           </div>
 
-          <div style={housingSectionStyle}>
-            <div style={housingTableStyle}>
-              <Link to="/realEstate">בשביל הקהילה</Link>
+          <div style={jobSectionStyle}>
+            <div style={aptTableStyle}>
+              <Link to="/realEstate">
+                <Fab variant="extended" color="primary" aria-label="Add">
+                  <NavigationIcon />
+                  ללוח דיור
+                </Fab>
+              </Link>
             </div>
 
-            <div style={housingTitleStyle}>
+            <div style={jobTitleStyle}>
               <p>מחפש דירה?</p>
               <p>
                 מרכז הצעירים בנה עבור דורשי העבודה בנגב לוח משרות מגוון ועדכני
