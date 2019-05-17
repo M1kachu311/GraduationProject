@@ -1,12 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import ImagesCarousel from "../simpleComponents/ImagesCarousel";
-import { withStyles } from "@material-ui/core/styles";
-import Button from "@material-ui/core/Button";
-import Fab from "@material-ui/core/Fab";
-import IconButton from "@material-ui/core/IconButton";
-import AddIcon from "@material-ui/icons/Add";
-import DeleteIcon from "@material-ui/icons/Delete";
 import NavigationIcon from "@material-ui/icons/Navigation";
 
 const mainStyle = {
@@ -54,6 +48,11 @@ const aptTableStyle = {
   borderRadius: "5px",
   alignItems: "center"
 };
+const colorBlue = {
+  color: "rgb(99, 174, 164)",
+  textAlign: "center",
+  fontSize: "30px"
+};
 
 export class Home extends Component {
   render() {
@@ -64,7 +63,7 @@ export class Home extends Component {
         <div style={mainStyle}>
           <div style={jobSectionStyle}>
             <div style={jobTitleStyle}>
-              <p>מחפש עבודה?</p>
+              <p style={colorBlue}>מחפש עבודה?</p>
               <p>
                 מרכז הצעירים בנה עבור דורשי העבודה בנגב לוח משרות מגוון ועדכני
               </p>
@@ -75,27 +74,17 @@ export class Home extends Component {
               </p>
             </div>
             <div style={jobTableStyle}>
-              <Link to="/jobs">
-                <Fab variant="extended" color="primary" aria-label="Add">
-                  <NavigationIcon />
-                  ללוח משרות
-                </Fab>
-              </Link>
+              <Link to="/jobs">ללוח משרות</Link>
             </div>
           </div>
 
           <div style={jobSectionStyle}>
             <div style={aptTableStyle}>
-              <Link to="/realEstate">
-                <Fab variant="extended" color="primary" aria-label="Add">
-                  <NavigationIcon />
-                  ללוח דיור
-                </Fab>
-              </Link>
+              <Link to="/realEstate"> ללוח דיור</Link>
             </div>
 
             <div style={jobTitleStyle}>
-              <p>מחפש דירה?</p>
+              <p style={colorBlue}>מחפש דירה?</p>
               <p>
                 מרכז הצעירים בנה עבור דורשי העבודה בנגב לוח משרות מגוון ועדכני
               </p>
