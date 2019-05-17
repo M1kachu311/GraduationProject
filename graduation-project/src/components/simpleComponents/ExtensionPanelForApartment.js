@@ -30,7 +30,6 @@ const jobDetailsStyle = {
 const expandedPanelDisplay = {
   display: "flex",
   justifyContent: "space-beetween",
-  border: "1px solid #C7D72B"
 };
 
 const bold = {
