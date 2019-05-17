@@ -21,7 +21,8 @@ const logoDisplay = {
 const headerDisplay = {
   display: "flex",
   backgroundColor: "#343A40",
-  padding: "10px"
+  padding: "10px",
+  justifyContent: 'center'
 };
 const navContainer = {
   display: "flex",

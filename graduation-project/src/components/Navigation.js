@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import './navigation.css'
 
 const navStyle = {
   display: "flex",
@@ -7,7 +8,7 @@ const navStyle = {
 };
 
 const navElementStyle = {
-  padding: "10px"
+  padding: "30px"
 };
 
 const linkStyle = {
@@ -16,6 +17,7 @@ const linkStyle = {
   cursor: "pointer"
 };
 
+
 export class Navigation extends Component {
   render() {
     return (
@@ -23,42 +25,42 @@ export class Navigation extends Component {
         <ul style={navStyle}>
           <li style={navElementStyle}>
             <Link style={linkStyle} to="/jobs">
-              לוח משרות
+              <p className='hover'>לוח משרות</p>
             </Link>
           </li>
           <li style={navElementStyle}>
             <Link style={linkStyle} to="/realEstate">
-              לוח דיור
+              <p className='hover'>לוח דיור</p>
             </Link>
           </li>
           <li style={navElementStyle}>
             <Link style={linkStyle} to="/about">
-              אודות
+            <p className='hover'>אודות</p>
             </Link>
           </li>
           <li style={navElementStyle}>
             <Link style={linkStyle} to="/page1">
-              מרכז צעירים
+              <p className='hover'>מרכז צעירים</p>
             </Link>
           </li>
           <li style={navElementStyle}>
-            <Link style={linkStyle} to="/page2">
-              התיישבות
+            <Link style={linkStyle}  to="/page2">
+              <p className='hover'>התיישבות</p>
             </Link>
           </li>
           <li style={navElementStyle}>
             <Link style={linkStyle} to="/page3">
-              צמצום פערים
+              <p className='hover'>צמצום פערים</p>
             </Link>
           </li>
           <li style={navElementStyle}>
             <Link style={linkStyle} to="/page4">
-              כולנא
+              <p className='hover'>כולנא</p>
             </Link>
           </li>
           <li style={navElementStyle}>
             <Link style={linkStyle} to="/page5">
-              בשביל הקהילה
+              <p className='hover'>בשביל הקהילה</p>
             </Link>
           </li>
         </ul>
