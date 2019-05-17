@@ -38,7 +38,7 @@ const bold = {
 };
 
 const expansionHeaderStyle = {
-  background: "#43A4BB"
+  background: "#fff"
 };
 
 const pStyle = {

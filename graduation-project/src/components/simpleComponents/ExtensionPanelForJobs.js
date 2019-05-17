@@ -35,7 +35,7 @@ const arrowStyle = {
 const expandedPanelDisplay = {
   display: "flex",
   justifyContent: "space-between",
-  border: "1px solid #C7D72B"
+  backgroundColor: '#EFF6F6'
 };
 
 const pStyle = {
@@ -44,7 +44,7 @@ const pStyle = {
 };
 
 const expansionHeaderStyle = {
-  background: "#43A4BB"
+  background: "#fff"
 };
 
 const expansionPanelStyle = {

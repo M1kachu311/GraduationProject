@@ -9,27 +9,28 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 
 import Input from './Input'
 
-const suggestAJob = 'יש לי משרה!'
-const sendJobText = 'אנא מלאו את השדות ולחצו על שלח'
-const jobName = 'שם המשרה'
-const description = 'תיאור המשרה'
-const type = 'משרה מלאה / חלקית'
-const location = 'מיקום המשרה'
-const senderName = 'שם המעסיק'
-const senderPhone = 'מס׳ טלפון המעסיק'
-const mail = 'כתובת מייל המעסיק'
+const suggestARealEstate = 'יש לי דירה!'
+const suggestText = 'אנא מלאו את השדות ולחצו על שלח'
+const offer = 'השכרה/מכירה'
+const type = 'סוג הנכס'
+const rooms = 'מספר חדרים'
+const floor = 'קומה'
+const address = 'כתובת'
+const price = 'מחיר'
+const description = 'תיאור הנכס'
+const senderName = 'שם בעל הנכס'
+const senderPhone = 'מס׳ טלפון בעל הנכס'
 const cancel = 'בטל'
 const send = 'שלח'
-const Subscribe = 'יש לי משרה'
+const Subscribe = 'יש לי דירה!'
 
 const suggestAJobStyle = {
-    background: '#fff',
-    color: '#0D84A3',
-    border: 'none',
-    width: '120px',
-    margin: '10px',
-    border: '1px solid #0C84A3'
-    // marginBottom: '5px'
+  background: '#fff',
+  color: '#0D84A3',
+  border: 'none',
+  width: '120px',
+  margin: '10px',
+  border: '1px solid #0C84A3'
 }
 
 const inputListStyle = { 
@@ -55,7 +56,7 @@ const cancelButtonStyle = {
     cursor: 'pointer'
 }
 
-export default class IhaveAJobPopUp extends React.Component {
+export default class SugestRealEstate extends React.Component {
   state = {
     open: false,
   };
@@ -73,7 +74,7 @@ export default class IhaveAJobPopUp extends React.Component {
     return (
       <div>
         <Button style={suggestAJobStyle} variant="outlined" color="primary" onClick={this.handleClickOpen}>
-          {suggestAJob}
+          {suggestARealEstate}
         </Button>
         <Dialog
           open={this.state.open}
@@ -84,12 +85,29 @@ export default class IhaveAJobPopUp extends React.Component {
           <form>
             <DialogContent>
               <DialogContentText>
-                {sendJobText}
+                {suggestText}
               </DialogContentText>
                 <div style={inputListStyle}>
                   <div>
                     <Input 
-                      placeholder={location}
+                      placeholder={offer}
+                    />
+                    <Input 
+                      placeholder={type}
+                    />
+                    <Input 
+                      placeholder={rooms}
+                    />
+                    <Input 
+                      placeholder={floor}
+                    />
+                    <Input 
+                      placeholder={price}
+                    />
+                  </div>
+                  <div>
+                    <Input 
+                      placeholder={address}
                     />
                     <Input 
                       placeholder={senderName}
@@ -97,23 +115,12 @@ export default class IhaveAJobPopUp extends React.Component {
                     <Input 
                       placeholder={senderPhone}
                     />
-                    <Input 
-                      placeholder={mail}
-                    />
-                  </div>
-                  <div>
-                    <Input 
-                      placeholder={jobName}
-                    />
                     <TextField
                       style={textFielDescriptionStyle}
                       id="standard-textarea"
                       placeholder={description}
                       multiline
                       margin="normal"
-                    />
-                    <Input 
-                      placeholder={type}
                     />
                   </div>
                 </div>

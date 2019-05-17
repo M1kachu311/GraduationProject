@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 
 import ExtensionPanelListForRealEstate from "../simpleComponents/ExtensionPanelListForRealEstate";
-import IhaveAJobPopUp from "../simpleComponents/IhaveAJobPopUp";
+import SugestRealEstate from "../simpleComponents/SugestRealEstate";
 
 const salleOrRent = "מכירה/השכרה";
 const type = "סוג הנכס";
@@ -13,13 +13,17 @@ const date = "תאריך";
 
 const optionsStyle = {
   display: "flex",
-  justifyContent: "space-around"
+  justifyContent: "space-around",
+  alignItems: 'center',
+  backgroundColor: '#43A4BB'
 };
 
 const mainStyle = {
   width: "90%",
   minHeight: "500px",
-  margin: "20px auto"
+  margin: "20px auto",
+  borderRadius: '5px',
+  boxShadow: '0px 1px 3px 0px rgba(0,0,0,0.2), 0px 1px 1px 0px rgba(0,0,0,0.14), 0px 2px 1px -1px rgba(0,0,0,0.12)'
 };
 
 const optionsTitleStyle = {
@@ -38,7 +42,7 @@ export class RealEstate extends Component {
           <p style={optionsTitleStyle}>{adrdess}</p>
           <p style={optionsTitleStyle}>{price}</p>
           <p style={optionsTitleStyle}>{date}</p>
-          <IhaveAJobPopUp />
+          <SugestRealEstate />
         </div>
         <ExtensionPanelListForRealEstate />
       </div>

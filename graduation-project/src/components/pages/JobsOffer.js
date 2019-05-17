@@ -10,7 +10,9 @@ const location = "מיקום";
 
 const optionsStyle = {
   display: "flex",
-  justifyContent: "space-around"
+  justifyContent: "space-around",
+  alignItems: 'center',
+  backgroundColor: '#43A4BB'
 };
 
 const mainStyle = {
