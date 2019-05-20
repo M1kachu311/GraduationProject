@@ -26,7 +26,7 @@ export class ExtensionPanelListForRealEstate extends Component {
           type={apartment.Type}
           rooms={apartment.Rooms}
           floor={apartment.Floor}
-          address={apartment.Address}
+          address={apartment.Dir}
           city={city}
           price={apartment.Price}
           date={apartment.Date.substring(0, 10)}

@@ -26,12 +26,15 @@ const posRelative = {
 const postABSOLUTE = {
   position: "absolute",
   width: "100%",
-  height: "500px",
+  height: "300px",
   display: "flex",
   justifyContent: "center",
   alignItems: "center",
   zIndex: "3",
-  fontSize: "35px"
+  fontSize: "35px",
+  marginBottom: "200px",
+  color: "#343a40!",
+  textShadow: `white 2px 2px 3px`
 };
 // const ImgStyle3 = {
 //   width: "100%",
@@ -42,7 +45,7 @@ const postABSOLUTE = {
 // };
 export class ImagesCarousel extends Component {
   render() {
-    var settings = {
+    const settings = {
       dots: false,
       infinite: true,
       speed: 2500,
