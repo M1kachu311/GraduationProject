@@ -7,7 +7,7 @@ import Footer from "./components/Footer";
 import Home from "./components/pages/Home";
 import About from "./components/pages/About";
 import JobsOffer from "./components/pages/JobsOffer";
-import RealEstate from './components/pages/RealEstate';
+import RealEstate from "./components/pages/RealEstate";
 import YouthCenter from "./components/pages/YouthCenter";
 import Settlement from "./components/pages/Settlement";
 import ReducingGaps from "./components/pages/ReducingGaps";

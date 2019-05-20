@@ -59,7 +59,7 @@ const inputStyle = {
 };
 
 const buttonStyle = {
-  backgroundColor: "#0D84A3",
+  backgroundColor: "#C7D72B",
   border: "1px solid #0D84A3",
   borderRadius: "5px",
   width: "10vw",

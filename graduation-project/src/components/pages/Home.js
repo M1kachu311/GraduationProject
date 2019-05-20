@@ -28,7 +28,7 @@ const jobTitleStyle = {
   backgroundColor: "#FFF",
   color: "rgb(52, 58, 64)",
   fontSize: "20px",
-  border: "2px solid rgb(99, 174, 164)",
+  border: "1px solid rgb(99, 174, 164)",
   borderRadius: "5px",
   padding: "40px",
   boxSizing: "border-box",
@@ -62,10 +62,13 @@ const aptTableStyle = {
 const colorBlue = {
   color: "rgb(99, 174, 164)",
   textAlign: "center",
-  fontSize: "30px"
+  fontSize: "30px",
+  margin: "10px"
 };
 const marginBtn = {
-  margin: "20px"
+  margin: "20px",
+  border: " 1px solid rgb(99, 174, 164)",
+  color: "  rgb(99, 174, 164)"
 };
 export class Home extends Component {
   render() {
