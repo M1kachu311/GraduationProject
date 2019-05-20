@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import Typography from '@material-ui/core/Typography'
 import Divider from '@material-ui/core/Divider'
 import Button from '@material-ui/core/Button'
+import { Link } from "react-router-dom";
 
 const buttonActionTitle = 'קישור ללוח '
 
@@ -72,9 +73,6 @@ const sendButtonStyle = {
 
 export class CategoriesContainer extends Component {
 
-    componentDidMount() {
-        console.log(this.props)
-    }
     render() {
     return (
         <div style={mainStyle}>
@@ -110,10 +108,17 @@ export class CategoriesContainer extends Component {
                             </div>
                         </div>
                         <Button 
-                            onClick={this.handleClose} 
+                             
                             style={sendButtonStyle}
                         >
-                        {`${buttonActionTitle} ${this.props.title}`}
+                        <Link 
+                            to={{
+                                pathname: '/posts',
+                                state: {title: this.props.title, id: this.props.id}
+                            }}
+                        >
+                            {`${buttonActionTitle} ${this.props.title}`}
+                        </Link>
                         </Button>
                     </div>
                 </div>

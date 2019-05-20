@@ -55,6 +55,7 @@ export class ForTheCommunity extends Component {
       return (
         <CategoriesContainer
 			key={info.ID}
+			id={info.ID}
 			title={info.Name}
 			content={info.Description}
 			alt={altText}
