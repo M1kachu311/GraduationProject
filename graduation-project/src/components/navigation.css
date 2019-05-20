@@ -1,5 +1,4 @@
 .hover:hover {
     color: #63AEA4;
-    border-bottom: 1px solid #63AEA4;
     transition: 0.3s;
 }

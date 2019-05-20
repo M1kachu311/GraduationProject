@@ -65,7 +65,8 @@ const buttonStyle = {
   width: "10vw",
   color: "white",
   padding: "10px",
-  margin: "5px"
+  margin: "5px",
+  cursor: "pointer"
 };
 const center = {
   textAlign: "center"

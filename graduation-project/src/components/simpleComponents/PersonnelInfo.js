@@ -1,23 +1,31 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import Paper from "@material-ui/core/Paper";
+import Slider from "react-slick";
 
 import AvatarComp from "./AvatarComp";
 
 const titlesStyle = {
   display: "flex",
-  flexDirection: "column"
+  flexDirection: "column",
+  textAlign: "center",
+  padding: "20px"
 };
 
 const paperStyle = {
-  display: "flex"
+  display: "flex",
+  flexDirection: "column",
+  alignItems: "center"
 };
 
-const titles = {
-  name: "שם: ",
-  title: "תפקיד: ",
-  phone: "טלפון: ",
-  email: "דוא״ל: "
+const settings = {
+  dots: false,
+  infinite: true,
+  speed: 2500,
+  slidesToShow: 3,
+  slidesToScroll: 1,
+  autoplay: true,
+  autoplaySpeed: 2000
 };
 
 export class PersonnelInfo extends Component {
@@ -34,35 +42,22 @@ export class PersonnelInfo extends Component {
   }
 
   render() {
-    return this.state.data.map(person => {
+    const carouselData = this.state.data.map(person => {
       return (
         <div key={person.ID}>
           <Paper elevation={1} style={paperStyle}>
             <AvatarComp img={person.Image} />
             <div style={titlesStyle}>
-              <p>
-                {titles.name}
-                {person.Name}
-              </p>
-              <p>
-                {titles.title}
-                {person.Title}
-              </p>
-            </div>
-            <div style={titlesStyle}>
-              <p>
-                {titles.phone}
-                {person.Phone}
-              </p>
-              <p>
-                {titles.email}
-                {person.Email}
-              </p>
+              <p>{person.Name}</p>
+              <p>{person.Title}</p>
+              <p>{person.Phone}</p>
+              <p>{person.Email}</p>
             </div>
           </Paper>
         </div>
       );
     });
+    return <Slider {...settings}>{carouselData}</Slider>;
   }
 }
 
