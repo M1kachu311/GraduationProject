@@ -39,27 +39,27 @@ export class Navigation extends Component {
             </Link>
           </li>
           <li style={navElementStyle}>
-            <Link style={linkStyle} to="/page1">
+            <Link style={linkStyle} to="/youthCenter">
               <p className='hover'>מרכז צעירים</p>
             </Link>
           </li>
           <li style={navElementStyle}>
-            <Link style={linkStyle}  to="/page2">
+            <Link style={linkStyle}  to="/settlement">
               <p className='hover'>התיישבות</p>
             </Link>
           </li>
           <li style={navElementStyle}>
-            <Link style={linkStyle} to="/page3">
+            <Link style={linkStyle} to="/reducingGaps">
               <p className='hover'>צמצום פערים</p>
             </Link>
           </li>
           <li style={navElementStyle}>
-            <Link style={linkStyle} to="/page4">
+            <Link style={linkStyle} to="/kolna">
               <p className='hover'>כולנא</p>
             </Link>
           </li>
           <li style={navElementStyle}>
-            <Link style={linkStyle} to="/page5">
+            <Link style={linkStyle} to="/forTheCommunity">
               <p className='hover'>בשביל הקהילה</p>
             </Link>
           </li>
