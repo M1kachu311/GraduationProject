@@ -14,23 +14,27 @@ import ReducingGaps from "./components/pages/ReducingGaps";
 import kolna from "./components/pages/kolna";
 import ForTheCommunity from "./components/pages/ForTheCommunity";
 import Posts from "./components/pages/Posts";
-
+const mainContiner = {
+  minHeight: "500px"
+};
 export class App extends Component {
   render() {
     return (
       <Router>
         <div>
           <Header />
-          <Route exact path="/" component={Home} />
-          <Route path="/about" component={About} />
-          <Route path="/jobs" component={JobsOffer} />
-          <Route path="/realEstate" component={RealEstate} />
-          <Route path="/youthCenter" component={YouthCenter} />
-          <Route path="/settlement" component={Settlement} />
-          <Route path="/reducingGaps" component={ReducingGaps} />
-          <Route path="/kolna" component={kolna} />
-          <Route path="/forTheCommunity" component={ForTheCommunity} />
-          <Route path="/posts/category/:categoryId" component={Posts} />
+          <div style={mainContiner}>
+            <Route exact path="/" component={Home} />
+            <Route path="/about" component={About} />
+            <Route path="/jobs" component={JobsOffer} />
+            <Route path="/realEstate" component={RealEstate} />
+            <Route path="/youthCenter" component={YouthCenter} />
+            <Route path="/settlement" component={Settlement} />
+            <Route path="/reducingGaps" component={ReducingGaps} />
+            <Route path="/kolna" component={kolna} />
+            <Route path="/forTheCommunity" component={ForTheCommunity} />
+            <Route path="/posts/category/:categoryId" component={Posts} />
+          </div>
           <Footer />
         </div>
       </Router>

@@ -22,4 +22,5 @@ app.use("/personnel", require("./routes/personnel"));
 app.use("/mainpersonnel", require("./routes/mainpersonnel"));
 app.use("/nav", require("./routes/nav"));
 app.use("/mail", require("./routes/mail"));
+app.use("/images", require("./routes/images"));
 app.listen(port, () => console.log(`API listening on port ${port}!`));

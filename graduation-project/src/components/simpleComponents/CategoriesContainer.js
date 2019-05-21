@@ -125,8 +125,7 @@ export class CategoriesContainer extends Component {
                       <b style={bold}>שם:</b> {this.state.data[0].Name}
                     </Typography>
                     <Typography style={textStyle} component="p">
-                      <b style={bold}>תפקיד:</b>{" "}
-                      {this.state.data[0].Description}
+                      <b style={bold}>תפקיד:</b> {this.state.data[0].Title}
                     </Typography>
                   </div>
                   <div>
