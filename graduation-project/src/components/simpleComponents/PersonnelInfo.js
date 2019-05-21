@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import PropTypes from "prop-types";
 import Paper from "@material-ui/core/Paper";
 import Slider from "react-slick";
 
@@ -60,9 +59,5 @@ export class PersonnelInfo extends Component {
     return <Slider {...settings}>{carouselData}</Slider>;
   }
 }
-
-PersonnelInfo.propTypes = {
-  classes: PropTypes.object.isRequired
-};
 
 export default PersonnelInfo;

@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import Typography from "@material-ui/core/Typography";
 import Divider from "@material-ui/core/Divider";
 import Button from "@material-ui/core/Button";
+import { Link } from "react-router-dom";
+
 const buttonActionTitle = "קישור ללוח ";
 
 const mainStyle = {
@@ -73,6 +75,10 @@ const imgStyle = {
 const bold = {
   color: "#0D84A3"
 };
+const linkStyle = {
+  textDecoration: "none",
+  color: "#fff"
+};
 
 export class CategoriesContainer extends Component {
   componentDidMount() {
@@ -91,6 +97,7 @@ export class CategoriesContainer extends Component {
       { Image: "", Name: "", Description: "", Phone: "", Email: "", ID: false }
     ]
   };
+  linkHref = `/posts/category/${this.props.id}`;
   render() {
     return (
       <div style={mainStyle}>
@@ -135,8 +142,10 @@ export class CategoriesContainer extends Component {
                 <div style={innerJHDetailsStyle} />
               )}
 
-              <Button onClick={this.handleClose} style={sendButtonStyle}>
-                {`${buttonActionTitle} ${this.props.title}`}
+              <Button style={sendButtonStyle}>
+                <Link to={this.linkHref} style={linkStyle}>
+                  {`${buttonActionTitle} ${this.props.title}`}
+                </Link>
               </Button>
             </div>
           </div>
