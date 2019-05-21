@@ -55,7 +55,7 @@ export class ImagesCarousel extends Component {
       autoplaySpeed: 4000
     };
     return (
-      <div div style={posRelative}>
+      <div style={posRelative}>
         <div style={postABSOLUTE}>
           <h1>משהו טוב קורה פה...</h1>
         </div>

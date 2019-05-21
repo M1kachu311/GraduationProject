@@ -216,17 +216,17 @@ export default class SendCVPopUp extends React.Component {
   };
 
   handleSubmit = event => {
-    var url = "http://127.0.0.1:3002/mail";
-    var formData = new FormData();
-    for (var name in data) {
-      formData.append(name, data[name]);
-    }
-    var data = {
+    let url = "http://127.0.0.1:3002/mail";
+    let formData = new FormData();
+    let data = {
       name: this.state.name,
       email: this.state.email,
       phone: this.state.phone,
       id: this.state.id
     };
+    for (let name in data) {
+      formData.append(name, data[name]);
+    }
     console.log(data);
 
     fetch(url, {

@@ -4,7 +4,6 @@ import { withStyles } from "@material-ui/core/styles";
 import ExpansionPanel from "@material-ui/core/ExpansionPanel";
 import ExpansionPanelDetails from "@material-ui/core/ExpansionPanelDetails";
 import ExpansionPanelSummary from "@material-ui/core/ExpansionPanelSummary";
-import Typography from "@material-ui/core/Typography";
 
 const styles = theme => ({
   root: {
@@ -29,7 +28,7 @@ const jobDetailsStyle = {
 
 const expandedPanelDisplay = {
   display: "flex",
-  justifyContent: "space-beetween",
+  justifyContent: "space-beetween"
 };
 
 const bold = {
@@ -84,7 +83,7 @@ class ExpansionPanelForApartment extends React.Component {
             </div>
           </ExpansionPanelSummary>
           <ExpansionPanelDetails style={expandedPanelDisplay}>
-            <Typography>
+            <div>
               <p>
                 <b style={bold}>כתובת: </b>
                 {this.props.address}
@@ -101,7 +100,7 @@ class ExpansionPanelForApartment extends React.Component {
                 <b style={bold}>מספר טלפון בעל הנכס: </b>
                 {this.props.phone}
               </p>
-            </Typography>
+            </div>
           </ExpansionPanelDetails>
         </ExpansionPanel>
       </div>
