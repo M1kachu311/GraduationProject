@@ -15,6 +15,7 @@ var myWidget = cloudinary.createUploadWidget(
         turl: result.info.thumbnail_url,
         surl: result.info.secure_url,
         name: result.info.original_filename,
+        pid: result.info.public_id,
         key: key
       };
       console.log(newImg);
@@ -78,7 +79,8 @@ fetch(`${apiURL}${path}`)
         let data = {
           key: key,
           name: args.item.Name,
-          id: args.item.ID
+          id: args.item.ID,
+          pid: args.item.PID
         };
         console.log(args.item);
         let url = `${apiURL}${path}`;
