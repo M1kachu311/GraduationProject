@@ -5,7 +5,7 @@ import Avatar from "@material-ui/core/Avatar";
 
 const styles = {
   bigAvatar: {
-    margin: "10 auto",
+    padding: "15px",
     width: 200,
     height: 200
   }

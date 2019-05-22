@@ -4,10 +4,10 @@ function getimages(callback) {
   let query = "SELECT * FROM `images` ORDER BY ID DESC;";
   db.runQuery(query, [], callback);
 }
-function uploadimage(url, turl, surl, name, callback) {
+function uploadimage(url, turl, surl, name, pid, callback) {
   let query =
-    "INSERT INTO `images` (`URL`,`TURL`,`SURL`,`Name`) VALUES(?,?,?,?);";
-  db.runQuery(query, [url, turl, surl, name], callback);
+    "INSERT INTO `images` (`URL`,`TURL`,`SURL`,`Name`,`PID`) VALUES(?,?,?,?,?);";
+  db.runQuery(query, [url, turl, surl, name, pid], callback);
 }
 function deleteimage(id, callback) {
   let query = "DELETE FROM images WHERE ID=?";
