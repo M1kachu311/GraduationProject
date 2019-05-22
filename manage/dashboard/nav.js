@@ -39,6 +39,9 @@ fetch(`${apiURL}/nav`)
       if (pageTitle == "mainpersonnel") {
         $(".navitem10").css("border-bottom", "1px solid white");
       }
+      if (pageTitle == "images") {
+        $(".navitem11").css("border-bottom", "1px solid white");
+      }
     }
   })
   .catch(err => console.log(err));

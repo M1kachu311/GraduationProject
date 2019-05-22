@@ -48,6 +48,7 @@ app.use("/dashboard/categories", ensureContent);
 app.use("/dashboard/posts", ensureContent);
 app.use("/dashboard/personnel", ensureContent);
 app.use("/dashboard/mainpersonnel", ensureContent);
+app.use("/dashboard/images", ensureContent);
 app.use("/dashboard", express.static(path.join(__dirname, "dashboard")));
 
 app.post("/login", (req, res, next) => {

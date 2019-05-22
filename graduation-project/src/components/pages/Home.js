@@ -95,14 +95,14 @@ export class Home extends Component {
               </Link>
             </div>
             <div style={imgContainer}>
-              <img style={jobTableStyle} src={jobImg} />
+              <img style={jobTableStyle} src={jobImg} alt="job" />
             </div>
           </div>
 
           <div style={jobSectionStyle}>
             <div style={imgContainer}>
               {" "}
-              <img style={aptTableStyle} src={aptImg} />
+              <img style={aptTableStyle} src={aptImg} alt="apartment " />
             </div>
             <div style={jobTitleStyle}>
               <p style={colorBlue}>רוצה לגור בירוחם?</p>
