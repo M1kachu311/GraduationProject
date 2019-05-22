@@ -68,7 +68,8 @@ const sendButtonStyle = {
     border: 'none',
     height: '35px',
     cursor: 'pointer',
-    margin: '40px'
+    margin: '40px',
+    textDecoration: 'none'
 }
 
 export class CategoriesContainer extends Component {
