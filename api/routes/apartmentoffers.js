@@ -10,7 +10,7 @@ router.get("/", (req, res) => {
     if (err) {
       res.status(500).send(err);
     } else {
-      res.send(data);
+      res.status(200).send(data);
     }
   });
 });
@@ -20,7 +20,7 @@ router.get("/count", (req, res) => {
     if (err) {
       res.status(500).send(err);
     } else {
-      res.send(data);
+      res.status(200).send(data);
     }
   });
 });
@@ -62,7 +62,7 @@ router.post("/", (req, res) => {
         if (err) {
           res.status(500).send({ error: err.code });
         } else {
-          res.send({
+          res.status(200).send({
             message: `apartment offer uploaded successfully with id of ${
               data.insertId
             }`
@@ -121,7 +121,7 @@ router.put("/", (req, res) => {
               .status(500)
               .send({ error: `no apartment offer with id of ${req.body.id}` });
           } else {
-            res.send({
+            res.status(200).send({
               message: `apartment offer with id of ${
                 req.body.id
               } updated successfuly`
@@ -148,7 +148,7 @@ router.delete("/", (req, res) => {
         if (err) {
           res.status(500).send({ error: err.code });
         } else {
-          res.send({
+          res.status(200).send({
             message: `apartment offer with id of ${
               req.body.id
             } deleted successfuly`
@@ -200,7 +200,7 @@ router.delete("/", (req, res) => {
                 if (err) {
                   res.status(500).send({ error: err.code });
                 } else {
-                  res.send({
+                  res.status(200).send({
                     message: `apartment uploaded successfuly with id of ${NEWID}`
                   });
                 }

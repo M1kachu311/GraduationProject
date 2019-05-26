@@ -33,10 +33,10 @@ app.use(flash());
 const PORT = process.env.PORT || 3001;
 
 app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "./public/index.html"));
+  res.status(200).sendFile(path.join(__dirname, "./public/index.html"));
 });
 app.get("/nope", (req, res) => {
-  res.sendFile(path.join(__dirname, "./dashboard/index2.html"));
+  res.status(200).sendFile(path.join(__dirname, "./dashboard/index2.html"));
 });
 
 app.use("/dashboard", ensureAuthenticated);

@@ -52,7 +52,11 @@ export class ImagesCarousel extends Component {
       slidesToShow: 1,
       slidesToScroll: 1,
       autoplay: true,
-      autoplaySpeed: 5000
+      autoplaySpeed: 5000,
+      draggable: false,
+      swipeToSlide: false,
+      touchMove: false,
+      swipe: false
     };
     return (
       <div style={posRelative}>

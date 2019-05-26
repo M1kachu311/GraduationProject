@@ -8,7 +8,7 @@ router.get("/", (req, res) => {
     if (err) {
       res.status(500).send(err);
     } else {
-      res.send(data);
+      res.status(200).send(data);
     }
   });
 });
@@ -39,7 +39,7 @@ router.post("/", (req, res) => {
         if (err) {
           res.status(500).send({ error: err.code });
         } else {
-          res.send({
+          res.status(200).send({
             message: `mainperson uploaded successfully with id of ${
               data.insertId
             }`
@@ -62,7 +62,7 @@ router.delete("/", (req, res) => {
       if (err) {
         res.status(500).send({ error: err.code });
       } else {
-        res.send({
+        res.status(200).send({
           msg: `mainperson with id of ${req.body.id} deleted successfully`
         });
       }
@@ -104,7 +104,7 @@ router.put("/", (req, res) => {
               .status(500)
               .send({ error: `no mainperson with id of ${req.body.id}` });
           } else {
-            res.send({
+            res.status(200).send({
               message: `mainperson with id of ${
                 req.body.id
               } updated successfuly`

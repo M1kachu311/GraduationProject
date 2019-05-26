@@ -24,7 +24,11 @@ const settings = {
   slidesToShow: 4,
   slidesToScroll: 1,
   autoplay: true,
-  autoplaySpeed: 200
+  autoplaySpeed: 200,
+  draggable: false,
+  swipeToSlide: false,
+  touchMove: false,
+  swipe: false
 };
 
 export class PersonnelInfo extends Component {

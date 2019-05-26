@@ -8,7 +8,7 @@ router.get("/", (req, res) => {
     if (err) {
       res.status(500).send(err);
     } else {
-      res.send(data);
+      res.status(200).send(data);
     }
   });
 });
@@ -24,7 +24,7 @@ router.get("/category/:id", (req, res) => {
       if (err) {
         res.status(500).send(err);
       } else {
-        res.send(data);
+        res.status(200).send(data);
       }
     });
   }
@@ -58,7 +58,7 @@ router.post("/", (req, res) => {
         if (err) {
           res.status(500).send({ error: err.code });
         } else {
-          res.send({
+          res.status(200).send({
             message: `personnel uploaded successfully with id of ${
               data.insertId
             }`
@@ -86,7 +86,7 @@ router.delete("/", (req, res) => {
             .status(500)
             .send({ error: `no personnel with id of ${req.body.id}` });
         } else {
-          res.send({
+          res.status(200).send({
             message: `personnel with id of ${req.body.id} deleted successfuly`
           });
         }
@@ -131,7 +131,7 @@ router.put("/", (req, res) => {
               .status(500)
               .send({ error: `no personnel with id of ${req.body.id}` });
           } else {
-            res.send({
+            res.status(200).send({
               message: `personnel with id of ${req.body.id} updated successfuly`
             });
           }
