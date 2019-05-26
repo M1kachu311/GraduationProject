@@ -73,8 +73,19 @@ const imgStyle = {
   margin: "10px"
 };
 const bold = {
-  color: "#0D84A3"
+    color: "#0D84A3"
+}
+
+const sendButtonStyle = {
+    background: '#0D84A3',
+    color: '#fff',
+    border: 'none',
+    height: '35px',
+    cursor: 'pointer',
+    margin: '40px',
+    textDecoration: 'none'
 };
+
 const linkStyle = {
   textDecoration: "none",
   color: "#fff"
