@@ -47,11 +47,10 @@ fetch(`${apiURL}${imagePath}`)
                 {
                   name: "Image",
                   type: "select",
-                  items: images,
+                  items: [{ URL: "", Name: "" }, ...images],
                   valueField: "URL",
                   textField: "Name",
                   width: 40,
-                  validate: "required",
                   title: "תמונה"
                 },
                 {

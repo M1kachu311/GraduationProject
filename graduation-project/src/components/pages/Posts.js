@@ -44,7 +44,7 @@ export class Posts extends Component {
   render() {
     return (
       <div style={mainStyle}>
-        <Typography style={titleStyle} variant="h5" component="h3">
+        <Typography style={titleStyle} variant="h3" component="h3">
           {this.state.title}
         </Typography>
         <Divider variant="middle" />

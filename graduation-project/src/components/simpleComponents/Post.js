@@ -1,26 +1,43 @@
 import React, { Component } from "react";
 import Typography from "@material-ui/core/Typography";
+import Divider from "@material-ui/core/Divider";
 
 const contentStyle = {
-  display: "flex",
-  justifyContent: "center",
-  padding: "0 20px 20px 20px"
+  padding: "0 20px 20px 20px",
+  width: "95%"
 };
 
 const imageStyle = {
-  width: "100px",
-  height: "100px"
+  maxWidth: "100%",
+  height: "auto",
+  objectFit: "contain",
+  marginLeft: "auto",
+  marginRight: "auto",
+  display: "block",
+  marginBottom: "10px"
 };
-
+const dividerStyle = {
+  margin: "20px 0"
+};
+const imgContainer = {
+  maxWidth: "50%",
+  minWidth: "10%",
+  height: "auto",
+  float: "left",
+  margin: "0 10px",
+  display: "inline-block"
+};
 const subTitle = {
-  padding: "10px 20px"
+  padding: "10px 20px",
+  color: "rgb(12, 132, 163)"
 };
 const mainStyle = {
   display: "flex",
   flexDirection: "column",
-  width: "90%",
-  margin: "20px auto",
+  width: "95%",
+  margin: "10px auto",
   borderRadius: "5px",
+  background: "#FFF",
   boxShadow:
     "0px 1px 3px 0px rgba(0,0,0,0.2), 0px 1px 1px 0px rgba(0,0,0,0.14), 0px 2px 1px -1px rgba(0,0,0,0.12)"
 };
@@ -54,16 +71,23 @@ export class Post extends Component {
       return (
         <div key={post.ID}>
           <div style={mainStyle}>
-            <Typography style={subTitle} variant="h5" component="h3">
+            <Typography style={subTitle} variant="h4">
               {post.Name}{" "}
             </Typography>
+            <Divider style={dividerStyle} variant="middle" />
             <div style={contentStyle}>
-              <Typography component="p">{post.Description}</Typography>
               {post.Image ? (
-                <img style={imageStyle} alt="post" src={post.Image} />
+                <div style={imgContainer}>
+                  {" "}
+                  <a target="__blank" href={post.Image}>
+                    {" "}
+                    <img style={imageStyle} alt="post" src={post.Image} />
+                  </a>
+                </div>
               ) : (
                 " "
               )}
+              <Typography variant="h6">{post.Description}</Typography>
             </div>
           </div>
         </div>

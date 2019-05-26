@@ -3,6 +3,7 @@ import { withStyles } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
 import PersonnelInfo from "./PersonnelInfo";
+import Divider from "@material-ui/core/Divider";
 
 const styles = theme => ({
   root: {
@@ -24,6 +25,9 @@ const headingStyle = {
   textAlign: "center",
   padding: "20px"
 };
+const dividerStyle = {
+  margin: "20px 0"
+};
 
 const personnelTitle = "נושאי תפקידים";
 
@@ -38,6 +42,8 @@ export class PersonnelDataPaperSheet extends Component {
           <Typography variant="h5" component="h2" style={headingStyle}>
             {personnelTitle}
           </Typography>
+          <Divider style={dividerStyle} variant="middle" />
+
           <PersonnelInfo />
         </Paper>
       </div>
