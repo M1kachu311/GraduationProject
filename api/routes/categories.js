@@ -13,6 +13,20 @@ router.get("/", (req, res) => {
   });
 });
 
+router.get("/single/:id", (req, res) => {
+  if (typeof req.params.id == "undefined" || typeof req.params.id == "") {
+    res.status(400).send({ msg: "bad request" });
+  } else {
+    categoriesFunction.getcategorybyid(req.params.id, function(err, data) {
+      if (err) {
+        res.status(500).send(err);
+      } else {
+        res.send(data);
+      }
+    });
+  }
+});
+
 router.get("/category/:id", (req, res) => {
   if (typeof req.params.id == "undefined" || typeof req.params.id == "") {
     res.status(400).send({ msg: "bad request" });

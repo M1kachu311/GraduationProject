@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Typography from "@material-ui/core/Typography";
+import Post from "../simpleComponents/Post.js";
 import Divider from "@material-ui/core/Divider";
 
 const mainStyle = {
@@ -20,55 +21,34 @@ const titleStyle = {
   borderTopRightRadius: "5px"
 };
 
-const contentStyle = {
-  display: "flex",
-  justifyContent: "center",
-  padding: "0 20px 20px 20px"
-};
-
-const imageStyle = {
-  width: "100px",
-  height: "100px"
-};
-
-const subTitle = {
-  padding: "10px 20px"
-};
-
 export class Posts extends Component {
   componentDidMount() {
-    console.log(this.props.match.params.categoryId);
+    fetch(
+      `http://127.0.0.1:3002/categories/single/${
+        this.props.match.params.categoryId
+      }`
+    )
+      .then(function(response) {
+        return response.json();
+      })
+      .then(myJson => {
+        if (myJson.length === 0) {
+          this.setState({ title: "" });
+        } else {
+          this.setState({ title: myJson[0].Name });
+        }
+      });
   }
+
+  state = { title: "" };
   render() {
     return (
       <div style={mainStyle}>
         <Typography style={titleStyle} variant="h5" component="h3">
-          כותרת
+          {this.state.title}
         </Typography>
         <Divider variant="middle" />
-        <div style={mainStyle}>
-          <Typography style={subTitle} variant="h5" component="h3">
-            עוד כותרת
-          </Typography>
-          <div style={contentStyle}>
-            <Typography component="p">
-              דע ךלדחגכךדלחג גהיכגהךלדחי דגחלכי ךלדגכילח ילחגיכנלח י לחידכלחי
-              לחגכילחילבחה ילי דע ךלדחגכךדלחג גהיכגהךלדחי דגחלכי ךלדגכילח
-              ילחגיכנלח י לחידכלחי לחגכילחילבחה ילי דע ךלדחגכךדלחג גהיכגהךלדחי
-              דגחלכי ךלדגכילח ילחגיכנלח י לחידכלחי לחגכילחילבחה ילי דע
-              ךלדחגכךדלחג גהיכגהךלדחי דגחלכי ךלדגכילח ילחגיכנלח י לחידכלחי
-              לחגכילחילבחה ילי דע ךלדחגכךדלחג גהיכגהךלדחי דגחלכי ךלדגכילח
-              ילחגיכנלח י לחידכלחי לחגכילחילבחה ילי דע ךלדחגכךדלחג גהיכגהךלדחי
-              דגחלכי ךלדגכילח ילחגיכנלח י לחידכלחי לחגכילחילבחה ילי ךלח יעוד
-              כותרת
-            </Typography>
-            <img
-              style={imageStyle}
-              alt="post"
-              src="https://images.pexels.com/photos/2289236/pexels-photo-2289236.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
-            />
-          </div>
-        </div>
+        <Post id={this.props.match.params.categoryId} />
       </div>
     );
   }

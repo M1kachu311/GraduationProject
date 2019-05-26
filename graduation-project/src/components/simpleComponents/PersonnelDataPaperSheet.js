@@ -14,7 +14,7 @@ const styles = theme => ({
 
 const paperSheetStyle = {
   width: "85%",
-  margin: "0 auto 20px auto"
+  margin: "0 auto 50px auto"
 };
 
 const PersonnelDataPaperSheetStyle = {

@@ -140,12 +140,11 @@ export class CategoriesContainer extends Component {
               ) : (
                 <div style={innerJHDetailsStyle} />
               )}
-
-              <Button style={sendButtonStyle}>
-                <Link to={this.linkHref} style={linkStyle}>
+              <Link to={this.linkHref} style={linkStyle}>
+                <Button style={sendButtonStyle}>
                   {`${buttonActionTitle} ${this.props.title}`}
-                </Link>
-              </Button>
+                </Button>
+              </Link>
             </div>
           </div>
         </div>

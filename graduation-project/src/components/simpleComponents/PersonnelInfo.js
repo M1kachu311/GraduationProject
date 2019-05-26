@@ -18,13 +18,13 @@ const paperStyle = {
 };
 
 const settings = {
-  dots: false,
+  dots: true,
   infinite: true,
-  speed: 2500,
+  speed: 2000,
   slidesToShow: 4,
   slidesToScroll: 1,
   autoplay: true,
-  autoplaySpeed: 2000
+  autoplaySpeed: 200
 };
 
 export class PersonnelInfo extends Component {
