@@ -8,6 +8,21 @@ const iconColor = {
   color: '#CADB30'
 }
 
+const linkStyle = {
+  display: 'flex',
+  padding: '10px',
+  textDecoration: "none",
+  color: '#fff',
+}
+
+const menuStyle = {
+  background: '#343A40'
+}
+
+const iconStyle = {
+  marginLeft: '10px'
+}
+
 
 const TemporaryDrawer = () => {
   const [state, setState] = React.useState({
@@ -28,29 +43,37 @@ const TemporaryDrawer = () => {
       onClick={toggleDrawer(side, false)}
       onKeyDown={toggleDrawer(side, false)}
     >
-      <div>
-        <Link to="/about">
+      <div style={menuStyle}>
+        <Link to="/about" style={linkStyle}>
+          <i class="far fa-address-card" style={iconStyle}></i>
           <p className="hover">אודות</p>
         </Link>
-        <Link  to="/jobs">
+        <Link  to="/jobs" style={linkStyle}>
+          <i class="fas fa-briefcase" style={iconStyle}></i>
           <p className="hover">לוח משרות</p>
         </Link>
-        <Link  to="/realEstate">
+        <Link  to="/realEstate" style={linkStyle}>
+          <i class="far fa-building" style={iconStyle}></i>
           <p className="hover">לוח דיור</p>
         </Link>
-        <Link  to="/youthCenter">
+        <Link  to="/youthCenter" style={linkStyle}>
+          <i class="fas fa-child" style={iconStyle}></i>
           <p className="hover">מרכז צעירים</p>
         </Link>
-        <Link  to="/settlement">
+        <Link  to="/settlement" style={linkStyle}>
+          <i class="fas fa-home" style={iconStyle}></i>
           <p className="hover">התיישבות</p>
         </Link>
-        <Link  to="/reducingGaps">
+        <Link  to="/reducingGaps" style={linkStyle}>
+          <i class="fas fa-users" style={iconStyle}></i>
           <p className="hover">צמצום פערים</p>
         </Link>
-        <Link to="/kolna">
+        <Link to="/kolna" style={linkStyle}>
+          <i class="fas fa-guitar" style={iconStyle}></i>
           <p className="hover">כולנא</p>
         </Link>
-        <Link to="/forTheCommunity">
+        <Link to="/forTheCommunity" style={linkStyle}>
+          <i class="fas fa-people-carry" style={iconStyle}></i>
           <p className="hover">בשביל הקהילה</p>
         </Link>
       </div>
