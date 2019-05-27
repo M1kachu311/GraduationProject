@@ -82,7 +82,7 @@ router.post("/", upload.single("file"), (req, res) => {
             if (err) throw err;
             console.log("file uploaded and deleted successfuly");
           });
-          res.send({ msg: info.messageId, status: true });
+          res.status(200).send({ msg: info.messageId, status: true });
         }
         main().catch(err => {
           res.status(500).send({ msg: err, status: false });
@@ -125,7 +125,7 @@ router.post("/contact", (req, res) => {
 
     `
       });
-      res.send({ msg: info.messageId, status: true });
+      res.status(200).send({ msg: info.messageId, status: true });
     }
     main().catch(err => {
       res.status(500).send({ msg: err, status: false });

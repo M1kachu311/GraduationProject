@@ -14,7 +14,7 @@ router.get("/", (req, res) => {
     if (err) {
       res.status(500).send(err);
     } else {
-      res.send(data);
+      res.status(200).send(data);
     }
   });
 });
@@ -45,7 +45,7 @@ router.post("/", (req, res) => {
         if (err) {
           res.status(500).send({ error: err.code });
         } else {
-          res.send({
+          res.status(200).send({
             message: `image uploaded successfully with id of ${data.insertId}`
           });
         }
@@ -72,7 +72,7 @@ router.delete("/", (req, res) => {
           res.status(500).send({ error: `no image with id of ${req.body.id}` });
         } else {
           cloudinary.v2.uploader.destroy(req.body.pid, function(error, result) {
-            res.send({
+            res.status(200).send({
               message: `image with id of ${req.body.id} deleted successfuly`
             });
           });
@@ -99,7 +99,7 @@ router.put("/", (req, res) => {
         if (data.affectedRows == 0) {
           res.status(500).send({ error: `no image with id of ${req.body.id}` });
         } else {
-          res.send({
+          res.status(200).send({
             message: `image with id of ${req.body.id} updated successfuly`
           });
         }

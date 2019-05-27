@@ -76,16 +76,6 @@ const bold = {
     color: "#0D84A3"
 }
 
-// const sendButtonStyle = {
-//     background: '#0D84A3',
-//     color: '#fff',
-//     border: 'none',
-//     height: '35px',
-//     cursor: 'pointer',
-//     margin: '40px',
-//     textDecoration: 'none'
-// };
-
 const linkStyle = {
   textDecoration: "none",
   color: "#fff"
@@ -151,12 +141,11 @@ export class CategoriesContainer extends Component {
               ) : (
                 <div style={innerJHDetailsStyle} />
               )}
-
-              <Button style={sendButtonStyle}>
-                <Link to={this.linkHref} style={linkStyle}>
+              <Link to={this.linkHref} style={linkStyle}>
+                <Button style={sendButtonStyle}>
                   {`${buttonActionTitle} ${this.props.title}`}
-                </Link>
-              </Button>
+                </Button>
+              </Link>
             </div>
           </div>
         </div>

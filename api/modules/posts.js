@@ -13,7 +13,8 @@ function getliveposts(callback) {
   db.runQuery(query, [], callback);
 }
 function getpostbycategory(categoryId, callback) {
-  let query = "SELECT * FROM `posts` Where CategoryID=? AND isLive=1;";
+  let query =
+    "SELECT * FROM `posts` Where CategoryID=? AND isLive=1 ORDER BY ID DESC;";
   db.runQuery(query, [categoryId], callback);
 }
 function uploadpost(

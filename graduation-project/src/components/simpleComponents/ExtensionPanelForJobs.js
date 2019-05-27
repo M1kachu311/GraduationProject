@@ -35,6 +35,8 @@ const arrowStyle = {
 const expandedPanelDisplay = {
   display: "flex",
   justifyContent: "space-between",
+  margin: "0 auto",
+  width: "80%"
 };
 
 const pStyle = {

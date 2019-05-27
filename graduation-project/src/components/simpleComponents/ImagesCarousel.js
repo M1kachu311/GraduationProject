@@ -48,11 +48,15 @@ export class ImagesCarousel extends Component {
     const settings = {
       dots: false,
       infinite: true,
-      speed: 2500,
+      speed: 3000,
       slidesToShow: 1,
       slidesToScroll: 1,
       autoplay: true,
-      autoplaySpeed: 4000
+      autoplaySpeed: 5000,
+      draggable: false,
+      swipeToSlide: false,
+      touchMove: false,
+      swipe: false
     };
     return (
       <div style={posRelative}>

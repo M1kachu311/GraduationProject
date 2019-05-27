@@ -4,9 +4,15 @@ function getcategories(callback) {
   let query = "SELECT * FROM `categories`;";
   db.runQuery(query, [], callback);
 }
+
 function getLiveCategories(callback) {
   let query = "SELECT Name, ID ,Description FROM `categories` WHERE isLive=1;";
   db.runQuery(query, [], callback);
+}
+
+function getcategorybyid(id, callback) {
+  let query = "SELECT * FROM `categories` WHERE ID=? AND isLive=1;";
+  db.runQuery(query, [id], callback);
 }
 
 function getcategoriesbycategory(categoryId, callback) {
@@ -51,5 +57,6 @@ module.exports = {
   deletecategorypt2: deletecategorypt2,
   deletecategorypt3: deletecategorypt3,
   updatecategory: updatecategory,
-  getCount: getCount
+  getCount: getCount,
+  getcategorybyid: getcategorybyid
 };

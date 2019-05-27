@@ -8,7 +8,7 @@ router.get("/", (req, res) => {
     if (err) {
       res.status(500).send(err);
     } else {
-      res.send(data);
+      res.status(200).send(data);
     }
   });
 });
@@ -17,7 +17,7 @@ router.get("/live", (req, res) => {
     if (err) {
       res.status(500).send(err);
     } else {
-      res.send(data);
+      res.status(200).send(data);
     }
   });
 });
@@ -29,7 +29,7 @@ router.get("/category/:id", (req, res) => {
       if (err) {
         res.status(500).send(err);
       } else {
-        res.send(data);
+        res.status(200).send(data);
       }
     });
   }
@@ -40,7 +40,7 @@ router.get("/live/count", (req, res) => {
     if (err) {
       res.status(500).send(err);
     } else {
-      res.send(data);
+      res.status(200).send(data);
     }
   });
 });
@@ -72,7 +72,7 @@ router.post("/", (req, res) => {
         if (err) {
           res.status(500).send({ error: err.code });
         } else {
-          res.send({
+          res.status(200).send({
             message: `post uploaded successfully with id of ${data.insertId}`
           });
         }
@@ -96,7 +96,7 @@ router.delete("/", (req, res) => {
         if (data.affectedRows == 0) {
           res.status(500).send({ error: `no post with id of ${req.body.id}` });
         } else {
-          res.send({
+          res.status(200).send({
             message: `post with id of ${req.body.id} deleted successfuly`
           });
         }
@@ -137,7 +137,7 @@ router.put("/", (req, res) => {
               .status(500)
               .send({ error: `no post with id of ${req.body.id}` });
           } else {
-            res.send({
+            res.status(200).send({
               message: `post with id of ${req.body.id} updated successfuly`
             });
           }
