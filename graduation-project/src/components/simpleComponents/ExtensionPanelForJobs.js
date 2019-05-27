@@ -77,10 +77,10 @@ class ExpansionPanelForJobs extends React.Component {
         >
           <ExpansionPanelSummary style={expansionHeaderStyle}>
             <div style={jobDetailsStyle}>
-              <p style={pStyle}>{this.props.date}</p>
               <p style={pStyle}>{this.props.name}</p>
               <p style={pStyle}>{this.props.type}</p>
               <p style={pStyle}>{this.props.location}</p>
+              <p style={pStyle}>{this.props.date}</p>
               <i style={arrowStyle} className="fas fa-chevron-down" />
             </div>
           </ExpansionPanelSummary>

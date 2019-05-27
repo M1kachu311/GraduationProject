@@ -37,10 +37,10 @@ export class JobsOffer extends Component {
     return (
       <div style={mainStyle}>
         <div style={optionsStyle}>
-          <p style={optionsTitleStyle}>{date}</p>
           <p style={optionsTitleStyle}>{office}</p>
           <p style={optionsTitleStyle}>{officeKind}</p>
           <p style={optionsTitleStyle}>{location}</p>
+          <p style={optionsTitleStyle}>{date}</p>
           <IhaveAJobPopUp />
         </div>
         <ExtensionPanelListForJobs />

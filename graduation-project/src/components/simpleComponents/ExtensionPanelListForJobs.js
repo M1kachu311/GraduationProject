@@ -28,7 +28,7 @@ export class ExtensionPanelListForJobs extends Component {
         <ExtensionPanelForJobs
           key={job.ID}
           id={job.ID}
-          // date={job.Date.substring(0, 10)}
+          date={job.Date.substring(0, 10)}
           name={job.Name}
           description={job.Description}
           type={job.Type}
