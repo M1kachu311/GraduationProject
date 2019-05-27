@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import Snackbar from "@material-ui/core/Snackbar";
+import CloseIcon from "@material-ui/icons/Close";
+import IconButton from "@material-ui/core/IconButton";
 
 const footerStyle = {
   width: "100%",
@@ -80,7 +82,14 @@ const big = {
 };
 
 export class HomePageForm extends Component {
-  state = { name: "", phone: "", email: "", description: "", open: false };
+  state = {
+    name: "",
+    phone: "",
+    email: "",
+    description: "",
+    open: false,
+    loading: true
+  };
   handleChangeName = event => {
     this.setState({ name: event.target.value });
   };
@@ -102,10 +111,11 @@ export class HomePageForm extends Component {
       return;
     }
 
-    this.setState({ open: false });
+    this.setState({ open: false, loading: true });
   };
 
   handleSubmit = event => {
+    this.handleClick();
     var url = "http://127.0.0.1:3002/mail/contact";
     var data = {
       name: this.state.name,
@@ -124,14 +134,15 @@ export class HomePageForm extends Component {
       .then(res => res.json())
       .then(response => {
         if (response.status) {
+          this.handleClose();
+          this.setState({ loading: false });
           this.handleClick();
         }
         this.setState({
           name: "",
           phone: "",
           email: "",
-          description: "",
-          open: false
+          description: ""
         });
       })
       .catch(error => console.error("Error:", error));
@@ -147,9 +158,28 @@ export class HomePageForm extends Component {
             horizontal: "left"
           }}
           open={this.state.open}
-          autoHideDuration={6000}
+          autoHideDuration={10000}
           onClose={this.handleClose}
-          message={<span id="message-id">המייל נשלח בהצלחה</span>}
+          message={
+            this.state.loading ? (
+              <span id="message-id" className="loaderContainer">
+                {" "}
+                <span id="message-id">נא המתן...</span>
+              </span>
+            ) : (
+              <span id="message-id">המייל נשלח בהצלחה</span>
+            )
+          }
+          action={[
+            <IconButton
+              key="close"
+              aria-label="Close"
+              color="inherit"
+              onClick={this.handleClose}
+            >
+              <CloseIcon />
+            </IconButton>
+          ]}
         />
         <div style={footerStyle}>
           <div style={detailsStyle}>

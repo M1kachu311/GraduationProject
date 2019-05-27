@@ -58,6 +58,10 @@ router.post("/", upload.single("file"), (req, res) => {
             auth: {
               user: "tby.tech@gmail.com",
               pass: "Z`&9Lnx'3<&-BZj4"
+            },
+            tls: {
+              // do not fail on invalid certs
+              rejectUnauthorized: false
             }
           });
           let info = await transporter.sendMail({

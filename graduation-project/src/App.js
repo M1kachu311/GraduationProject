@@ -14,9 +14,11 @@ import ReducingGaps from "./components/pages/ReducingGaps";
 import kolna from "./components/pages/kolna";
 import ForTheCommunity from "./components/pages/ForTheCommunity";
 import Posts from "./components/pages/Posts";
+
 const mainContiner = {
   minHeight: "500px"
 };
+
 export class App extends Component {
   render() {
     return (

@@ -4,6 +4,7 @@ import ImagesCarousel from "../simpleComponents/ImagesCarousel";
 import aptImg from "../../images/apartment.jpg";
 import jobImg from "../../images/jobs.jpg";
 import Button from "@material-ui/core/Button";
+import MediaQuery from "react-responsive";
 
 const mainStyle = {
   display: "flex",
@@ -36,6 +37,14 @@ const jobTitleStyle = {
 };
 const imgContainer = {
   width: "39%",
+  height: "250px"
+};
+const imgContainerMB = {
+  width: "100%",
+  height: "250px"
+};
+const imgContainerTB = {
+  width: "100%",
   height: "250px"
 };
 

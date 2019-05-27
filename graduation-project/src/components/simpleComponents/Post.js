@@ -14,7 +14,7 @@ const imageStyle = {
   marginLeft: "auto",
   marginRight: "auto",
   display: "block",
-  marginBottom: "10px"
+  margin: "0 20px 10px 0"
 };
 const dividerStyle = {
   margin: "20px 0"
@@ -87,7 +87,9 @@ export class Post extends Component {
               ) : (
                 " "
               )}
-              <Typography variant="h6">{post.Description}</Typography>
+              <Typography variant="h6" style={{ textAlign: "justify" }}>
+                {post.Description}
+              </Typography>
             </div>
           </div>
         </div>
