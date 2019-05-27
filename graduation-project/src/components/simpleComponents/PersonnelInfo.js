@@ -18,7 +18,8 @@ const paperStyle = {
 };
 
 const settings = {
-  dots: true,
+  dots: false,
+  arrows: false,
   infinite: true,
   speed: 2000,
   slidesToShow: 4,

@@ -47,6 +47,7 @@ export class ImagesCarousel extends Component {
   render() {
     const settings = {
       dots: false,
+      arrows: false,
       infinite: true,
       speed: 3000,
       slidesToShow: 1,
