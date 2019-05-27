@@ -12,7 +12,14 @@ export class ExtensionPanelListForJobs extends Component {
       });
   }
   state = {
-    data: []
+    data: [
+      // {
+      //   name: 'dfsdgf',
+      //   description: 'dkjfhaslkdjvasdklfjhalksdjfa skjaaskdlj kajakljvb',
+      //   type: 'dfsdf',
+      //   location: 'sdfcsf'
+      // }
+    ]
   };
 
   render() {
@@ -21,7 +28,7 @@ export class ExtensionPanelListForJobs extends Component {
         <ExtensionPanelForJobs
           key={job.ID}
           id={job.ID}
-          date={job.Date.substring(0, 10)}
+          // date={job.Date.substring(0, 10)}
           name={job.Name}
           description={job.Description}
           type={job.Type}

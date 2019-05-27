@@ -6,6 +6,7 @@ import DialogActions from "@material-ui/core/DialogActions";
 import DialogContent from "@material-ui/core/DialogContent";
 import DialogContentText from "@material-ui/core/DialogContentText";
 import DialogTitle from "@material-ui/core/DialogTitle";
+import { withStyles } from "@material-ui/core";
 
 import Input from "./Input";
 
@@ -37,8 +38,8 @@ const inputListStyle = {
 };
 
 const textFielDescriptionStyle = {
-  width: "85%",
-  right: "8px"
+  right: "8px",
+  width: '94%'
 };
 
 const sendButtonStyle = {
@@ -55,7 +56,16 @@ const cancelButtonStyle = {
   cursor: "pointer"
 };
 
-export default class SugestRealEstate extends React.Component {
+const styles = theme => ({
+  formControl: {
+    width: '600px'
+  },
+  formStyle: {
+    width: '100%'
+  }
+})
+
+class SugestRealEstate extends React.Component {
   state = {
     open: false
   };
@@ -69,6 +79,7 @@ export default class SugestRealEstate extends React.Component {
   };
 
   render() {
+    const { classes } = this.props
     return (
       <div>
         <Button
@@ -85,18 +96,21 @@ export default class SugestRealEstate extends React.Component {
           aria-labelledby="form-dialog-title"
         >
           <DialogTitle id="form-dialog-title">{Subscribe}</DialogTitle>
-          <form>
+          <form className={classes.formControl}>
             <DialogContent>
               <DialogContentText>{suggestText}</DialogContentText>
               <div style={inputListStyle}>
-                <div>
-                  <Input placeholder={offer} />
+                <div className={classes.formStyle}>
+                  <Input 
+                    placeholder={offer}
+                    fullWidth
+                  />
                   <Input placeholder={type} />
                   <Input placeholder={rooms} />
                   <Input placeholder={floor} />
                   <Input placeholder={price} />
                 </div>
-                <div>
+                <div className={classes.formStyle}>
                   <Input placeholder={address} />
                   <Input placeholder={senderName} />
                   <Input placeholder={senderPhone} />
@@ -105,7 +119,9 @@ export default class SugestRealEstate extends React.Component {
                     id="standard-textarea"
                     placeholder={description}
                     multiline
+                    rows="4"
                     margin="normal"
+                    fullWidth
                   />
                 </div>
               </div>
@@ -124,3 +140,5 @@ export default class SugestRealEstate extends React.Component {
     );
   }
 }
+
+export default withStyles(styles)(SugestRealEstate)

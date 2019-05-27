@@ -73,8 +73,8 @@ const imgStyle = {
   margin: "10px"
 };
 const bold = {
-  color: "#0D84A3"
-};
+    color: "#0D84A3"
+}
 
 const linkStyle = {
   textDecoration: "none",
