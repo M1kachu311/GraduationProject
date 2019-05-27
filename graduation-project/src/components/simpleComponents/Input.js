@@ -20,6 +20,7 @@ function Inputs(props) {
       <Input
         placeholder={props.placeholder}
         className={classes.input}
+        fullWidth
       />
     </div>
   );

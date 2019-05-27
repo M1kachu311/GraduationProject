@@ -6,6 +6,7 @@ import DialogActions from "@material-ui/core/DialogActions";
 import DialogContent from "@material-ui/core/DialogContent";
 import DialogContentText from "@material-ui/core/DialogContentText";
 import DialogTitle from "@material-ui/core/DialogTitle";
+import { withStyles } from "@material-ui/core";
 
 import Input from "./Input";
 
@@ -28,7 +29,6 @@ const suggestAJobStyle = {
   width: "120px",
   margin: "10px",
   border: "1px solid #0C84A3"
-  // marginBottom: '5px'
 };
 
 const inputListStyle = {
@@ -36,7 +36,7 @@ const inputListStyle = {
 };
 
 const textFielDescriptionStyle = {
-  width: "85%",
+  width: '94%',
   right: "8px"
 };
 
@@ -54,7 +54,16 @@ const cancelButtonStyle = {
   cursor: "pointer"
 };
 
-export default class IhaveAJobPopUp extends React.Component {
+const styles = theme => ({
+  formControl: {
+    width: '600px'
+  },
+  formStyle: {
+    width: '100%'
+  }
+})
+
+export default withStyles(styles)(class IhaveAJobPopUp extends React.Component {
   state = {
     open: false
   };
@@ -68,6 +77,7 @@ export default class IhaveAJobPopUp extends React.Component {
   };
 
   render() {
+    const { classes } = this.props
     return (
       <div>
         <Button
@@ -84,26 +94,28 @@ export default class IhaveAJobPopUp extends React.Component {
           aria-labelledby="form-dialog-title"
         >
           <DialogTitle id="form-dialog-title">{Subscribe}</DialogTitle>
-          <form>
+          <form className={classes.formControl}>
             <DialogContent>
               <DialogContentText>{sendJobText}</DialogContentText>
               <div style={inputListStyle}>
-                <div>
+                <div className={classes.formStyle}>
                   <Input placeholder={location} />
                   <Input placeholder={senderName} />
                   <Input placeholder={senderPhone} />
                   <Input placeholder={mail} />
                 </div>
-                <div>
+                <div className={classes.formStyle}>
                   <Input placeholder={jobName} />
+                  <Input placeholder={type} />
                   <TextField
                     style={textFielDescriptionStyle}
                     id="standard-textarea"
                     placeholder={description}
                     multiline
+                    rows="4"
                     margin="normal"
+                    fullWidth
                   />
-                  <Input placeholder={type} />
                 </div>
               </div>
             </DialogContent>
@@ -120,4 +132,4 @@ export default class IhaveAJobPopUp extends React.Component {
       </div>
     );
   }
-}
+})
