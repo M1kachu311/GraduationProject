@@ -164,10 +164,8 @@ export class HomePageForm extends Component {
           message={
             this.state.loading ? (
               <span id="message-id">
-                {" "}
-                <span id="message-id">
-                  <CircularProgress style={{ margin: "0 auto" }} />
-                </span>
+                אנא המתן...
+                <CircularProgress style={{ margin: "0 auto" }} />
               </span>
             ) : (
               <span id="message-id">המייל נשלח בהצלחה</span>
