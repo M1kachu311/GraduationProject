@@ -5,7 +5,8 @@ import Dialog from "@material-ui/core/Dialog";
 import DialogActions from "@material-ui/core/DialogActions";
 import DialogContent from "@material-ui/core/DialogContent";
 import DialogTitle from "@material-ui/core/DialogTitle";
-import { withStyles } from "@material-ui/core";
+import { withStyles, FormHelperText } from "@material-ui/core";
+import CircularProgress from "@material-ui/core/CircularProgress";
 
 const suggestAJob = "יש לי משרה!";
 const jobName = "שם המשרה";
@@ -57,11 +58,30 @@ const textAreaStyle = {
   width: "85%",
   padding: "20px"
 };
-const centerResponse = {
+const alertStyle = {
+  background: "#f8d7da",
+  color: "#721c24",
+  border: "1px solid #f5c6cb",
+  width: "100%",
+  margin: "0 auto",
+  borderRadius: "5px",
+  padding: "10px 0",
+  textAlign: "center"
+};
+const notificationtStyle = {
+  background: "#cce5ff",
+  color: "#004085",
+  border: "1px solid #b8daff",
+  width: "100%",
+  margin: "0 auto",
+  borderRadius: "5px",
+  padding: "10px 0",
+  textAlign: "center"
+};
+const loaderStyle = {
   display: "flex",
-  textAling: "center",
   justifyContent: "center",
-  alignItems: "center"
+  itemAlign: "center"
 };
 
 export default withStyles(styles)(
@@ -75,6 +95,7 @@ export default withStyles(styles)(
       location: "",
       type: "",
       description: "",
+      loading: false,
       sent: false,
       showAlert: false
     };
@@ -102,7 +123,7 @@ export default withStyles(styles)(
         this.state.type !== "" &&
         this.state.description !== ""
       ) {
-        this.setState({ showAlert: false });
+        this.setState({ showAlert: false, loading: true });
         fetch(url, {
           method: "POST", // or 'PUT'
           body: JSON.stringify(data), // data can be `string` or {object}!
@@ -114,14 +135,7 @@ export default withStyles(styles)(
           .then(response => {
             this.setState({
               sent: true,
-              sname: "",
-              sphone: "",
-              smail: "",
-              name: "",
-              location: "",
-              type: "",
-              description: "",
-              validate: false
+              loading: false
             });
           })
           .catch(error => console.error("Error:", error));
@@ -140,8 +154,7 @@ export default withStyles(styles)(
         name: "",
         location: "",
         type: "",
-        description: "",
-        validate: false
+        description: ""
       });
     };
 
@@ -187,8 +200,9 @@ export default withStyles(styles)(
             <DialogTitle id="form-dialog-title">{Subscribe}</DialogTitle>
             <form className={classes.formControl}>
               {this.state.sent ? (
-                <div style={centerResponse}>
+                <div style={notificationtStyle}>
                   <p>תודה ההצעת משרה התקבלה בהצלחה</p>
+                  <p>ניצור איתך קשר בהקדם</p>
                 </div>
               ) : (
                 <DialogContent>
@@ -254,8 +268,15 @@ export default withStyles(styles)(
                 </DialogContent>
               )}
               {this.state.showAlert ? (
-                <div style={centerResponse}>
+                <div style={alertStyle}>
                   <p>נא מלאו את כל השדות הנדרשים</p>
+                </div>
+              ) : (
+                ""
+              )}
+              {this.state.loading ? (
+                <div style={loaderStyle}>
+                  <CircularProgress />
                 </div>
               ) : (
                 ""
@@ -263,7 +284,7 @@ export default withStyles(styles)(
 
               {this.state.sent ? (
                 <DialogActions>
-                  <Button onClick={this.handleClose} style={sendButtonStyle}>
+                  <Button onClick={this.handleClose} style={cancelButtonStyle}>
                     {cancel}
                   </Button>
                 </DialogActions>

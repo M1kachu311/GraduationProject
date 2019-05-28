@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Snackbar from "@material-ui/core/Snackbar";
 import CloseIcon from "@material-ui/icons/Close";
 import IconButton from "@material-ui/core/IconButton";
+import CircularProgress from "@material-ui/core/CircularProgress";
 
 const footerStyle = {
   width: "100%",
@@ -162,9 +163,11 @@ export class HomePageForm extends Component {
           onClose={this.handleClose}
           message={
             this.state.loading ? (
-              <span id="message-id" className="loaderContainer">
+              <span id="message-id">
                 {" "}
-                <span id="message-id">נא המתן...</span>
+                <span id="message-id">
+                  <CircularProgress style={{ margin: "0 auto" }} />
+                </span>
               </span>
             ) : (
               <span id="message-id">המייל נשלח בהצלחה</span>

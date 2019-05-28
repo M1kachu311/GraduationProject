@@ -46,11 +46,23 @@ router.post("/", upload.single("file"), (req, res) => {
     req.body.phone == "" ||
     typeof req.body.phone == "undefined"
   ) {
+    if (file) {
+      fs.unlink(req.file.path, err => {
+        if (err) throw err;
+        console.log("file deleted since there was an error");
+      });
+    }
     res.status(400).send({ message: "bad request" });
   } else {
     jobsFunction.getjobbyid(req.body.id, function(err, data) {
       if (err || data.length != 1) {
         res.status(500).send(err);
+        if (file) {
+          fs.unlink(req.file.path, err => {
+            if (err) throw err;
+            console.log("file deleted since there was an error");
+          });
+        }
       } else {
         async function main() {
           let transporter = nodemailer.createTransport({
@@ -67,7 +79,7 @@ router.post("/", upload.single("file"), (req, res) => {
           let info = await transporter.sendMail({
             from: `<${req.body.email}> ${req.body.name}`,
             to: "yeruham@jobnegev.co.il",
-            subject: `${req.body.name} שלח מייל בהקשר למשרת ${data[0].Name} `,
+            subject: `פניה מאתר צ"בי:`,
             html: `
             <p>${req.body.name}</p>
         <p>${req.body.email}</p>

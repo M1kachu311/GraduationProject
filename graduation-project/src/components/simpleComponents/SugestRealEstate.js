@@ -6,6 +6,7 @@ import DialogActions from "@material-ui/core/DialogActions";
 import DialogContent from "@material-ui/core/DialogContent";
 import DialogTitle from "@material-ui/core/DialogTitle";
 import { withStyles } from "@material-ui/core";
+import CircularProgress from "@material-ui/core/CircularProgress";
 
 const suggestARealEstate = "יש לי דירה!";
 const offer = "השכרה/מכירה";
@@ -17,7 +18,7 @@ const price = "מחיר";
 const description = "תיאור הנכס";
 const senderName = "שם בעל הנכס";
 const senderPhone = "מס׳ טלפון בעל הנכס";
-const cancel = "בטל";
+const cancel = "סגור";
 const send = "שלח";
 const Subscribe = "יש לי דירה!";
 
@@ -59,13 +60,31 @@ const textAreaStyle = {
   width: "85%",
   padding: "20px"
 };
-const centerResponse = {
-  display: "flex",
-  textAling: "center",
-  justifyContent: "center",
-  alignItems: "center"
+const alertStyle = {
+  background: "#f8d7da",
+  color: "#721c24",
+  border: "1px solid #f5c6cb",
+  width: "100%",
+  margin: "0 auto",
+  borderRadius: "5px",
+  padding: "10px 0",
+  textAlign: "center"
 };
-
+const notificationtStyle = {
+  background: "#cce5ff",
+  color: "#004085",
+  border: "1px solid #b8daff",
+  width: "100%",
+  margin: "0 auto",
+  borderRadius: "5px",
+  padding: "10px 0",
+  textAlign: "center"
+};
+const loaderStyle = {
+  display: "flex",
+  justifyContent: "center",
+  itemAlign: "center"
+};
 class SugestRealEstate extends React.Component {
   state = {
     open: false,
@@ -78,6 +97,7 @@ class SugestRealEstate extends React.Component {
     dir: "",
     price: "",
     description: "",
+    loading: false,
     sent: false,
     showAlert: false
   };
@@ -109,7 +129,7 @@ class SugestRealEstate extends React.Component {
       this.state.price !== "" &&
       this.state.description !== ""
     ) {
-      this.setState({ showAlert: false });
+      this.setState({ showAlert: false, loading: true });
       fetch(url, {
         method: "POST", // or 'PUT'
         body: JSON.stringify(data), // data can be `string` or {object}!
@@ -121,16 +141,7 @@ class SugestRealEstate extends React.Component {
         .then(response => {
           this.setState({
             sent: true,
-            name: "",
-            phone: "",
-            offer: "",
-            type: "",
-            rooms: "",
-            floor: "",
-            dir: "",
-            price: "",
-            description: "",
-            validate: false
+            loading: false
           });
         })
         .catch(error => console.error("Error:", error));
@@ -151,7 +162,6 @@ class SugestRealEstate extends React.Component {
       dir: "",
       price: "",
       description: "",
-      validate: false,
       showAlert: false
     });
   };
@@ -204,8 +214,9 @@ class SugestRealEstate extends React.Component {
           <DialogTitle id="form-dialog-title">{Subscribe}</DialogTitle>
           <form className={classes.formControl}>
             {this.state.sent ? (
-              <div style={centerResponse}>
+              <div style={notificationtStyle}>
                 <p>תודה ההצעת דיור התקבלה בהצלחה</p>
+                <p>ניצור איתך קשר בהקדם</p>
               </div>
             ) : (
               <DialogContent>
@@ -285,8 +296,15 @@ class SugestRealEstate extends React.Component {
               </DialogContent>
             )}
             {this.state.showAlert ? (
-              <div style={centerResponse}>
+              <div style={alertStyle}>
                 <p>נא מלאו את כל השדות הנדרשים</p>
+              </div>
+            ) : (
+              ""
+            )}
+            {this.state.loading ? (
+              <div style={loaderStyle}>
+                <CircularProgress />
               </div>
             ) : (
               ""
@@ -294,7 +312,7 @@ class SugestRealEstate extends React.Component {
 
             {this.state.sent ? (
               <DialogActions>
-                <Button onClick={this.handleClose} style={sendButtonStyle}>
+                <Button onClick={this.handleClose} style={cancelButtonStyle}>
                   {cancel}
                 </Button>
               </DialogActions>
