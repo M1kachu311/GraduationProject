@@ -49,9 +49,6 @@ const cancelButtonStyle = {
 };
 
 const styles = theme => ({
-  formControl: {
-    width: "600px"
-  },
   formStyle: {
     width: "100%"
   }

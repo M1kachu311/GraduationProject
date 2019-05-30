@@ -31,10 +31,6 @@ const CategoryTitle = styled.p`
   }
 `;
 
-const optionsTitleStyle = {
-  // margin: '10px 70px',
-};
-
 export class JobsOffer extends Component {
   componentDidMount() {
     window.scrollTo(0, 0);
@@ -44,10 +40,10 @@ export class JobsOffer extends Component {
     return (
       <div style={mainStyle}>
         <OptionsStyle>
-          <CategoryTitle style={optionsTitleStyle}>{office}</CategoryTitle>
-          <CategoryTitle style={optionsTitleStyle}>{officeKind}</CategoryTitle>
-          <CategoryTitle style={optionsTitleStyle}>{location}</CategoryTitle>
-          <CategoryTitle style={optionsTitleStyle}>{date}</CategoryTitle>
+          <CategoryTitle>{office}</CategoryTitle>
+          <CategoryTitle>{officeKind}</CategoryTitle>
+          <CategoryTitle>{location}</CategoryTitle>
+          <CategoryTitle>{date}</CategoryTitle>
           <IhaveAJobPopUp />
         </OptionsStyle>
         <ExtensionPanelListForJobs />

@@ -4,6 +4,8 @@ import { withStyles } from "@material-ui/core/styles";
 import ExpansionPanel from "@material-ui/core/ExpansionPanel";
 import ExpansionPanelDetails from "@material-ui/core/ExpansionPanelDetails";
 import ExpansionPanelSummary from "@material-ui/core/ExpansionPanelSummary";
+import styled from "styled-components";
+import MediaQuery from "react-responsive";
 
 const styles = theme => ({
   root: {
@@ -20,11 +22,11 @@ const styles = theme => ({
   }
 });
 
-const jobDetailsStyle = {
-  display: "flex",
-  justifyContent: "space-around",
-  width: "100%"
-};
+const JobDetailsStyle = styled.div`
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+`;
 
 const expandedPanelDisplay = {
   display: "flex",
@@ -36,17 +38,55 @@ const bold = {
 };
 
 const expansionHeaderStyle = {
-  background: "#fff"
-};
-
-const pStyle = {
-  color: "#rgb(52, 58, 64)",
-  width: "100px"
+  background: "#fff",
+  padding:"0px !important"
 };
 
 const expansionPanelStyle = {
   margin: "10px"
 };
+
+const detailsStyle = {
+  padding: '10px'
+};
+
+const ForMobile = styled.div`
+  display: flex
+  @media (max-width: 840px) {
+    font-size: 20px;
+    flex-direction: column;
+    width: 100%
+  }
+`
+const Text = styled.p`
+  color: rgb(52, 58, 64);
+  width: 9vw;
+  margin: 0 10px;
+  font-size: 16px;
+  @media (max-width: 840px) {
+    padding: 10px 0;
+    font-size: 12px;
+    width: 100%
+  }
+`;
+
+const TitleForMobileOnly = styled.h3`
+  @media (min-width: 840px) {
+    display: none;
+  }
+`
+
+const ArrowStyle = styled.i`
+  margin: 0 40px
+  @media (max-width: 840px) {
+    margin: 0;
+    font-size: 15px;
+  }
+`
+const ArrowDisplay = styled.div`
+  display: flex;
+  align-items: center;
+`
 
 class ExpansionPanelForApartment extends React.Component {
   state = {
@@ -71,32 +111,73 @@ class ExpansionPanelForApartment extends React.Component {
           onChange={this.handleChange("panel1")}
         >
           <ExpansionPanelSummary style={expansionHeaderStyle}>
-            <div style={jobDetailsStyle}>
-              <p style={pStyle}>{this.props.offer}</p>
-              <p style={pStyle}>{this.props.type}</p>
-              <p style={pStyle}>{this.props.rooms}</p>
-              <p style={pStyle}>{this.props.floor}</p>
-              <p style={pStyle}>{this.props.city}</p>
-              <p style={pStyle}>{this.props.price}</p>
-              <p style={pStyle}>{this.props.date}</p>
-              <i style={pStyle} className="fas fa-chevron-down" />
-            </div>
+            <JobDetailsStyle>
+
+              <MediaQuery  minWidth={841}>
+                <ForMobile>
+                  <Text><TitleForMobileOnly>סוג עסקה: </TitleForMobileOnly>{this.props.offer}</Text>
+                  <Text><TitleForMobileOnly>סוג הנכס: </TitleForMobileOnly>{this.props.type}</Text>
+                  <Text><TitleForMobileOnly>מס׳ חדרים: </TitleForMobileOnly>{this.props.rooms}</Text>
+                </ForMobile>
+                <ForMobile>
+                  <Text><TitleForMobileOnly>קומה: </TitleForMobileOnly>{this.props.floor}</Text>
+                  <Text><TitleForMobileOnly>כתובת: </TitleForMobileOnly>{this.props.city}</Text>
+                </ForMobile>
+                <ForMobile>
+                  <Text><TitleForMobileOnly>מחיר: </TitleForMobileOnly>{this.props.price}</Text>
+                  <Text><TitleForMobileOnly>תאריך: </TitleForMobileOnly>{this.props.date}</Text>
+                </ForMobile>
+              </MediaQuery>
+
+              <MediaQuery minWidth={541} maxWidth={840}>
+                <ForMobile>
+                  <Text><TitleForMobileOnly>סוג עסקה: </TitleForMobileOnly>{this.props.offer}</Text>
+                  <Text><TitleForMobileOnly>סוג הנכס: </TitleForMobileOnly>{this.props.type}</Text>
+                  <Text><TitleForMobileOnly>מס׳ חדרים: </TitleForMobileOnly>{this.props.rooms}</Text>
+                </ForMobile>
+                <ForMobile>
+                  <Text><TitleForMobileOnly>קומה: </TitleForMobileOnly>{this.props.floor}</Text>
+                  <Text><TitleForMobileOnly>כתובת: </TitleForMobileOnly>{this.props.city}</Text>
+                </ForMobile>
+                <ForMobile>
+                  <Text><TitleForMobileOnly>מחיר: </TitleForMobileOnly>{this.props.price}</Text>
+                  <Text><TitleForMobileOnly>תאריך: </TitleForMobileOnly>{this.props.date}</Text>
+                </ForMobile>
+              </MediaQuery>
+
+              <MediaQuery  maxWidth={540}>
+                <ForMobile>
+                  <Text><TitleForMobileOnly>סוג עסקה: </TitleForMobileOnly>{this.props.offer}</Text>
+                  <Text><TitleForMobileOnly>סוג הנכס: </TitleForMobileOnly>{this.props.type}</Text>
+                  <Text><TitleForMobileOnly>מס׳ חדרים: </TitleForMobileOnly>{this.props.rooms}</Text>
+                  <Text><TitleForMobileOnly>קומה: </TitleForMobileOnly>{this.props.floor}</Text>
+                </ForMobile>
+                <ForMobile>
+                  <Text><TitleForMobileOnly>כתובת: </TitleForMobileOnly>{this.props.city}</Text>
+                  <Text><TitleForMobileOnly>מחיר: </TitleForMobileOnly>{this.props.price}</Text>
+                  <Text><TitleForMobileOnly>תאריך: </TitleForMobileOnly>{this.props.date}</Text>
+                </ForMobile>
+              </MediaQuery>
+              <ArrowDisplay>
+                <ArrowStyle  className="fas fa-chevron-down" />
+              </ArrowDisplay>
+            </JobDetailsStyle>
           </ExpansionPanelSummary>
           <ExpansionPanelDetails style={expandedPanelDisplay}>
             <div>
-              <p>
+              <p style={detailsStyle}>
                 <b style={bold}>כתובת: </b>
                 {this.props.address}
               </p>
-              <p>
+              <p style={detailsStyle}>
                 <b style={bold}>תיאור הנכס: </b>
                 {this.props.description}
               </p>
-              <p>
+              <p style={detailsStyle}>
                 <b style={bold}>שׁם בעל הנכס: </b>
                 {this.props.name}
               </p>
-              <p>
+              <p style={detailsStyle}>
                 <b style={bold}>מספר טלפון בעל הנכס: </b>
                 {this.props.phone}
               </p>

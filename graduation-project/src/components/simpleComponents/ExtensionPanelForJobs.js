@@ -32,7 +32,7 @@ const jobDetailsStyle = {
 const ArrowStyle = styled.i`
   margin: 0 40px
   @media (max-width: 540px) {
-    margin: 40px 10px 0 10px;
+    margin: 0 10px 0 10px;
     font-size: 15px;
   }
 `
@@ -96,6 +96,11 @@ const TitleForMobileOnly = styled.h3`
   }
 `
 
+const ArrowDisplay = styled.div`
+  display: flex;
+  align-items: center;
+`
+
 class ExpansionPanelForJobs extends React.Component {
   state = {
     expanded: null,
@@ -129,7 +134,9 @@ class ExpansionPanelForJobs extends React.Component {
                 <Text><TitleForMobileOnly>מיקום: </TitleForMobileOnly>{this.props.location}</Text>
                 <DateText><TitleForMobileOnly>תאריך: </TitleForMobileOnly>{this.props.date}</DateText>
               </ForMobile>
-              <ArrowStyle className="fas fa-chevron-down" />
+              <ArrowDisplay>
+                <ArrowStyle className="fas fa-chevron-down" />
+              </ArrowDisplay>
             </div>
           </ExpansionPanelSummary>
           <ExpansionPanelDetails>

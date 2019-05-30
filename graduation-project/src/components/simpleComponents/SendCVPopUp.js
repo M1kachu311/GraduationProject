@@ -172,7 +172,6 @@ export default class SendCVPopUp extends React.Component {
             .then(res => res.json())
             .then(response => {
               if (response.msg) {
-                console.log(response);
                 this.setState({
                   sent: true,
                   loading: false,
