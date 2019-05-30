@@ -7,7 +7,7 @@ import styled from "styled-components";
 const FooterStyle = styled.div`
 width: 100%;
 height: 300px;
-padding: 0 0 50px 0;
+padding: 30px 0 60px 0;
 display: flex;
 flex-direction: row;
 flex-wrap: wrap;
@@ -54,12 +54,6 @@ const whiteColor = {
 const turquoiseColor = {
   color: "#C7D72B"
 };
-// const blueColor = {
-//   color: "rgb(13, 132, 163)"
-// };
-// const facebookColor = {
-//   color: "#3C5A99"
-// };
 const textPadding = {
   padding: "10px"
 };
@@ -101,7 +95,8 @@ export class HomePageForm extends Component {
     email: "",
     description: "",
     open: false,
-    loading: true
+    loading: true,
+    message: "אנא המתן..."
   };
   handleChangeName = event => {
     this.setState({ name: event.target.value });
@@ -124,11 +119,12 @@ export class HomePageForm extends Component {
       return;
     }
 
-    this.setState({ open: false, loading: true });
+    this.setState({ open: false, loading: true, message: "אנא המתן..." });
   };
 
   handleSubmit = event => {
-    this.handleClick();
+    event.preventDefault();
+
     var url = "http://127.0.0.1:3002/mail/contact";
     var data = {
       name: this.state.name,
@@ -136,31 +132,39 @@ export class HomePageForm extends Component {
       phone: this.state.phone,
       description: this.state.description
     };
-
-    fetch(url, {
-      method: "POST", // or 'PUT'
-      body: JSON.stringify(data), // data can be `string` or {object}!
-      headers: {
-        "Content-Type": "application/json"
-      }
-    })
-      .then(res => res.json())
-      .then(response => {
-        if (response.status) {
-          this.handleClose();
-          this.setState({ loading: false });
-          this.handleClick();
+    if (
+      this.state.name === "" ||
+      this.state.email === "" ||
+      this.state.phone === "" ||
+      this.state.description === ""
+    ) {
+      this.setState({ message: "אנא וודא כי מילאת את כל הפרטים" });
+      this.handleClick();
+    } else {
+      this.handleClick();
+      fetch(url, {
+        method: "POST", // or 'PUT'
+        body: JSON.stringify(data), // data can be `string` or {object}!
+        headers: {
+          "Content-Type": "application/json"
         }
-        this.setState({
-          name: "",
-          phone: "",
-          email: "",
-          description: ""
-        });
       })
-      .catch(error => console.error("Error:", error));
-
-    event.preventDefault();
+        .then(res => res.json())
+        .then(response => {
+          if (response.status) {
+            this.handleClose();
+            this.setState({ loading: false });
+            this.handleClick();
+          }
+          this.setState({
+            name: "",
+            phone: "",
+            email: "",
+            description: ""
+          });
+        })
+        .catch(error => console.error("Error:", error));
+    }
   };
   render() {
     return (
@@ -175,7 +179,7 @@ export class HomePageForm extends Component {
           onClose={this.handleClose}
           message={
             this.state.loading ? (
-              <span id="message-id">אנא המתן...</span>
+              <span id="message-id">{this.state.message}</span>
             ) : (
               <span id="message-id">המייל נשלח בהצלחה</span>
             )
