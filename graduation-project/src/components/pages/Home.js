@@ -43,14 +43,6 @@ const imgContainer = {
   width: "39%",
   height: "100%"
 };
-const imgContainerMB = {
-  width: "100%",
-  height: "250px"
-};
-const imgContainerTB = {
-  width: "100%",
-  height: "250px"
-};
 
 const AptTableStyle = styled.img`
   width: 100%;
