@@ -29,6 +29,11 @@ const PosRelative = styled.div`
       height: 300px
     }
   }
+  @media only screen and (min-width: 541px) and (max-width: 840px) {
+    & div {
+      height: 400px
+    }
+  })
 `;
 
 const Title = styled.div `
@@ -49,6 +54,11 @@ const Title = styled.div `
       font-size: 32px;
     }
   }
+  @media only screen and (min-width: 541px) and (max-width: 840px) {
+    & h1 {
+      font-size: 52px;
+    }
+  })
 `;
 // const ImgStyle3 = {
 //   width: "100%",

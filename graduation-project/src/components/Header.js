@@ -54,7 +54,7 @@ export class Header extends Component {
   render() {
     return (
       <Fragment>
-        <MediaQuery minWidth={841}>
+        <MediaQuery minWidth={1039}>
           <div style={headerDisplay}>
               <div style={headerStyle}>
                 <Link to="/">
@@ -64,12 +64,25 @@ export class Header extends Component {
                 </Link>
               </div>
             <div style={navContainer}>
-              <MediaQuery minWidth={841}>
                 <Navigation />
-              </MediaQuery>
             </div>
           </div>
         </MediaQuery>
+
+        <MediaQuery minWidth={841} maxWidth={1038}>
+          <div style={headerDisplayMobile}>
+            <div style={headerStyleMobile}>
+              <TemporaryDrawer />
+              <Link to="/">
+                  <div>
+                    <img src={logo} alt={logoAltText} style={logoStyleMobile} />
+                  </div>
+              </Link>
+            </div>
+          </div>
+        </MediaQuery>
+
+
         <MediaQuery  maxWidth={840}>
           <div style={headerDisplayMobile}>
             <div style={headerStyleMobile}>
