@@ -33,7 +33,7 @@ const TextSquareStyle = styled.div`
   color: rgb(52, 58, 64);
   font-size: 20px;
   border: 1px solid rgb(99, 174, 164);
-  border-sadius: 5px;
+  border-radius: 5px;
   padding: 40px;
   box-sizing: border-box;
   text-align: center;
