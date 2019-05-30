@@ -107,16 +107,16 @@ export class PersonnelInfo extends Component {
       <>
         {" "}
         <MediaQuery minWidth={1281}>
-          <Slider {...settings}>{carouselData}</Slider>;
+          <Slider {...settings}>{carouselData}</Slider>
         </MediaQuery>
         <MediaQuery minWidth={841} maxWidth={1280}>
-          <Slider {...settings1}>{carouselData}</Slider>;
+          <Slider {...settings1}>{carouselData}</Slider>
         </MediaQuery>
         <MediaQuery minWidth={541} maxWidth={840}>
-          <Slider {...settings2}>{carouselData}</Slider>;
+          <Slider {...settings2}>{carouselData}</Slider>
         </MediaQuery>
         <MediaQuery maxWidth={540}>
-          <Slider {...settings3}>{carouselData}</Slider>;
+          <Slider {...settings3}>{carouselData}</Slider>
         </MediaQuery>
       </>
     );
