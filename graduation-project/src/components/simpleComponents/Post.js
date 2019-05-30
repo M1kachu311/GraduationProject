@@ -34,6 +34,9 @@ const SubTitle = styled.h3`
   padding: 10px 20px;
   color: rgb(12, 132, 163);
   padding-bottom: 0px;
+  @media (max-width: 840px) {
+    padding-right: 50px;
+  }
 `;
 
 const mainStyle = {
