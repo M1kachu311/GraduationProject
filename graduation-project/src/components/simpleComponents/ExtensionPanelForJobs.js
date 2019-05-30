@@ -6,6 +6,7 @@ import ExpansionPanelDetails from "@material-ui/core/ExpansionPanelDetails";
 import ExpansionPanelSummary from "@material-ui/core/ExpansionPanelSummary";
 import Typography from "@material-ui/core/Typography";
 import SendCVPopUp from "./SendCVPopUp";
+import styled from "styled-components";
 
 const styles = theme => ({
   root: {
@@ -28,22 +29,26 @@ const jobDetailsStyle = {
   width: "100%"
 };
 
-const arrowStyle = {
-  margin: "0 80px"
-};
+const ArrowStyle = styled.i`
+  margin: 0 40px
+  @media (max-width: 540px) {
+    margin: 40px 10px 0 10px;
+    font-size: 15px;
+  }
+`
+  
 
-const expandedPanelDisplay = {
-  display: "flex",
-  justifyContent: "space-between",
-  margin: "0 auto",
-  width: "80%"
-};
-
-const pStyle = {
-  color: "rgb(52, 58, 64)",
-  width: "12vw",
-  margin: "0 10px"
-};
+const ExpandedPanelDisplay = styled.div`
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto;
+  width: 80%;
+  @media (max-width: 540px) {
+    flex-direction: column;
+    align-items: center;
+    text-align: center
+  }
+`;
 
 const expansionHeaderStyle = {
   background: "#fff"
@@ -52,6 +57,44 @@ const expansionHeaderStyle = {
 const expansionPanelStyle = {
   margin: "5px"
 };
+
+const ForMobile = styled.div`
+  display: flex
+  @media (max-width: 540px) {
+    font-size: 20px;
+    flex-direction: column;
+    width: 100%
+  }
+`
+
+const Text = styled.p`
+  color: rgb(52, 58, 64);
+  width: 12vw;
+  margin: 0 10px;
+  font-size: 16px;
+  @media (max-width: 540px) {
+    padding: 10px 0;
+    font-size: 12px;
+    width: 100%
+  }
+`;
+
+const DateText = styled.p`
+  color: rgb(52, 58, 64);
+  width: 20vw;
+  margin: 0 10px;
+  font-size: 16px;
+  @media (max-width: 540px) {
+    padding: 10px 0;
+    font-size: 12px;
+  }
+`;
+
+const TitleForMobileOnly = styled.h3`
+  @media (min-width: 540px) {
+    display: none;
+  }
+`
 
 class ExpansionPanelForJobs extends React.Component {
   state = {
@@ -78,16 +121,22 @@ class ExpansionPanelForJobs extends React.Component {
         >
           <ExpansionPanelSummary style={expansionHeaderStyle}>
             <div style={jobDetailsStyle}>
-              <p style={pStyle}>{this.props.name}</p>
-              <p style={pStyle}>{this.props.type}</p>
-              <p style={pStyle}>{this.props.location}</p>
-              <p style={pStyle}>{this.props.date}</p>
-              <i style={arrowStyle} className="fas fa-chevron-down" />
+              <ForMobile>
+                <Text><TitleForMobileOnly>שם: </TitleForMobileOnly>{this.props.name}</Text>
+                <Text><TitleForMobileOnly>סוג: </TitleForMobileOnly>{this.props.type}</Text>
+              </ForMobile>
+              <ForMobile>
+                <Text><TitleForMobileOnly>מיקום: </TitleForMobileOnly>{this.props.location}</Text>
+                <DateText><TitleForMobileOnly>תאריך: </TitleForMobileOnly>{this.props.date}</DateText>
+              </ForMobile>
+              <ArrowStyle className="fas fa-chevron-down" />
             </div>
           </ExpansionPanelSummary>
-          <ExpansionPanelDetails style={expandedPanelDisplay}>
-            <Typography>{this.props.description}</Typography>
-            <SendCVPopUp id={this.props.id} />
+          <ExpansionPanelDetails>
+            <ExpandedPanelDisplay>
+              <Typography>{this.props.description}</Typography>
+              <SendCVPopUp id={this.props.id} />
+            </ExpandedPanelDisplay>
           </ExpansionPanelDetails>
         </ExpansionPanel>
       </div>
