@@ -11,7 +11,8 @@
     "react-responsive": "^6.1.2",
     "react-router-dom": "^5.0.0",
     "react-scripts": "3.0.0",
-    "react-slick": "^0.24.0"
+    "react-slick": "^0.24.0",
+    "styled-components": "^4.2.0"
   },
   "scripts": {
     "start": "react-scripts start",
