@@ -1,20 +1,23 @@
 import React, { Component } from "react";
 import Typography from "@material-ui/core/Typography";
 import Divider from "@material-ui/core/Divider";
-import Button from "@material-ui/core/Button";
 import { Link } from "react-router-dom";
+import styled from "styled-components";
 
 const buttonActionTitle = "קישור ללוח ";
 
-const mainStyle = {
-  display: "flex",
-  width: "90%",
-  margin: "20px auto",
-  borderRadius: "5px",
-  background: "white",
-  boxShadow:
-    "0px 1px 3px 0px rgba(0,0,0,0.2), 0px 1px 1px 0px rgba(0,0,0,0.14), 0px 2px 1px -1px rgba(0,0,0,0.12)"
-};
+const MainStyle = styled.div`
+  display: flex;
+  width: 90%;
+  margin: 20px auto;
+  border-radius: 5px;
+  background: white;
+  box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2),
+    0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 2px 1px -1px rgba(0, 0, 0, 0.12);
+  @media (max-width: 840px) {
+    flex-direction: column;
+  }
+`;
 
 const contentStyle = {
   display: "flex",
@@ -33,48 +36,65 @@ const titleStyle = {
   color: "white"
 };
 
-const titleDisplay = {
-  display: "flex",
-  alignItems: "center",
-  justifyContent: "center",
-  background: "#5E9EA0",
-  border: "1px solid #5E9EA0",
-  width: "30%"
-};
+const TitleDisplay = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #5e9ea0;
+  border: 1px solid #5e9ea0;
+  width: 30%;
+  @media (max-width: 840px) {
+    width: 100%;
+    height: 20%;
+  }
+`;
 
-const textStyle = {
-  padding: "10px"
-};
+const TextStyle = styled.p`
+  padding: 10px;
+  @media (max-width: 840px) {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+  }
+`;
 
-const sendButtonStyle = {
-  background: "#0D84A3",
-  color: "#fff",
-  border: "none",
-  height: "35px",
-  cursor: "pointer",
-  margin: "40px",
-  textAlign: "left",
-  width: "200px"
-};
-const JHDetailsStyle = {
-  display: "flex",
-  alignItems: "center",
-  justifyContent: "space-between"
-};
+const SendButtonStyle = styled.button`
+  background: #0d84a3;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  margin: 20px;
+  text-align: center;
+  padding: 10px;
+  border-radius: 5px;
+`;
+const JHDetailsStyle = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  @media (max-width: 840px) {
+    flex-direction: column;
+  }
+`;
 
-const innerJHDetailsStyle = {
-  display: "flex",
-  alignItems: "center"
-};
+const InnerJHDetailsStyle = styled.div`
+  display: flex;
+  align-items: center;
+`;
 
-const imgStyle = {
-  width: "100px",
-  height: "100px",
-  margin: "10px"
-};
+const ImgStyle = styled.img`
+  width: 100px;
+  height: 100px;
+  margin: 10px;
+  object-fit: cover;
+  @media (max-width: 840px) {
+    display: none;
+  }
+`;
+
 const bold = {
-    color: "#0D84A3"
-}
+  color: "#0D84A3"
+};
 
 const linkStyle = {
   textDecoration: "none",
@@ -101,55 +121,57 @@ export class CategoriesContainer extends Component {
   linkHref = `/posts/category/${this.props.id}`;
   render() {
     return (
-      <div style={mainStyle}>
-        <div style={titleDisplay}>
+      <MainStyle>
+        <TitleDisplay>
           <Typography style={titleStyle} variant="h5" component="h3">
             {this.props.title}
           </Typography>
-        </div>
+        </TitleDisplay>
         <div style={contentStyle}>
           <div style={detailsStyle}>
-            <Typography style={textStyle} component="p">
-              {this.props.content}
-            </Typography>
+            <TextStyle>{this.props.content}</TextStyle>
             <Divider variant="middle" />
-            <div style={JHDetailsStyle}>
+            <JHDetailsStyle>
               {this.state.data[0].ID ? (
-                <div style={innerJHDetailsStyle}>
-                  <img
-                    style={imgStyle}
+                <InnerJHDetailsStyle>
+                  <ImgStyle
                     src={this.state.data[0].Image}
                     alt="jobholderimage"
                   />
+
                   <div>
-                    <Typography style={textStyle} component="p">
-                      <b style={bold}>שם:</b> {this.state.data[0].Name}
-                    </Typography>
-                    <Typography style={textStyle} component="p">
-                      <b style={bold}>תפקיד:</b> {this.state.data[0].Title}
-                    </Typography>
+                    <TextStyle>
+                      <b style={bold}>שם:</b>{" "}
+                      <span>{this.state.data[0].Name}</span>
+                    </TextStyle>
+                    <TextStyle>
+                      <b style={bold}>תפקיד:</b>{" "}
+                      <span>{this.state.data[0].Title}</span>
+                    </TextStyle>
                   </div>
                   <div>
-                    <Typography style={textStyle} component="p">
-                      <b style={bold}>מס׳ טלפון:</b> {this.state.data[0].Phone}
-                    </Typography>
-                    <Typography style={textStyle} component="p">
-                      <b style={bold}>מייל:</b> {this.state.data[0].Email}
-                    </Typography>
+                    <TextStyle>
+                      <b style={bold}>מס׳ טלפון:</b>{" "}
+                      <span>{this.state.data[0].Phone}</span>
+                    </TextStyle>
+                    <TextStyle>
+                      <b style={bold}>מייל:</b>
+                      <span>{this.state.data[0].Email}</span>
+                    </TextStyle>
                   </div>
-                </div>
+                </InnerJHDetailsStyle>
               ) : (
-                <div style={innerJHDetailsStyle} />
+                <InnerJHDetailsStyle />
               )}
               <Link to={this.linkHref} style={linkStyle}>
-                <Button style={sendButtonStyle}>
+                <SendButtonStyle>
                   {`${buttonActionTitle} ${this.props.title}`}
-                </Button>
+                </SendButtonStyle>
               </Link>
-            </div>
+            </JHDetailsStyle>
           </div>
         </div>
-      </div>
+      </MainStyle>
     );
   }
 }
