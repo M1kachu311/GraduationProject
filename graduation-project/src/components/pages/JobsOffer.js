@@ -26,7 +26,9 @@ const mainStyle = {
 };
 
 const CategoryTitle = styled.p`
-  opacity: 0;
+  @media (max-width: 540px) {
+    opacity: 0;
+  }
 `;
 
 const optionsTitleStyle = {
