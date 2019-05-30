@@ -3,7 +3,6 @@ import Drawer from '@material-ui/core/Drawer';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import { Link } from "react-router-dom";
-import Divider from '@material-ui/core/Divider';
 
 const iconColor = {
   color: '#CADB30'
@@ -42,11 +41,6 @@ const xIconStyle = {
   color: '#fff',
   cursor: 'pointer'
 }
-
-const dividerStyle = {
-  background: '#fff'
-}
-
 
 const TemporaryDrawer = () => {
   const [state, setState] = React.useState({
