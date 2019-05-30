@@ -39,14 +39,6 @@ const imgContainer = {
   width: "39%",
   height: "250px"
 };
-const imgContainerMB = {
-  width: "100%",
-  height: "250px"
-};
-const imgContainerTB = {
-  width: "100%",
-  height: "250px"
-};
 
 const jobTableStyle = {
   width: "100%",
