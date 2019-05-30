@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import Typography from "@material-ui/core/Typography";
 import Post from "../simpleComponents/Post.js";
 import Divider from "@material-ui/core/Divider";
+import styled from "styled-components";
 
 const mainStyle = {
   display: "flex",
@@ -13,13 +13,16 @@ const mainStyle = {
     "0px 1px 3px 0px rgba(0,0,0,0.2), 0px 1px 1px 0px rgba(0,0,0,0.14), 0px 2px 1px -1px rgba(0,0,0,0.12)"
 };
 
-const titleStyle = {
-  padding: "20px",
-  background: "#0C84A3",
-  color: "#fff",
-  borderTopLeftRadius: "5px",
-  borderTopRightRadius: "5px"
-};
+const TitleStyle = styled.h2`
+  padding: 20px;
+  background: #0c84a3;
+  color: #fff;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  @media (max-width: 840px) {
+    text-align: center;
+  }
+`;
 
 export class Posts extends Component {
   componentDidMount() {
@@ -44,9 +47,7 @@ export class Posts extends Component {
   render() {
     return (
       <div style={mainStyle}>
-        <Typography style={titleStyle} variant="h3" component="h3">
-          {this.state.title}
-        </Typography>
+        <TitleStyle>{this.state.title}</TitleStyle>
         <Divider variant="middle" />
         <Post id={this.props.match.params.categoryId} />
       </div>

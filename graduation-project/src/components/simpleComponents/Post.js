@@ -1,23 +1,26 @@
 import React, { Component } from "react";
-import Typography from "@material-ui/core/Typography";
 import Divider from "@material-ui/core/Divider";
+import styled from "styled-components";
 
-const contentStyle = {
-  padding: "0 20px 20px 20px",
-  width: "95%"
-};
+const ContentStyle = styled.div`
+  padding: 0 20px 20px 20px;
+  width: 95%;
+`;
 
-const imageStyle = {
-  maxWidth: "100%",
-  height: "auto",
-  objectFit: "contain",
-  marginLeft: "auto",
-  marginRight: "auto",
-  display: "block",
-  margin: "0 20px 10px 0"
-};
+const ImageStyle = styled.img`
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  margin: 0 2% 1% 0;
+  @media (max-width: 840px) {
+    padding-left: 20px;
+  }
+`;
 const dividerStyle = {
-  margin: "20px 0"
+  margin: "2% 0"
 };
 const imgContainer = {
   maxWidth: "50%",
@@ -27,10 +30,12 @@ const imgContainer = {
   margin: "0 10px",
   display: "inline-block"
 };
-const subTitle = {
-  padding: "10px 20px",
-  color: "rgb(12, 132, 163)"
-};
+const SubTitle = styled.h3`
+  padding: 10px 20px;
+  color: rgb(12, 132, 163);
+  padding-bottom: 0px;
+`;
+
 const mainStyle = {
   display: "flex",
   flexDirection: "column",
@@ -41,6 +46,13 @@ const mainStyle = {
   boxShadow:
     "0px 1px 3px 0px rgba(0,0,0,0.2), 0px 1px 1px 0px rgba(0,0,0,0.14), 0px 2px 1px -1px rgba(0,0,0,0.12)"
 };
+const TextStyle = styled.p`
+  text-align: justify;
+  @media (max-width: 840px) {
+    font-size: 14px;
+    padding: 0 20px 20px 20px;
+  }
+`;
 
 export class Post extends Component {
   componentDidMount() {
@@ -71,26 +83,22 @@ export class Post extends Component {
       return (
         <div key={post.ID}>
           <div style={mainStyle}>
-            <Typography style={subTitle} variant="h4">
-              {post.Name}{" "}
-            </Typography>
+            <SubTitle>{post.Name} </SubTitle>
             <Divider style={dividerStyle} variant="middle" />
-            <div style={contentStyle}>
+            <ContentStyle>
               {post.Image ? (
                 <div style={imgContainer}>
                   {" "}
                   <a target="__blank" href={post.Image}>
                     {" "}
-                    <img style={imageStyle} alt="post" src={post.Image} />
+                    <ImageStyle alt="post" src={post.Image} />
                   </a>
                 </div>
               ) : (
                 " "
               )}
-              <Typography variant="h6" style={{ textAlign: "justify" }}>
-                {post.Description}
-              </Typography>
-            </div>
+              <TextStyle>{post.Description}</TextStyle>
+            </ContentStyle>
           </div>
         </div>
       );

@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
 import ImagesCarousel from "../simpleComponents/ImagesCarousel";
 import aptImg from "../../images/apartment.jpg";
 import jobImg from "../../images/jobs.jpg";
@@ -16,7 +15,7 @@ const mainStyle = {
   color: "#FFF"
 };
 
-const SectionStyle = styled.div `
+const SectionStyle = styled.div`
   width: 100%;
   height: 250px;
   display: flex;
@@ -24,13 +23,13 @@ const SectionStyle = styled.div `
   flex-direction: row;
   justify-content: space-around;
   @media only screen and (max-width: 540px) {
-      height: 200px
+    height: 200px;
   }
 `;
 
-const TextSquareStyle = styled.div `
+const TextSquareStyle = styled.div`
   width: 59.5%;
-  background-color: #FFF;
+  background-color: #fff;
   color: rgb(52, 58, 64);
   font-size: 20px;
   border: 1px solid rgb(99, 174, 164);
@@ -47,7 +46,7 @@ const imgContainer = {
 const AptTableStyle = styled.img`
   width: 100%;
   height: 100%;
-  background-color: #CADB30;
+  background-color: #cadb30;
   display: flex;
   justify-content: center;
   border-radius: 5px;
@@ -59,8 +58,8 @@ const marginBtn = {
   margin: "20px",
   border: " 1px solid rgb(99, 174, 164)",
   color: "  rgb(99, 174, 164)",
-  width: '130px',
-  display: 'flex',
+  width: "130px",
+  display: "flex"
 };
 
 const FirstSquareText = styled.p`
@@ -71,7 +70,7 @@ const FirstSquareText = styled.p`
 `;
 
 const ButtonLink = styled.a`
-  textDecoration: none;
+  textdecoration: none;
   display: flex;
   justify-content: center;
 `;
@@ -91,7 +90,6 @@ const TitleText = styled.p`
     font-size: 20px;
   }
 `;
-
 
 export class Home extends Component {
   render() {
