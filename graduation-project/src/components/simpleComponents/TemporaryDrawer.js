@@ -10,17 +10,39 @@ const iconColor = {
 
 const linkStyle = {
   display: 'flex',
-  padding: '10px',
+  padding: '20px',
   textDecoration: "none",
-  color: '#fff',
+  color: '#fff'
 }
 
 const menuStyle = {
-  background: '#343A40'
+  background: '#343A40',
+  height: '100vh'
+}
+
+const flex = {
+  display: 'flex',
+  flexDirection: 'Column',
+  alignItems: 'center'
 }
 
 const iconStyle = {
   marginLeft: '10px'
+}
+
+const xStyle = {
+  display: 'flex',
+  justifyContent: 'flex-end',
+  padding: '20px'
+}
+
+const xIconStyle = {
+  fontSize: '30px',
+  color: '#fff'
+}
+
+const dividerStyle = {
+  background: '#fff'
 }
 
 
@@ -44,38 +66,43 @@ const TemporaryDrawer = () => {
       onKeyDown={toggleDrawer(side, false)}
     >
       <div style={menuStyle}>
-        <Link to="/about" style={linkStyle}>
-          <i class="far fa-address-card" style={iconStyle}></i>
-          <p className="hover">אודות</p>
-        </Link>
-        <Link  to="/jobs" style={linkStyle}>
-          <i class="fas fa-briefcase" style={iconStyle}></i>
-          <p className="hover">לוח משרות</p>
-        </Link>
-        <Link  to="/realEstate" style={linkStyle}>
-          <i class="far fa-building" style={iconStyle}></i>
-          <p className="hover">לוח דיור</p>
-        </Link>
-        <Link  to="/youthCenter" style={linkStyle}>
-          <i class="fas fa-child" style={iconStyle}></i>
-          <p className="hover">מרכז צעירים</p>
-        </Link>
-        <Link  to="/settlement" style={linkStyle}>
-          <i class="fas fa-home" style={iconStyle}></i>
-          <p className="hover">התיישבות</p>
-        </Link>
-        <Link  to="/reducingGaps" style={linkStyle}>
-          <i class="fas fa-users" style={iconStyle}></i>
-          <p className="hover">צמצום פערים</p>
-        </Link>
-        <Link to="/kolna" style={linkStyle}>
-          <i class="fas fa-guitar" style={iconStyle}></i>
-          <p className="hover">כולנא</p>
-        </Link>
-        <Link to="/forTheCommunity" style={linkStyle}>
-          <i class="fas fa-people-carry" style={iconStyle}></i>
-          <p className="hover">בשביל הקהילה</p>
-        </Link>
+        <div style={xStyle}>
+          <i style={xIconStyle} className="fas fa-times"></i>
+        </div>
+        <div style={flex}>
+          <Link to="/about" style={linkStyle}>
+            <i className="far fa-address-card" style={iconStyle}></i>
+            <p className="hover">אודות</p>
+          </Link>
+          <Link  to="/jobs" style={linkStyle}>
+            <i className="fas fa-briefcase" style={iconStyle}></i>
+            <p className="hover">לוח משרות</p>
+          </Link>
+          <Link  to="/realEstate" style={linkStyle}>
+            <i className="far fa-building" style={iconStyle}></i>
+            <p className="hover">לוח דיור</p>
+          </Link>
+          <Link  to="/youthCenter" style={linkStyle}>
+            <i className="fas fa-child" style={iconStyle}></i>
+            <p className="hover">מרכז צעירים</p>
+          </Link>
+          <Link  to="/settlement" style={linkStyle}>
+            <i className="fas fa-home" style={iconStyle}></i>
+            <p className="hover">התיישבות</p>
+          </Link>
+          <Link  to="/reducingGaps" style={linkStyle}>
+            <i className="fas fa-users" style={iconStyle}></i>
+            <p className="hover">צמצום פערים</p>
+          </Link>
+          <Link to="/kolna" style={linkStyle}>
+            <i className="fas fa-guitar" style={iconStyle}></i>
+            <p className="hover">כולנא</p>
+          </Link>
+          <Link to="/forTheCommunity" style={linkStyle}>
+            <i className="fas fa-people-carry" style={iconStyle}></i>
+            <p className="hover">בשביל הקהילה</p>
+          </Link>
+        </div>
       </div>
     </div>
   );

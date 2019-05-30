@@ -3,6 +3,8 @@ import Slider from "react-slick";
 import image1 from "../../images/001.jpg";
 import image2 from "../../images/002.jpg";
 import image4 from "../../images/004.jpg";
+import styled from "styled-components";
+
 
 const ImgStyle1 = {
   width: "100%",
@@ -20,22 +22,33 @@ const ImgStyle2 = {
   opacity: "0.7",
   zIndex: "2"
 };
-const posRelative = {
-  position: "relative"
-};
-const postABSOLUTE = {
-  position: "absolute",
-  width: "100%",
-  height: "300px",
-  display: "flex",
-  justifyContent: "center",
-  alignItems: "center",
-  zIndex: "3",
-  fontSize: "35px",
-  marginBottom: "200px",
-  color: "#343a40!",
-  textShadow: `white 2px 2px 3px`
-};
+const PosRelative = styled.div`
+  position: relative;
+  @media only screen and (max-width: 540px) {
+    & div {
+      height: 300px
+    }
+  }
+`;
+
+const Title = styled.div `
+  position: absolute;
+  width: 100%;
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  zIndex: 3;
+  font-size: 35px;
+  margin-bottom: 200px;
+  color: black;
+  text-shadow: white 2px 2px 3px;
+  @media only screen and (max-width: 540px) {
+    & h1 {
+      font-size: 32px;
+    }
+  }
+`;
 // const ImgStyle3 = {
 //   width: "100%",
 //   height: "500px",
@@ -60,10 +73,10 @@ export class ImagesCarousel extends Component {
       swipe: false
     };
     return (
-      <div style={posRelative}>
-        <div style={postABSOLUTE}>
+      <PosRelative>
+        <Title>
           <h1>משהו טוב קורה פה...</h1>
-        </div>
+        </Title>
         <Slider {...settings}>
           <div>
             <img src={image1} style={ImgStyle2} alt="bg-img" />
@@ -75,7 +88,7 @@ export class ImagesCarousel extends Component {
             <img src={image4} style={ImgStyle1} alt="bg-img" />
           </div>
         </Slider>
-      </div>
+      </PosRelative>
     );
   }
 }
