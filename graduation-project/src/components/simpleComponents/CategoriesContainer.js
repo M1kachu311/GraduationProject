@@ -43,9 +43,14 @@ const TitleDisplay = styled.div`
   background: #0d84a3;
   border: 1px solid #0d84a3;
   width: 30%;
+  border-bottom-right-radius: 5px;
+  border-top-right-radius: 5px;
   @media (max-width: 840px) {
     width: 100%;
     height: 20%;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: unset;
   }
 `;
 
