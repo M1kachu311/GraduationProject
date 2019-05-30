@@ -39,7 +39,8 @@ const xStyle = {
 
 const xIconStyle = {
   fontSize: '30px',
-  color: '#fff'
+  color: '#fff',
+  cursor: 'pointer'
 }
 
 const dividerStyle = {
@@ -92,7 +93,7 @@ const TemporaryDrawer = () => {
             <p className="hover">מרכז צעירים</p>
           </Link>
           <Link  to="/settlement" style={linkStyle}>
-            <i class="fab fa-font-awesome-flag" style={iconStyle}></i>
+            <i className="fab fa-font-awesome-flag" style={iconStyle}></i>
             <p className="hover">התיישבות</p>
           </Link>
           <Link  to="/reducingGaps" style={linkStyle}>
