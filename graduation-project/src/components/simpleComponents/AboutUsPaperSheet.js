@@ -4,6 +4,7 @@ import { withStyles } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
 import Divider from "@material-ui/core/Divider";
+import styled from "styled-components";
 
 const title = "קצת על המרכז צעירים בירוחם";
 
@@ -23,10 +24,13 @@ const paperSheetStyle = {
 const dividerStyle = {
   margin: "20px 0"
 };
-const aboutText = {
-  fontSize: "20px"
-};
+const AboutText = styled.p`
+  font-size: 24px;
 
+  @media (max-width: 840px) {
+    font-size: 16px;
+  }
+`;
 const AboutUsPaperSheet = props => {
   const { classes } = props;
 
@@ -35,7 +39,7 @@ const AboutUsPaperSheet = props => {
       <Paper className={classes.root} elevation={1}>
         <h1>{title}</h1>
         <Divider style={dividerStyle} variant="middle" />
-        <Typography component="p" style={aboutText}>
+        <AboutText>
           <b>צעירים בירוחם</b> הינה עמותה שקמה על-ידי צעירים בני ירוחם וחדשים
           המאמינים בירוחם, אוהבים אותה ומחויבים אליה, שבחרו לקבוע כאן את מקומם
           ולחיות כאן את חייהם. צעירים בירוחם פועלת לעידוד התיישבות צעירה ולביסוס
@@ -48,7 +52,7 @@ const AboutUsPaperSheet = props => {
           <b>קמפוס "כולנא"</b> הכולל מכינה קדם צבאית, תכנית למשתחררים, בית מדרש
           אלול מן המזרח ושלוחה אקדמית עם מכללת ספיר. <br /> <b> חינוך ומדעים</b>{" "}
           – הפעלת כלל תכניות המדעים והרובוטיקה בעיר.
-        </Typography>
+        </AboutText>
       </Paper>
     </div>
   );
