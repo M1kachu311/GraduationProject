@@ -2,17 +2,30 @@ import React, { Component } from "react";
 import Snackbar from "@material-ui/core/Snackbar";
 import CloseIcon from "@material-ui/icons/Close";
 import IconButton from "@material-ui/core/IconButton";
+import styled from "styled-components";
 
-const footerStyle = {
-  width: "100%",
-  height: "300px",
-  padding: "0 0 50px 0",
-  display: "flex",
-  flexDirection: "row",
-  flexWrap: "wrap",
-  backgroundColor: "#343A40",
-  justifyContent: "space-evenly"
+const FooterStyle = styled.div`
+width: 100%;
+height: 300px;
+padding: 0 0 50px 0;
+display: flex;
+flex-direction: row;
+flex-wrap: wrap;
+background-color: #343A40;
+justify-content: space-evenly;
+@media only screen and (max-width: 840px) {
+flex-direction:column;
+height:unset;
+& div {
+width:75%!important}
+text-align:center;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+}
 };
+`;
 
 const detailsStyle = {
   width: "30vw",
@@ -162,10 +175,7 @@ export class HomePageForm extends Component {
           onClose={this.handleClose}
           message={
             this.state.loading ? (
-              <span id="message-id" className="loaderContainer">
-                {" "}
-                <span id="message-id">נא המתן...</span>
-              </span>
+              <span id="message-id">אנא המתן...</span>
             ) : (
               <span id="message-id">המייל נשלח בהצלחה</span>
             )
@@ -181,7 +191,7 @@ export class HomePageForm extends Component {
             </IconButton>
           ]}
         />
-        <div style={footerStyle}>
+        <FooterStyle>
           <div style={detailsStyle}>
             <h4 style={{ ...turquoiseColor, ...textPadding }}>
               עמותת "צעירים בירוחם" (ע"ר)
@@ -257,7 +267,7 @@ export class HomePageForm extends Component {
               />
             </form>
           </div>
-        </div>
+        </FooterStyle>
       </>
     );
   }

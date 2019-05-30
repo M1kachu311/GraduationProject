@@ -3,15 +3,14 @@ import Button from "@material-ui/core/Button";
 import Dialog from "@material-ui/core/Dialog";
 import DialogActions from "@material-ui/core/DialogActions";
 import DialogContent from "@material-ui/core/DialogContent";
-import DialogContentText from "@material-ui/core/DialogContentText";
 import DialogTitle from "@material-ui/core/DialogTitle";
+import TextField from "@material-ui/core/TextField";
+import CircularProgress from "@material-ui/core/CircularProgress";
 
-import Input from "./Input";
-
-const sendCV = "שלח קו״ח";
-const cancel = "ביטול";
-const send = "שלח";
 const sendCVTitle = "שלח קו״ח";
+const sendCV = "שלח קו״ח";
+const cancel = "סגור";
+const send = "שלח";
 const formName = "שם מלא";
 const formEmail = "מייל";
 const formPhone = "טלפון";
@@ -21,10 +20,7 @@ const uploadStyle = {
   textIndent: "-999em",
   outline: "none",
   width: "50%",
-  height: "10%",
-  position: "absolute",
-  left: "100px",
-  top: "244px"
+  height: "10%"
 };
 
 const sendButtonStyle = {
@@ -45,7 +41,8 @@ const chooseFileButtonStyle = {
   background: "#0D84A3",
   color: "#fff",
   border: "none",
-  cursor: "pointer"
+  cursor: "pointer",
+  marginRight: "20px"
 };
 
 const dialogStyle = {
@@ -53,16 +50,54 @@ const dialogStyle = {
 };
 
 const sendCVPopUpStyle = {
-    background: "#0D84A3",
-    color: "#fff",
-    border: "none",
-    width: "120px",
-    marginTop: "10px",
-    marginLeft: "20px"
-  };
+  background: "#0D84A3",
+  color: "#fff",
+  border: "none",
+  width: "120px",
+  marginTop: "10px",
+  marginLeft: "20px"
+};
+const textAreaStyle = {
+  width: "85%",
+  padding: "10px"
+};
 
+const alertStyle = {
+  background: "#f8d7da",
+  color: "#721c24",
+  border: "1px solid #f5c6cb",
+  width: "100%",
+  margin: "0 auto",
+  borderRadius: "5px",
+  padding: "10px 0",
+  textAlign: "center"
+};
+const notificationtStyle = {
+  background: "#cce5ff",
+  color: "#004085",
+  border: "1px solid #b8daff",
+  width: "100%",
+  margin: "0 auto",
+  borderRadius: "5px",
+  padding: "10px 0",
+  textAlign: "center"
+};
+const loaderStyle = {
+  display: "flex",
+  justifyContent: "center",
+  itemAlign: "center"
+};
 export default class SendCVPopUp extends React.Component {
-  state = { name: "", phone: "", email: "", id: this.props.id, open: false };
+  state = {
+    name: "",
+    phone: "",
+    email: "",
+    id: this.props.id,
+    loading: false,
+    open: false,
+    sent: false,
+    showAlert: false
+  };
   handleChangeName = event => {
     this.setState({ name: event.target.value });
   };
@@ -78,36 +113,85 @@ export default class SendCVPopUp extends React.Component {
   };
 
   handleClose = () => {
-    this.setState({ open: false });
+    this.setState({
+      open: false,
+      showAlert: false,
+      sent: false,
+      name: "",
+      phone: "",
+      email: ""
+    });
   };
 
   handleSubmit = event => {
-    var url = "http://127.0.0.1:3002/mail";
-    var data = {
-      name: this.state.name,
-      email: this.state.email,
-      phone: this.state.phone,
-      id: this.state.id
-    };
-
-    fetch(url, {
-      method: "POST", // or 'PUT'
-      body: JSON.stringify(data) // data can be `string` or {object}!
-    })
-      .then(res => res.json())
-      .then(response => {
-        if (true) {
-          console.log(response);
+    let url = "http://127.0.0.1:3002/mail";
+    let formData = new FormData();
+    var fileField = document.querySelector('input[type="file"]');
+    formData.append("file", fileField.files[0]);
+    formData.append("id", this.state.id);
+    formData.append("name", this.state.name);
+    formData.append("email", this.state.email);
+    formData.append("phone", this.state.phone);
+    console.log(...formData);
+    if (
+      this.state.id === "" ||
+      this.state.name === "" ||
+      this.state.email === "" ||
+      this.state.phone === ""
+    ) {
+      this.setState({ showAlert: true });
+    } else {
+      if (formData.get("file") === "undefined") {
+        this.setState({ showAlert: true });
+      } else {
+        if (
+          formData
+            .get("file")
+            .name.toUpperCase()
+            .indexOf("DOC") < 0 &&
+          formData
+            .get("file")
+            .name.toUpperCase()
+            .indexOf("DOCX") < 0 &&
+          formData
+            .get("file")
+            .name.toUpperCase()
+            .indexOf("PDF") < 0 &&
+          formData
+            .get("file")
+            .name.toUpperCase()
+            .indexOf("TXT") < 0
+        ) {
+          this.setState({ showAlert: true });
+        } else {
+          this.setState({ showAlert: false, loading: true });
+          fetch(url, {
+            method: "POST", // or 'PUT'
+            body: formData // data can be `string` or {object}!
+          })
+            .then(res => res.json())
+            .then(response => {
+              if (response.msg) {
+                console.log(response);
+                this.setState({
+                  sent: true,
+                  loading: false,
+                  name: "",
+                  email: "",
+                  phone: ""
+                });
+              }
+            })
+            .catch(error => console.error("Error:", error));
+          event.preventDefault();
         }
-      })
-      .catch(error => console.error("Error:", error));
-
-    event.preventDefault();
+      }
+    }
   };
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit} encType="multipart/form-data">
+      <form encType="multipart/form-data">
         <Button
           style={sendCVPopUpStyle}
           variant="outlined"
@@ -122,59 +206,93 @@ export default class SendCVPopUp extends React.Component {
           aria-labelledby="form-dialog-title"
           style={dialogStyle}
         >
-          <DialogTitle id="form-dialog-title">{sendCVTitle}</DialogTitle>
-          <DialogContent>
-            <DialogContentText>
-              אם המשרה הזאת מעניית אותך, שלח קו״ח כעת
-            </DialogContentText>
-            <Input
-              type="text"
-              name="name"
-              placeholder={formName}
-              onChange={this.handleChangeName}
-            />
-            <Input
-              type="text"
-              name="email"
-              placeholder={formEmail}
-              onChange={this.handleChangeEmail}
-            />
-            <Input
-              type="text"
-              name="phone"
-              placeholder={formPhone}
-              onChange={this.handleChangePhone}
-            />
-            <label htmlFor="contained-button-file">
-              <Button
-                variant="contained"
-                component="span"
-                style={chooseFileButtonStyle}
-              >
-                {uploadFile}
-              </Button>
-            </label>
-            <input
-              style={uploadStyle}
-              id="contained-button-file"
-              multiple
-              type="file"
-            />
-          </DialogContent>
-          <DialogActions>
-            <Button onClick={this.handleClose} style={cancelButtonStyle}>
-              {cancel}
-            </Button>
+          <DialogTitle id="form-dialog-title">
+            {sendCVTitle} השירות ניתן רק לתושבי ירוחם
+          </DialogTitle>
+          {this.state.sent ? (
+            <div style={notificationtStyle}>
+              <p>תודה קורות החיים שלך התקבלו בהצלחה</p>
+              <p>ניצור איתך קשר בהקדם</p>
+            </div>
+          ) : (
+            <DialogContent>
+              <TextField
+                style={textAreaStyle}
+                name="name"
+                placeholder={formName}
+                onChange={this.handleChangeName}
+                value={this.state.name}
+              />
+              <TextField
+                style={textAreaStyle}
+                name="email"
+                placeholder={formEmail}
+                onChange={this.handleChangeEmail}
+                value={this.state.email}
+              />
+              <TextField
+                style={textAreaStyle}
+                name="phone"
+                placeholder={formPhone}
+                onChange={this.handleChangePhone}
+                value={this.state.phone}
+              />
+              <div>
+                <label htmlFor="contained-button-file">
+                  <Button
+                    variant="contained"
+                    component="span"
+                    style={chooseFileButtonStyle}
+                  >
+                    {uploadFile}
+                  </Button>
+                </label>
+                <input
+                  style={uploadStyle}
+                  id="contained-button-file"
+                  multiple
+                  type="file"
+                />
+              </div>
+            </DialogContent>
+          )}
 
-            <Button
-              onClick={this.handleClose}
-              type="submit"
-              value="Upload a file"
-              style={sendButtonStyle}
-            >
-              {send}
-            </Button>
-          </DialogActions>
+          {this.state.showAlert ? (
+            <div style={alertStyle}>
+              נא מלאו את כל השדות הנדרשים, קבצים יכולים להיות רק בסיומת
+              doc,docx,pdf,txt
+            </div>
+          ) : (
+            ""
+          )}
+          {this.state.loading ? (
+            <div style={loaderStyle}>
+              <CircularProgress />
+            </div>
+          ) : (
+            ""
+          )}
+          {this.state.sent ? (
+            <DialogActions>
+              <Button onClick={this.handleClose} style={cancelButtonStyle}>
+                {cancel}
+              </Button>
+            </DialogActions>
+          ) : (
+            <DialogActions>
+              <Button onClick={this.handleClose} style={cancelButtonStyle}>
+                {cancel}
+              </Button>
+              <Button
+                onClick={this.handleSubmit}
+                type="submit"
+                value="Upload a file"
+                style={sendButtonStyle}
+              >
+                {send}
+              </Button>
+            </DialogActions>
+          )}
         </Dialog>
       </form>
     );
