@@ -40,8 +40,8 @@ const TitleDisplay = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #5e9ea0;
-  border: 1px solid #5e9ea0;
+  background: #0d84a3;
+  border: 1px solid #0d84a3;
   width: 30%;
   @media (max-width: 840px) {
     width: 100%;
