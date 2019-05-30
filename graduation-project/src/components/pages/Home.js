@@ -4,7 +4,7 @@ import ImagesCarousel from "../simpleComponents/ImagesCarousel";
 import aptImg from "../../images/apartment.jpg";
 import jobImg from "../../images/jobs.jpg";
 import Button from "@material-ui/core/Button";
-import MediaQuery from "react-responsive";
+import styled from "styled-components";
 
 const mainStyle = {
   display: "flex",
@@ -79,6 +79,13 @@ const marginBtn = {
   border: " 1px solid rgb(99, 174, 164)",
   color: "  rgb(99, 174, 164)"
 };
+
+const FirstSquareText = styled.p`
+  @media (max-width: 540px) {
+    display: none !important;
+  }
+`;
+
 export class Home extends Component {
   render() {
     return (
@@ -89,14 +96,14 @@ export class Home extends Component {
           <div style={jobSectionStyle}>
             <div style={jobTitleStyle}>
               <p style={colorBlue}>מחפש עבודה?</p>
-              <p>
+              <FirstSquareText>
                 מרכז הצעירים בנה עבור דורשי העבודה בנגב לוח משרות מגוון ועדכני
-              </p>
-              <p>
+              </FirstSquareText>
+              <FirstSquareText>
                 {" "}
                 שלח את פרטיך וקורות החיים שלך לרכזת התעסוקה שלנו על מנת להגביר
                 את סיכויי ההשמה{" "}
-              </p>
+              </FirstSquareText>
               <Link to="/jobs" style={{ textDecoration: "none" }}>
                 <Button variant="outlined" size="large" style={marginBtn}>
                   ללוח משרות
@@ -115,13 +122,13 @@ export class Home extends Component {
             </div>
             <div style={jobTitleStyle}>
               <p style={colorBlue}>רוצה לגור בירוחם?</p>
-              <p>
+              <FirstSquareText>
                 מרכז הצעירים אסף בשבילך את כל הדירות המוצעות להשכרה ולמכירה
                 בירוחם.
-              </p>
-              <p>
+              </FirstSquareText>
+              <FirstSquareText>
                 השאירו את פרטיכם בטופס יצירת הקשר ונחבר אתכם לכל מה שקורה פה...
-              </p>
+              </FirstSquareText>
               <Link to="/realEstate" style={{ textDecoration: "none" }}>
                 <Button variant="outlined" size="large" style={marginBtn}>
                   ללוח דיור

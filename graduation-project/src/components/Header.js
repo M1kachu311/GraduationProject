@@ -23,7 +23,7 @@ const logoStyle = {
 };
 
 const logoStyleMobile = {
-  width: 105,
+  width: '80px',
   height: 45
 };
 
@@ -54,35 +54,35 @@ export class Header extends Component {
   render() {
     return (
       <Fragment>
-      <MediaQuery minWidth={841}>
-      <div style={headerDisplay}>
-          <div style={headerStyle}>
-            <Link to="/">
-                <div style={logoDisplay}>
-                  <img src={logo} alt={logoAltText} style={logoStyle} />
-                </div>
-            </Link>
-          </div>
-        <div style={navContainer}>
-          <MediaQuery minWidth={841}>
-            <Navigation />
-          </MediaQuery>
-        </div>
-      </div>
-    </MediaQuery>
-    <MediaQuery  maxWidth={540}>
-      <div style={headerDisplayMobile}>
-        <div style={headerStyleMobile}>
-          <TemporaryDrawer />
-          <Link to="/">
-              <div>
-                <img src={logo} alt={logoAltText} style={logoStyleMobile} />
+        <MediaQuery minWidth={841}>
+          <div style={headerDisplay}>
+              <div style={headerStyle}>
+                <Link to="/">
+                    <div style={logoDisplay}>
+                      <img src={logo} alt={logoAltText} style={logoStyle} />
+                    </div>
+                </Link>
               </div>
-          </Link>
-        </div>
-      </div>
-    </MediaQuery>
-    </Fragment>
+            <div style={navContainer}>
+              <MediaQuery minWidth={841}>
+                <Navigation />
+              </MediaQuery>
+            </div>
+          </div>
+        </MediaQuery>
+        <MediaQuery  maxWidth={840}>
+          <div style={headerDisplayMobile}>
+            <div style={headerStyleMobile}>
+              <TemporaryDrawer />
+              <Link to="/">
+                  <div>
+                    <img src={logo} alt={logoAltText} style={logoStyleMobile} />
+                  </div>
+              </Link>
+            </div>
+          </div>
+        </MediaQuery>
+      </Fragment>
     );
   }
 }

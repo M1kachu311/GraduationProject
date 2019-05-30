@@ -38,7 +38,8 @@ const Title = styled.div `
   display: flex;
   justify-content: center;
   align-items: center;
-  zIndex: 3;
+  z-index: 3;
+  opacity: 1;
   font-size: 35px;
   margin-bottom: 200px;
   color: black;

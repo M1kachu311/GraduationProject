@@ -3,6 +3,7 @@ import Drawer from '@material-ui/core/Drawer';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import { Link } from "react-router-dom";
+import Divider from '@material-ui/core/Divider';
 
 const iconColor = {
   color: '#CADB30'
@@ -70,6 +71,10 @@ const TemporaryDrawer = () => {
           <i style={xIconStyle} className="fas fa-times"></i>
         </div>
         <div style={flex}>
+          <Link to="/" style={linkStyle}>
+          <i className="fas fa-home" style={iconStyle}></i>
+          <p className="hover">בית</p>
+          </Link>
           <Link to="/about" style={linkStyle}>
             <i className="far fa-address-card" style={iconStyle}></i>
             <p className="hover">אודות</p>
@@ -87,7 +92,7 @@ const TemporaryDrawer = () => {
             <p className="hover">מרכז צעירים</p>
           </Link>
           <Link  to="/settlement" style={linkStyle}>
-            <i className="fas fa-home" style={iconStyle}></i>
+            <i class="fab fa-font-awesome-flag" style={iconStyle}></i>
             <p className="hover">התיישבות</p>
           </Link>
           <Link  to="/reducingGaps" style={linkStyle}>
