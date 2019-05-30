@@ -41,7 +41,8 @@ const expandedPanelDisplay = {
 
 const pStyle = {
   color: "rgb(52, 58, 64)",
-  width: "200px"
+  width: "12vw",
+  margin: "0 10px"
 };
 
 const expansionHeaderStyle = {
