@@ -13,7 +13,7 @@ const date = "תאריך";
 
 const optionsStyle = {
   display: "flex",
-  justifyContent: "space-around",
+  justifyContent: "space-evenly",
   alignItems: "center",
   backgroundColor: "#43A4BB"
 };
