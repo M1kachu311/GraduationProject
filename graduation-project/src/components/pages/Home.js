@@ -70,7 +70,7 @@ const FirstSquareText = styled.p`
 `;
 
 const ButtonLink = styled.a`
-  textdecoration: none;
+  text-decoration: none;
   display: flex;
   justify-content: center;
 `;
@@ -109,7 +109,7 @@ export class Home extends Component {
                 שלח את פרטיך וקורות החיים שלך לרכזת התעסוקה שלנו על מנת להגביר
                 את סיכויי ההשמה{" "}
               </FirstSquareText>
-              <ButtonLink to="/jobs">
+              <ButtonLink href="/jobs">
                 <Button variant="outlined" size="medium" style={marginBtn}>
                   <ButtonText>ללוח משרות</ButtonText>
                 </Button>
@@ -134,7 +134,7 @@ export class Home extends Component {
               <FirstSquareText>
                 השאירו את פרטיכם בטופס יצירת הקשר ונחבר אתכם לכל מה שקורה פה...
               </FirstSquareText>
-              <ButtonLink to="/realEstate">
+              <ButtonLink href="/realEstate">
                 <Button variant="outlined" size="medium" style={marginBtn}>
                   <ButtonText>ללוח דיור</ButtonText>
                 </Button>
