@@ -24,7 +24,7 @@ const dividerStyle = {
   margin: "20px 0"
 };
 const AboutText = styled.p`
-  font-size: 24px;
+  font-size: 18px;
 
   @media (max-width: 840px) {
     font-size: 16px;
