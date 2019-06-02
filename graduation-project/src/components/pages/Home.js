@@ -70,11 +70,19 @@ const FirstSquareText = styled.p`
   }
 `;
 
+<<<<<<< HEAD
 const ButtonLink = {
   textDecoration: "none",
   display: "flex",
   justifyContent: "center"
 };
+=======
+const ButtonLink = styled.a`
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+`;
+>>>>>>> 10fbcc4e229b406c44a9247f20ef4e2cda9a7ede
 
 const ButtonText = styled.p`
   @media (max-width: 540px) {
@@ -110,7 +118,11 @@ export class Home extends Component {
                 שלח את פרטיך וקורות החיים שלך לרכזת התעסוקה שלנו על מנת להגביר
                 את סיכויי ההשמה{" "}
               </FirstSquareText>
+<<<<<<< HEAD
               <Link to="/jobs" style={ButtonLink}>
+=======
+              <ButtonLink href="/jobs">
+>>>>>>> 10fbcc4e229b406c44a9247f20ef4e2cda9a7ede
                 <Button variant="outlined" size="medium" style={marginBtn}>
                   <ButtonText>ללוח משרות</ButtonText>
                 </Button>
@@ -135,7 +147,11 @@ export class Home extends Component {
               <FirstSquareText>
                 השאירו את פרטיכם בטופס יצירת הקשר ונחבר אתכם לכל מה שקורה פה...
               </FirstSquareText>
+<<<<<<< HEAD
               <Link to="/realEstate" style={ButtonLink}>
+=======
+              <ButtonLink href="/realEstate">
+>>>>>>> 10fbcc4e229b406c44a9247f20ef4e2cda9a7ede
                 <Button variant="outlined" size="medium" style={marginBtn}>
                   <ButtonText>ללוח דיור</ButtonText>
                 </Button>
