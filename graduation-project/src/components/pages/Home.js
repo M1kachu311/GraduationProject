@@ -4,6 +4,7 @@ import aptImg from "../../images/apartment.jpg";
 import jobImg from "../../images/jobs.jpg";
 import Button from "@material-ui/core/Button";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 const mainStyle = {
   display: "flex",
@@ -69,11 +70,11 @@ const FirstSquareText = styled.p`
   }
 `;
 
-const ButtonLink = styled.a`
-  textdecoration: none;
-  display: flex;
-  justify-content: center;
-`;
+const ButtonLink = {
+  textDecoration: "none",
+  display: "flex",
+  justifyContent: "center"
+};
 
 const ButtonText = styled.p`
   @media (max-width: 540px) {
@@ -109,11 +110,11 @@ export class Home extends Component {
                 שלח את פרטיך וקורות החיים שלך לרכזת התעסוקה שלנו על מנת להגביר
                 את סיכויי ההשמה{" "}
               </FirstSquareText>
-              <ButtonLink to="/jobs">
+              <Link to="/jobs" style={ButtonLink}>
                 <Button variant="outlined" size="medium" style={marginBtn}>
                   <ButtonText>ללוח משרות</ButtonText>
                 </Button>
-              </ButtonLink>
+              </Link>
             </TextSquareStyle>
             <div style={imgContainer}>
               <AptTableStyle src={jobImg} alt="job" />
@@ -134,11 +135,11 @@ export class Home extends Component {
               <FirstSquareText>
                 השאירו את פרטיכם בטופס יצירת הקשר ונחבר אתכם לכל מה שקורה פה...
               </FirstSquareText>
-              <ButtonLink to="/realEstate">
+              <Link to="/realEstate" style={ButtonLink}>
                 <Button variant="outlined" size="medium" style={marginBtn}>
                   <ButtonText>ללוח דיור</ButtonText>
                 </Button>
-              </ButtonLink>
+              </Link>
             </TextSquareStyle>
           </SectionStyle>
         </div>
